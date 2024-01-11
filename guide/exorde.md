@@ -10,11 +10,10 @@ Untuk menjalankan Testnet Exorde ada 2 pilihan yaitu menggunakan conda atau dock
   ```
   docker ps
   ```
-- Untuk mengecek log dari semua worker cukup jalankan perintah
+- Untuk mengecek log dari worker jalankan perintah
   ```
-  bash logDocker.sh
+  docker logs --tail=300 exorde1
   ```
-  maka log akan tercetak satu persatu
 - Proses instalasi di atas sudah termasuk dengan auto restart. jadi teman-teman tidak perlu melakukan restart manual jika ada error.
 - Jika ada update dari tim dev, silahkan jalankan perintah
   ```
@@ -25,6 +24,10 @@ Untuk menjalankan Testnet Exorde ada 2 pilihan yaitu menggunakan conda atau dock
   bash createWorkerDocker.sh
   ```
   kemudian minimum diisi dengan n+1 dari jumlah worker yg sudah ada dan maksimum worker diisi sesuai keinginan. Misal sudah ada 9 worker dan ingin menambah 1 worker lagi, berarti minimum worker dan maksimum worker sama" diisi dengan 10.
+
+### Untuk melihat ekspektasi reward yang anda dapatkan, serta cek leaderboard
+
+kunjungi [Exorde Reward Explorer](https://crxanode.com/exorde-stats)
 
 ### jika node susah login twitter
 
