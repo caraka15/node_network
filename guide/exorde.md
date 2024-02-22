@@ -34,10 +34,7 @@ kunjungi [Exorde Reward Explorer](https://crxanode.com/exorde-stats)
 - install package
 
   ```
-  sudo apt update
-  sudo apt install xfce4
-  sudo apt install xrdp
-  sudo apt install chromium-browser
+  sudo apt update -y && sudo apt install xfce4 -y && sudo apt install xrdp -y && sudo apt install chromium-browser -y
   ```
 
 - mengatur sesi xRDP
