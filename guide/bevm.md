@@ -2,7 +2,7 @@
 
 ## System Requirements
 
-<table>
+<table style="width: 50%;">
   <tr>
     <th>Component</th>
     <th>Requirement</th>
