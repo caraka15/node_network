@@ -2,12 +2,29 @@
 
 ## System Requirements
 
-| Component      | Requirement           |
-|----------------|-----------------------|
-| System         | Ubuntu 20.04+         |
-| CPU            | Minimum 4 cores       |
-| Memory         | Minimum 16GB RAM      |
-| Storage        | Minimum 300GB SSD     |
+<table>
+  <tr>
+    <th>Component</th>
+    <th>Requirement</th>
+  </tr>
+  <tr>
+    <td>System</td>
+    <td>Ubuntu 20.04+</td>
+  </tr>
+  <tr>
+    <td>CPU</td>
+    <td>Minimum 4 cores</td>
+  </tr>
+  <tr>
+    <td>Memory</td>
+    <td>Minimum 16GB RAM</td>
+  </tr>
+  <tr>
+    <td>Storage</td>
+    <td>Minimum 300GB SSD</td>
+  </tr>
+</table>
+
 
 ## Installation Steps
 
