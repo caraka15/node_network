@@ -63,5 +63,5 @@ sudo docker run -d --restart always --name bevm-node \
   -v $PWD/log:/log -v $PWD/keystore:/keystore \
   btclayer2/bevm:testnet-v0.1.3 /usr/local/bin/bevm \
   --config /config.json
-echo "Docker container is now running. check logs 'tail -f log/bevm.log' "
-
+echo "Node is now running."
+echo "Check your logs with: tail -f /node/log/bevm.log"
