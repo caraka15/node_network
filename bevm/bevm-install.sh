@@ -51,8 +51,8 @@ EOF
 echo "config.json file created."
 
 # Pull Docker image
-echo "Pulling Docker image btclayer2/bevm:testnet-v0.1.3..."
-sudo docker pull btclayer2/bevm:testnet-v0.1.3
+echo "Pulling Docker image btclayer2/bevm:testnet-v0.1.4..."
+sudo docker pull btclayer2/bevm:testnet-v0.1.4
 echo "Docker image pulled successfully."
 
 # Run Docker container
@@ -61,7 +61,7 @@ sudo docker run -d --restart always --name bevm-node \
   -p 8087:8087 -p 30333:30333 \
   -v $PWD/config.json:/config.json -v $PWD/data:/data \
   -v $PWD/log:/log -v $PWD/keystore:/keystore \
-  btclayer2/bevm:testnet-v0.1.3 /usr/local/bin/bevm \
+  btclayer2/bevm:testnet-v0.1.4 /usr/local/bin/bevm \
   --config /config.json
 echo "Node is now running."
 echo "Check your logs with: tail -f /node/log/bevm.log"
