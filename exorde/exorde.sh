@@ -55,12 +55,19 @@ run_exorde_twitter() {
   docker kill exordenews
   docker rm exordenews
 
+  log_info "Menghapus watchtower jika ada yang berjalan..."
+  docker kill watchtower
+  docker rm watchtower
+
   log_info "Menjalankan Exorde Twitter..."
   docker run -d --cpus="4" --memory="8g" --restart unless-stopped --pull always --name exordetwitter exordelabs/exorde-client --main_address 0x28b8A9aC47E3E43e3A0872028476ef898055871C --twitter_username $username --twitter_password 'xxxxxx' --twitter_email '$auth_token' --mo twitter=https://github.com/zainantum/a7df32de3a60dfdb7a0b --only twitter
   
   if [ $? -eq 0 ]; then
     log_success "Exorde Twitter berhasil dijalankan."
     log_info "Untuk melihat log, jalankan perintah: docker logs -f exordetwitter"
+
+    log_info "Menjalankan kembali watchtower..."
+    docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower exordetwitter -i 1800
   else
     log_error "Gagal menjalankan Exorde Twitter."
   fi
@@ -78,6 +85,9 @@ run_exorde_news() {
   if [ $? -eq 0 ]; then
     log_success "Exorde News berhasil dijalankan."
     log_info "Untuk melihat log, jalankan perintah: docker logs -f exordenews"
+
+    log_info "Menjalankan kembali watchtower..."
+    docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower exordenews -i 1800
   else
     log_error "Gagal menjalankan Exorde News."
   fi
