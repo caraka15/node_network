@@ -25,6 +25,27 @@ log_error() {
   echo -e "${RED}[ERROR]${NC} $1"
 }
 
+# Fungsi untuk menginstall Docker
+install_docker() {
+  log_info "Memperbarui sistem dan menginstall Docker..."
+  sudo apt update && sudo apt upgrade -y && sudo apt install docker.io -y
+  
+  if [ $? -eq 0 ]; then
+    log_success "Docker berhasil diinstall."
+  else
+    log_error "Gagal menginstall Docker."
+    exit 1
+  fi
+}
+
+# Tanyakan apakah pengguna ingin menginstall Docker
+read -p "Apakah Anda ingin menginstall Docker? (y/n): " install_docker_choice
+if [[ "$install_docker_choice" == "y" || "$install_docker_choice" == "Y" ]]; then
+  install_docker
+else
+  log_info "Lewati instalasi Docker."
+fi
+
 # Fungsi untuk menjalankan Exorde Twitter
 run_exorde_twitter() {
   read -p "Masukkan Twitter Username: " username
