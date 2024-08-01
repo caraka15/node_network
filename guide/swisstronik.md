@@ -108,7 +108,7 @@
   npx hardhat run scripts/balanceOf.js --network swisstronik
   ```
 
-  ## Mint an PERC-20 Token
+## Mint an PERC-20 Token
 
 ### 1. Deploy `TokenPERC20.sol`
 
@@ -126,7 +126,7 @@
   npx hardhat run scripts/mintPERC20.js --network swisstronik
   ```
 
-  ### 3. Transfer Tokens
+### 3. Transfer Tokens
 
 - Run the script to transfer tokens:
 
@@ -134,7 +134,7 @@
   npx hardhat run scripts/transferPERC20.js --network swisstronik
   ```
 
-  ## Mint an Private NFT
+## Mint an Private NFT
 
 ### 1. Deploy `privateNFT.sol`
 
