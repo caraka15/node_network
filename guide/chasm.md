@@ -10,9 +10,9 @@ Inference Scout runs inference tasks provided by Chasm's Orchestrator, enabling 
 
 ### API Keys
 
-- **Groq API Key**: Obtain this from the [Groq Console](https://console.groq.com/keys){:target="\_blank"}.
-- **Openrouter API Key** (Optional): Get it from the [Openrouter](https://openrouter.ai/settings/keys){:target="\_blank"}.
-- **SCOUT_UID and WEBHOOK_API_KEY**: Retrieve these from the [Chasm Website](https://scout.chasm.net/private-mint){:target="\_blank"}.
+- **Groq API Key**: Obtain this from the Groq Console.
+- **Openrouter API Key** (Optional): Get it from Openrouter.
+- **SCOUT_UID and WEBHOOK_API_KEY**: Retrieve these from the Chasm Website.
 
 ### Server Specifications
 
@@ -50,8 +50,8 @@ Inference Scout runs inference tasks provided by Chasm's Orchestrator, enabling 
 
 ### Obtaining SCOUT_UID and WEBHOOK_API_KEY
 
-1. Visit [Chasm's Scout Mint Page](https://scout.chasm.net/private-mint){:target="\_blank"}.
-2. Visit [Groq API Website](https://console.groq.com/keys){:target="\_blank"} and [Openrouter Website](https://openrouter.ai/settings/keys){:target="\_blank"} to get Groq API.
+1. Visit [Chasm's Scout Mint Page](https://scout.chasm.net/private-mint).
+2. Visit [Groq Api Website](https://console.groq.com/keys) and [Openrouter Website](https://openrouter.ai/settings/keys) to get grog API.
 3. Click on **Mint (scout)** "you need 0.1 MNT mainnet".
 4. Log in and retrieve your webhook API key and UID.
 
@@ -60,11 +60,9 @@ Inference Scout runs inference tasks provided by Chasm's Orchestrator, enabling 
 To automate the installation process, follow these steps:
 
 1. **Save the Auto-Install Script**
-
    ```bash
    wget https://raw.githubusercontent.com/caraka15/node_network/main/chasm/setup.sh
    ```
-
 2. **Make the Script Executable**
 
    ```bash
@@ -98,7 +96,7 @@ docker run -d --restart=always --env-file ./.env -p 3001:3001 --name scout chasm
 
 ## Verify Scout Ranking
 
-Check your scout ranking on the [Leaderboard](https://scout.chasm.net/leaderboard?page=1){:target="\_blank"}. Note that the node status might take up to an hour to update.
+Check your scout ranking on the [Leaderboard](https://scout.chasm.net/leaderboard?page=1). Note that the node status might take up to an hour to update.
 
 ## Monitor Scout Performance
 
