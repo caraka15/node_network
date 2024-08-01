@@ -50,7 +50,6 @@ prompt_env() {
 
     read -p "Enter GROQ_API_KEY [leave blank if not applicable]: " GROQ_API_KEY
     read -p "Enter OPENROUTER_API_KEY [leave blank if not applicable]: " OPENROUTER_API_KEY
-    read -p "Enter OPENAI_API_KEY [leave blank if not applicable]: " OPENAI_API_KEY
 
     # Write to .env file
     cat <<EOL > .env
@@ -71,7 +70,6 @@ GROQ_API_KEY=$GROQ_API_KEY
 
 # Optional
 OPENROUTER_API_KEY=$OPENROUTER_API_KEY
-OPENAI_API_KEY=$OPENAI_API_KEY
 EOL
 
     log INFO ".env file created with provided values."
