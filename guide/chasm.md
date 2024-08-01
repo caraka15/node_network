@@ -16,18 +16,44 @@ Inference Scout runs inference tasks provided by Chasm's Orchestrator, enabling 
 
 ### Server Specifications
 
-| Specification  | Minimum Requirement | Suggested Requirement |
-| -------------- | ------------------- | --------------------- |
-| **CPU**        | 1 vCPU              | 2 vCPU                |
-| **RAM**        | 1GB                 | 4GB                   |
-| **Disk Space** | 20GB                | 50GB SSD              |
-| **IP**         | Static IP           | Static IP             |
+<table>
+  <thead>
+    <tr>
+      <th>Specification</th>
+      <th>Minimum Requirement</th>
+      <th>Suggested Requirement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>CPU</strong></td>
+      <td>1 vCPU</td>
+      <td>2 vCPU</td>
+    </tr>
+    <tr>
+      <td><strong>RAM</strong></td>
+      <td>1GB</td>
+      <td>4GB</td>
+    </tr>
+    <tr>
+      <td><strong>Disk Space</strong></td>
+      <td>20GB</td>
+      <td>50GB SSD</td>
+    </tr>
+    <tr>
+      <td><strong>IP</strong></td>
+      <td>Static IP</td>
+      <td>Static IP</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Obtaining SCOUT_UID and WEBHOOK_API_KEY
 
 1. Visit [Chasm's Scout Mint Page](https://scout.chasm.net/private-mint).
-2. Click on **Mint (scout)** "you need 0.1 MNT mainnet".
-3. Log in and retrieve your webhook API key and UID.
+2. Visit [Groq Api Website](https://console.groq.com/keys) and [Openrouter Website](https://openrouter.ai/settings/keys) to get grog API.
+3. Click on **Mint (scout)** "you need 0.1 MNT mainnet".
+4. Log in and retrieve your webhook API key and UID.
 
 ## Auto-Install Setup
 
