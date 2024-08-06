@@ -62,17 +62,7 @@
 
     - Replace `<YourValidatorAddress>` with the address you obtained from the previous step.
 
-5.  **Check Logs:**
-
-    - To monitor the validator node logs, use the following command:
-
-      ```bash
-      journalctl -fu pwr -o cat
-      ```
-
-    - **Note:** This will display real-time logs from the validator node service.
-
-6.  **command for Update**
+5.  **command for Update**
     ```
     sudo systemctl stop pwr && \
     sudo pkill java && \
