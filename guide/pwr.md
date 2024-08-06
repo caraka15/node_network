@@ -19,7 +19,7 @@
     - Download and run the script directly from GitHub:
 
       ```bash
-      curl -O https://raw.githubusercontent.com/caraka15/pwr-validator-setup/main/auto-install-pwr.sh
+      curl -O https://raw.githubusercontent.com/caraka15/node_network/main/pwr/auto-install-pwr.sh
       chmod +x auto-install-pwr.sh
       sudo ./auto-install-pwr.sh
       ```
