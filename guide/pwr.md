@@ -73,7 +73,7 @@
     - **Note:** This will display real-time logs from the validator node service.
 
 6.  **command for Update**
-    ```bash
+    ```
     sudo systemctl stop pwr && \
     sudo pkill java && \
     cd /root/pwr && \
