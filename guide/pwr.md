@@ -76,17 +76,6 @@
      sudo systemctl start pwr
      ```
 
-6. **Check Private Key**
-
-   - To retrieve your private key, run the following commands:
-
-     ```bash
-     cd /root/pwr
-     sudo java -jar validator.jar get-private-key /root/pwr/password
-     ```
-
-   - **Note:** Keep your private key secure and do not share it with anyone.
-
 ### Additional Notes
 
 - The script creates a systemd service file named `pwr.service` to manage the validator node.
