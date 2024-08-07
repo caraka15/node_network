@@ -82,7 +82,7 @@
 
      ```bash
      cd /root/pwr
-     sudo java -jar validator.jar get-private-key password
+     sudo java -jar validator.jar get-private-key /root/pwr/password
      ```
 
    - **Note:** Keep your private key secure and do not share it with anyone.
