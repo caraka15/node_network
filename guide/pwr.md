@@ -14,7 +14,7 @@
 
 ### Setup on Ubuntu Server
 
-1.**Download and Run the Auto-Install Script**
+### 1. Download and Run the Auto-Install Script
 
 - Download and run the script directly from GitHub:
 
@@ -24,7 +24,7 @@
   sudo ./auto-install-pwr.sh
   ```
 
-2.**Check Logs**
+### 2. Check Logs
 
 - To monitor the validator node logs, use the following command:
 
@@ -34,7 +34,7 @@
 
 - **Note:** This command shows real-time logs from the validator node service. Use it to check for errors or confirm that your node is running correctly.
 
-3.**Check Validator Address**
+### 3. Check Validator Address
 
 - After running the script, it will take a minute for the validator service to start. Fetch your validator address using:
 
@@ -50,7 +50,7 @@
   Your address: 0x.....
   ```
 
-4.**Get Faucet PWR Coins**
+### 4. Get Faucet PWR Coins
 
 - Once you have your validator address, go to our Discord server and navigate to the `#bot-commands` channel.
 
@@ -62,7 +62,7 @@
 
 - Replace `<YourValidatorAddress>` with the address you obtained from the previous step.
 
-5.**Update Validator Node**
+### 5. Update Validator Node
 
 - To update the validator node to the latest version, use the following command:
 
@@ -76,7 +76,7 @@
   sudo systemctl start pwr
   ```
 
-6.**Check Private Key**
+### 6. Check Private Key
 
 - To retrieve your private key, run the following commands:
 
