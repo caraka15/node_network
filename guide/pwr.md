@@ -76,8 +76,20 @@
      sudo systemctl start pwr
      ```
 
+6. **Check Private Key**
+
+   - To retrieve your private key, run the following commands:
+
+     ```bash
+     cd /root/pwr
+     sudo java -jar validator.jar get-private-key password
+     ```
+
+   - **Note:** Keep your private key secure and do not share it with anyone.
+
 ### Additional Notes
 
 - The script creates a systemd service file named `pwr.service` to manage the validator node.
 - The validator node will synchronize with the blockchain but will not assume validator responsibilities until it possesses staked PWR Coins.
 - Ensure that you have your validator address ready before requesting faucet PWR Coins on Discord.
+- Use the private key check command responsibly to secure your validator's credentials.
