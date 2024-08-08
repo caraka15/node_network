@@ -70,7 +70,7 @@
   sudo systemctl stop pwr && \
   sudo pkill java && \
   cd /root/pwr && \
-  sudo rm -rf validator.jar config.json blocks && \
+  sudo rm -rf validator.jar config.json && \
   wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/validator.jar && \
   wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/config.json && \
   sudo systemctl start pwr
