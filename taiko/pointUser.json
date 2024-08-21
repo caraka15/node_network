@@ -1,0 +1,3243 @@
+[
+  {
+    "address": "0x6083Be355502C4a60aB8972139cdbA4b56c15047",
+    "rank": 1,
+    "presentase": 0.001,
+    "point": 15588127,
+    "level": 14
+  },
+  {
+    "address": "0x8Be4491cED884D5C6B1667bD4E20B975E079A469",
+    "rank": 2,
+    "presentase": 0.002,
+    "point": 15372618,
+    "level": 14
+  },
+  {
+    "address": "0x446Fc8566374ee80AE577B87C7FbFfc8A78a0550",
+    "rank": 3,
+    "presentase": 0.003,
+    "point": 15135278,
+    "level": 14
+  },
+  {
+    "address": "0x8FA7103A0Ed59B6Bf8EDEb6CBaDdD6909575Aa0E",
+    "rank": 4,
+    "presentase": 0.004,
+    "point": 14936397,
+    "level": 14
+  },
+  {
+    "address": "0xB3b076F5Bc00e9CF7c2391Bee104417176077708",
+    "rank": 5,
+    "presentase": 0.005,
+    "point": 14859775,
+    "level": 14
+  },
+  {
+    "address": "0x7c43716D46134e56B02Ae35787c12e49680044A4",
+    "rank": 6,
+    "presentase": 0.006,
+    "point": 14805540,
+    "level": 14
+  },
+  {
+    "address": "0x61c4aEAb010a6E0FB2A0832c2C6714ba0E2A608A",
+    "rank": 7,
+    "presentase": 0.007,
+    "point": 14750267,
+    "level": 14
+  },
+  {
+    "address": "0xd8C860D789Ec1c6aE9631B680E6555F25Bc28331",
+    "rank": 8,
+    "presentase": 0.008,
+    "point": 14736210,
+    "level": 14
+  },
+  {
+    "address": "0x1234C7506e84335c0e5761a7a6Ff368cdD94CA37",
+    "rank": 9,
+    "presentase": 0.009,
+    "point": 14705039,
+    "level": 14
+  },
+  {
+    "address": "0x4A3Ebad57E1408DD54483EB801DE55a9c70c86A4",
+    "rank": 10,
+    "presentase": 0.01,
+    "point": 14671924,
+    "level": 14
+  },
+  {
+    "address": "0x064cB0bB4c8ABE11935134aEE670C032D6833556",
+    "rank": 11,
+    "presentase": 0.011,
+    "point": 14671471,
+    "level": 13
+  },
+  {
+    "address": "0xaAb4eafFd2114422c93E3fBbC548985C94B30897",
+    "rank": 12,
+    "presentase": 0.012,
+    "point": 14590468,
+    "level": 13
+  },
+  {
+    "address": "0x4AAf7EB539a2ef42df9E39f72b1e0ab76B42d2E1",
+    "rank": 13,
+    "presentase": 0.013,
+    "point": 14551713,
+    "level": 13
+  },
+  {
+    "address": "0x8Ba774536D20aCcEdF94492B6197337A35C743F6",
+    "rank": 15,
+    "presentase": 0.015,
+    "point": 14508880,
+    "level": 13
+  },
+  {
+    "address": "0xC10D8F1207d77a2307391A8D692Bd32C863aFE33",
+    "rank": 15,
+    "presentase": 0.015,
+    "point": 14548786,
+    "level": 13
+  },
+  {
+    "address": "0xa6A4EC0f671B37ac51ad6ce7972d1fd81F3CDa75",
+    "rank": 16,
+    "presentase": 0.016,
+    "point": 14496131,
+    "level": 13
+  },
+  {
+    "address": "0x7204dA7b2fc2278E08702459d1d9Aa56A2E9385e",
+    "rank": 18,
+    "presentase": 0.018,
+    "point": 14490050,
+    "level": 13
+  },
+  {
+    "address": "0x6DB792aB83F8245b3719351F30666e5143BfCF3F",
+    "rank": 19,
+    "presentase": 0.019,
+    "point": 14475654,
+    "level": 13
+  },
+  {
+    "address": "0x438f57868F7499054F392A8676ceB8dBEeD6D433",
+    "rank": 20,
+    "presentase": 0.02,
+    "point": 14468636,
+    "level": 13
+  },
+  {
+    "address": "0x32a554D4b6eb1a9Dc488bfEcAb9074CB8DB5DCE3",
+    "rank": 21,
+    "presentase": 0.021,
+    "point": 14468371,
+    "level": 13
+  },
+  {
+    "address": "0xcf30136677295ecc6d3eebe3F43c1d16aC5dfe15",
+    "rank": 23,
+    "presentase": 0.023,
+    "point": 14442932,
+    "level": 13
+  },
+  {
+    "address": "0x079240790323a62cc151aD39c4EC5c95d6eF8467",
+    "rank": 24,
+    "presentase": 0.024,
+    "point": 14437963,
+    "level": 13
+  },
+  {
+    "address": "0xAd306172A362EA30246ade8E46158FC4710D4798",
+    "rank": 24,
+    "presentase": 0.024,
+    "point": 14443928,
+    "level": 13
+  },
+  {
+    "address": "0xf9B2E1f237e60205585CcD1339D335bCdfF5cB97",
+    "rank": 26,
+    "presentase": 0.026,
+    "point": 14423548,
+    "level": 13
+  },
+  {
+    "address": "0x532B74298c92cf78A70d21Da5Eb754610D11a51b",
+    "rank": 26,
+    "presentase": 0.026,
+    "point": 14430712,
+    "level": 13
+  },
+  {
+    "address": "0xFB86fdC2c50a4C7b9bF7b6198649B877D8d2a4e4",
+    "rank": 27,
+    "presentase": 0.027,
+    "point": 14412137,
+    "level": 13
+  },
+  {
+    "address": "0x9A3330d36aC0Ef1b9e260C81cff6c758F8B0A695",
+    "rank": 28,
+    "presentase": 0.028,
+    "point": 14400633,
+    "level": 13
+  },
+  {
+    "address": "0x4dFFd217f4951aF952577888036B084bB3f6a596",
+    "rank": 29,
+    "presentase": 0.029,
+    "point": 14397728,
+    "level": 13
+  },
+  {
+    "address": "0x25A04Bc7379FAAbc0bE0421DA74191ea51713c8c",
+    "rank": 30,
+    "presentase": 0.03,
+    "point": 14390124,
+    "level": 13
+  },
+  {
+    "address": "0x2D8001CdF63000E0Fd7252F7882d22D7C363bb20",
+    "rank": 31,
+    "presentase": 0.031,
+    "point": 14386721,
+    "level": 13
+  },
+  {
+    "address": "0xD570f3c3a6F911Ba8F78E3394c9B9aBDA0157829",
+    "rank": 33,
+    "presentase": 0.033,
+    "point": 14358995,
+    "level": 13
+  },
+  {
+    "address": "0xB5CCE9acd49Ee0b2BAc55B299301526950A8e668",
+    "rank": 34,
+    "presentase": 0.034,
+    "point": 14349397,
+    "level": 13
+  },
+  {
+    "address": "0x72A363e15676ec9B2Ba00c2f62dBDb8f1B1bd1B2",
+    "rank": 35,
+    "presentase": 0.035,
+    "point": 14346659,
+    "level": 13
+  },
+  {
+    "address": "0x5E4733a624344aAfC44C6a60eDA25a99913183BE",
+    "rank": 38,
+    "presentase": 0.038,
+    "point": 14313430,
+    "level": 13
+  },
+  {
+    "address": "0x68C3CCef065dc12855CabD0539565383B99c376c",
+    "rank": 39,
+    "presentase": 0.039,
+    "point": 14300643,
+    "level": 13
+  },
+  {
+    "address": "0x3a70E287029D7b76aC0400ce8d20b4AFc0CDE07D",
+    "rank": 42,
+    "presentase": 0.042,
+    "point": 14277620,
+    "level": 13
+  },
+  {
+    "address": "0x77B4922Fcc0Fa745Bcd7d76025E682CFfFc9a149",
+    "rank": 43,
+    "presentase": 0.043,
+    "point": 14276785,
+    "level": 13
+  },
+  {
+    "address": "0xdb60Da1d5C715B18946f5f80e13A6135C5b9d7B6",
+    "rank": 44,
+    "presentase": 0.044,
+    "point": 14273574,
+    "level": 13
+  },
+  {
+    "address": "0xB7Cd2CEF367bf5536d7fdF6c491CE158D2651d97",
+    "rank": 45,
+    "presentase": 0.045,
+    "point": 14260220,
+    "level": 13
+  },
+  {
+    "address": "0xF3C76A95207bAF6dc9BB859583258bD57Ebc6a6F",
+    "rank": 47,
+    "presentase": 0.047,
+    "point": 14248486,
+    "level": 13
+  },
+  {
+    "address": "0x46710DCD3Dd67De58Df88eCD87b65c4Bc1E420BD",
+    "rank": 47,
+    "presentase": 0.047,
+    "point": 14259300,
+    "level": 13
+  },
+  {
+    "address": "0x3eb396d45195810b0d71736f165c02D09f8f831e",
+    "rank": 50,
+    "presentase": 0.05,
+    "point": 14208127,
+    "level": 13
+  },
+  {
+    "address": "0xF53Eb1F0b68334845e219e8931223900bBf6D018",
+    "rank": 52,
+    "presentase": 0.052,
+    "point": 14184749,
+    "level": 13
+  },
+  {
+    "address": "0x9b139d48cEd583a58604D589d5bC96CC17f680A5",
+    "rank": 57,
+    "presentase": 0.057,
+    "point": 14143201,
+    "level": 13
+  },
+  {
+    "address": "0x9dD295D8557c61AD14408A92645C961f47300455",
+    "rank": 58,
+    "presentase": 0.058,
+    "point": 14136406,
+    "level": 13
+  },
+  {
+    "address": "0x7465aFFF90B18B849A00e0f69754577246b3792a",
+    "rank": 65,
+    "presentase": 0.065,
+    "point": 14041753,
+    "level": 13
+  },
+  {
+    "address": "0xF4Cc8A6a89cEFdbdb515EaB3AC7d76C7F32BD61B",
+    "rank": 66,
+    "presentase": 0.066,
+    "point": 14040464,
+    "level": 13
+  },
+  {
+    "address": "0xAaf2196e7dc69a388517aB1bb3DDeBB704Ab856b",
+    "rank": 67,
+    "presentase": 0.067,
+    "point": 14002784,
+    "level": 13
+  },
+  {
+    "address": "0xcF3481ec23bC274791f533cB146a71476457163E",
+    "rank": 68,
+    "presentase": 0.068,
+    "point": 13988392,
+    "level": 13
+  },
+  {
+    "address": "0x0687FDf1617C222fc7EAf72e340e177C616ebF75",
+    "rank": 70,
+    "presentase": 0.07,
+    "point": 13966394,
+    "level": 13
+  },
+  {
+    "address": "0xB5EADf3a5B9c20Baa5527cb2536A9C77e8dc1020",
+    "rank": 71,
+    "presentase": 0.071,
+    "point": 13936657,
+    "level": 13
+  },
+  {
+    "address": "0x9f3Cb8E0c7096233b4a50Bc059abAC8ED7ee05B5",
+    "rank": 72,
+    "presentase": 0.072,
+    "point": 13899512,
+    "level": 13
+  },
+  {
+    "address": "0xcD81984c18C7668fF14723F703c4d5b386151565",
+    "rank": 76,
+    "presentase": 0.076,
+    "point": 13854372,
+    "level": 13
+  },
+  {
+    "address": "0xB86C03d0D030Ac3E73746004C310621838B17Db9",
+    "rank": 79,
+    "presentase": 0.079,
+    "point": 13845216,
+    "level": 13
+  },
+  {
+    "address": "0x99e27746e33c9886f6A3A19336E0aB753F962db9",
+    "rank": 88,
+    "presentase": 0.088,
+    "point": 13756374,
+    "level": 13
+  },
+  {
+    "address": "0x9c6F685403491272E6CF6258c32ccaA8E9A1ed21",
+    "rank": 89,
+    "presentase": 0.089,
+    "point": 13738829,
+    "level": 13
+  },
+  {
+    "address": "0x1e8A4ec0a8546c532a929C7D53fc3E8853b963f1",
+    "rank": 90,
+    "presentase": 0.09,
+    "point": 13737167,
+    "level": 13
+  },
+  {
+    "address": "0x6cC9767eeeBc248a9ACF72a5093A2F1BA4aE6a04",
+    "rank": 91,
+    "presentase": 0.091,
+    "point": 13730911,
+    "level": 13
+  },
+  {
+    "address": "0x1A8028927383A0665B62B4AA6eEfD5Dd66cB5A38",
+    "rank": 93,
+    "presentase": 0.093,
+    "point": 13713894,
+    "level": 13
+  },
+  {
+    "address": "0xcE57954e5103bc518bE58d7eee6ca75FEC10f336",
+    "rank": 94,
+    "presentase": 0.094,
+    "point": 13699712,
+    "level": 13
+  },
+  {
+    "address": "0xC1Be09F8E54D70F063709AD18E10C2F4c301F945",
+    "rank": 101,
+    "presentase": 0.101,
+    "point": 13616657,
+    "level": "under 13"
+  },
+  {
+    "address": "0xf507280017d02333aeCa410bef2a2956207EAc02",
+    "rank": 110,
+    "presentase": 0.11,
+    "point": 13563830,
+    "level": "under 13"
+  },
+  {
+    "address": "0x0903730AD8e84A91164bdd9D00C26E32Cb0c1EE9",
+    "rank": 120,
+    "presentase": 0.12,
+    "point": 13465881,
+    "level": "under 13"
+  },
+  {
+    "address": "0x2b7403bdB196fa5fc0e4f779600A084bE0D8422E",
+    "rank": 121,
+    "presentase": 0.121,
+    "point": 13464562,
+    "level": "under 13"
+  },
+  {
+    "address": "0x054C5Cfc92c22b50C0dCC2E8c8868b7091b94eF0",
+    "rank": 131,
+    "presentase": 0.131,
+    "point": 13408850,
+    "level": "under 13"
+  },
+  {
+    "address": "0x787abae003Dc11567b8A737C76fdB1c0B9648f4A",
+    "rank": 132,
+    "presentase": 0.132,
+    "point": 13403069,
+    "level": "under 13"
+  },
+  {
+    "address": "0x5115e5494E230fAb622D8A57B6406B3846cE5604",
+    "rank": 143,
+    "presentase": 0.143,
+    "point": 13363795,
+    "level": "under 13"
+  },
+  {
+    "address": "0x01B55F3c53163BC8F5e0f5988edE6C738878a7D6",
+    "rank": 161,
+    "presentase": 0.161,
+    "point": 13194473,
+    "level": "under 13"
+  },
+  {
+    "address": "0xa39cc26Da0eB859d5B3d57137547415086198daD",
+    "rank": 162,
+    "presentase": 0.162,
+    "point": 13194112,
+    "level": "under 13"
+  },
+  {
+    "address": "0xdd7B2F2b821Ff20ee52A8787b3D9614b91A2b8B1",
+    "rank": 164,
+    "presentase": 0.164,
+    "point": 13173779,
+    "level": "under 13"
+  },
+  {
+    "address": "0x3D3DE66089eA4EC31B49e1Ee75fe0044d7FC3137",
+    "rank": 170,
+    "presentase": 0.17,
+    "point": 13141844,
+    "level": "under 13"
+  },
+  {
+    "address": "0x688c0a468ad7BE8Dc2e1cB92cc1b9b6fdca84d5A",
+    "rank": 175,
+    "presentase": 0.175,
+    "point": 13120775,
+    "level": "under 13"
+  },
+  {
+    "address": "0x329557Aa54AAb595e6b651B41b796e541D58911f",
+    "rank": 235,
+    "presentase": 0.235,
+    "point": 12850149,
+    "level": "under 13"
+  },
+  {
+    "address": "0xb848e5faEc996D3e8c74DC267B7f3f6f35E8233B",
+    "rank": 258,
+    "presentase": 0.258,
+    "point": 12800551,
+    "level": "under 13"
+  },
+  {
+    "address": "0x4AD29E10EDaC1Aa0d12d37e00c4C1e0c63B1011f",
+    "rank": 277,
+    "presentase": 0.277,
+    "point": 12749354,
+    "level": "under 13"
+  },
+  {
+    "address": "0x2070C50ACE4DE768BC063B5e090C64ff6307E806",
+    "rank": 302,
+    "presentase": 0.302,
+    "point": 12678524,
+    "level": "under 13"
+  },
+  {
+    "address": "0x46F2F1D5d1974662e3D172c527f882013aD9e32c",
+    "rank": 317,
+    "presentase": 0.317,
+    "point": 12649066,
+    "level": "under 13"
+  },
+  {
+    "address": "0xb5498713203112Efb5733d0275065c4319d02b57",
+    "rank": 323,
+    "presentase": 0.323,
+    "point": 12616331,
+    "level": "under 13"
+  },
+  {
+    "address": "0x4D11AAA69158595085D13D5e1a2b22c1d0D5F348",
+    "rank": 340,
+    "presentase": 0.34,
+    "point": 12549327,
+    "level": "under 13"
+  },
+  {
+    "address": "0x02058C65a69f14841Ec7Ca2711F00292Adf1fd7b",
+    "rank": 364,
+    "presentase": 0.364,
+    "point": 12466222,
+    "level": "under 13"
+  },
+  {
+    "address": "0xB5311B189Ea1EbdDf12ae6F14322cD048CA00775",
+    "rank": 376,
+    "presentase": 0.376,
+    "point": 12440493,
+    "level": "under 13"
+  },
+  {
+    "address": "0x30960Bab8a1c8c236809De1f7F6d71Ba6d9CD403",
+    "rank": 378,
+    "presentase": 0.378,
+    "point": 12422839,
+    "level": "under 13"
+  },
+  {
+    "address": "0xd5169217ec76D2E691Ab69714fCA423967075a4B",
+    "rank": 406,
+    "presentase": 0.406,
+    "point": 12297476,
+    "level": "under 13"
+  },
+  {
+    "address": "0xF38cD3d3630E951cBce6762AeF7e32629Fc87e84",
+    "rank": 414,
+    "presentase": 0.414,
+    "point": 12258378,
+    "level": "under 13"
+  },
+  {
+    "address": "0x15BcAbce7133D9fd8c54D2392CA7b9f90e73dCD7",
+    "rank": 418,
+    "presentase": 0.418,
+    "point": 12241282,
+    "level": "under 13"
+  },
+  {
+    "address": "0x065862280E1b66Db9049f3156a55EF9cfff5F091",
+    "rank": 429,
+    "presentase": 0.429,
+    "point": 12206887,
+    "level": "under 13"
+  },
+  {
+    "address": "0xe4cE9079b631805ca828F39E89B17909765034bD",
+    "rank": 460,
+    "presentase": 0.46,
+    "point": 12010717,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7f8E50ddad1aeE9EDEe1ee1f432cd2e44CB5071c",
+    "rank": 489,
+    "presentase": 0.489,
+    "point": 11860117,
+    "level": "under 13"
+  },
+  {
+    "address": "0x00B824A7AEBd7Ab7cFD5fafA470C690f0dbA7Cb6",
+    "rank": 509,
+    "presentase": 0.509,
+    "point": 11772569,
+    "level": "under 13"
+  },
+  {
+    "address": "0xc56993491EB1FA12C17863f922A8393de8aB4413",
+    "rank": 512,
+    "presentase": 0.512,
+    "point": 11762105,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1ae15B9022721e06Aa141d6AC352b9F172f3728b",
+    "rank": 530,
+    "presentase": 0.53,
+    "point": 11669436,
+    "level": "under 13"
+  },
+  {
+    "address": "0x057561523E7819d19d7690ECa2ff05a138Fc3B4f",
+    "rank": 533,
+    "presentase": 0.533,
+    "point": 11662036,
+    "level": "under 13"
+  },
+  {
+    "address": "0xee7028E9C5240d77876efBAC5acD0E7cE2012b19",
+    "rank": 534,
+    "presentase": 0.534,
+    "point": 11661621,
+    "level": "under 13"
+  },
+  {
+    "address": "0x79fB4ebDD543d0927b809b1E8F552F1Bf74DeC65",
+    "rank": 543,
+    "presentase": 0.543,
+    "point": 11631600,
+    "level": "under 13"
+  },
+  {
+    "address": "0xb1E745E9a67bE8CeEe1864558e7608021a5ba4E0",
+    "rank": 544,
+    "presentase": 0.544,
+    "point": 11636319,
+    "level": "under 13"
+  },
+  {
+    "address": "0x50C209ad3e0b8C54bbEDA5485277BC50281e51E3",
+    "rank": 556,
+    "presentase": 0.556,
+    "point": 11579136,
+    "level": "under 13"
+  },
+  {
+    "address": "0x93288964186EA6B3a5B7CE9BaBFabA2424AA440F",
+    "rank": 558,
+    "presentase": 0.558,
+    "point": 11560794,
+    "level": "under 13"
+  },
+  {
+    "address": "0xEbb8f70d40D62864EAb334c66Bb5B88cE558054F",
+    "rank": 568,
+    "presentase": 0.568,
+    "point": 11520611,
+    "level": "under 13"
+  },
+  {
+    "address": "0x61D60C4fe27A87aEe8F411C7faDb052eDc9A5ec6",
+    "rank": 571,
+    "presentase": 0.571,
+    "point": 11508462,
+    "level": "under 13"
+  },
+  {
+    "address": "0x07E8AAddCaa09f6F2806F92ebB735FAb04A67D1C",
+    "rank": 573,
+    "presentase": 0.573,
+    "point": 11503954,
+    "level": "under 13"
+  },
+  {
+    "address": "0x6B0E1FAF1444D727fC98b233cEC31eE054107a17",
+    "rank": 574,
+    "presentase": 0.574,
+    "point": 11507269,
+    "level": "under 13"
+  },
+  {
+    "address": "0x628D853E50059d5C21eD771D0ce7Ae6bB4FC4d2f",
+    "rank": 586,
+    "presentase": 0.586,
+    "point": 11452719,
+    "level": "under 13"
+  },
+  {
+    "address": "0x9753a6122349933f933c0fe6200E67BBB1199C09",
+    "rank": 591,
+    "presentase": 0.591,
+    "point": 11441197,
+    "level": "under 13"
+  },
+  {
+    "address": "0xF30d83bc83b8750702902e6344F423cb6E64014d",
+    "rank": 599,
+    "presentase": 0.599,
+    "point": 11420702,
+    "level": "under 13"
+  },
+  {
+    "address": "0x281e3d092eCE1667141DC6f4F45ce0f72Fc81b3C",
+    "rank": 605,
+    "presentase": 0.605,
+    "point": 11407358,
+    "level": "under 13"
+  },
+  {
+    "address": "0xF70Fa1b8443c620CA7d43a9d17F4bDe8B09031CC",
+    "rank": 624,
+    "presentase": 0.624,
+    "point": 11347450,
+    "level": "under 13"
+  },
+  {
+    "address": "0xe15C06355CFD80a3773F68da66afC70eae0e82c1",
+    "rank": 635,
+    "presentase": 0.635,
+    "point": 11285811,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7fDf03540091f7fCeE1A9B6D564C08d03440a819",
+    "rank": 637,
+    "presentase": 0.637,
+    "point": 11268970,
+    "level": "under 13"
+  },
+  {
+    "address": "0xEc0a7e357cfd98f8C2586832DD704Bc77cF5b72d",
+    "rank": 644,
+    "presentase": 0.644,
+    "point": 11248097,
+    "level": "under 13"
+  },
+  {
+    "address": "0x16035E3A6ab3D29930bd8737B4F9A99C03B83081",
+    "rank": 651,
+    "presentase": 0.651,
+    "point": 11197606,
+    "level": "under 13"
+  },
+  {
+    "address": "0xb066D85234A4A837F1045ef66B6F67AeB0a9dbf6",
+    "rank": 655,
+    "presentase": 0.655,
+    "point": 11186382,
+    "level": "under 13"
+  },
+  {
+    "address": "0x5d8e9811584A873916a584D9eB3Dd299B278e87c",
+    "rank": 665,
+    "presentase": 0.665,
+    "point": 11093951,
+    "level": "under 13"
+  },
+  {
+    "address": "0xbd987Fa25AaFFbE68c048d7528aA115824090b62",
+    "rank": 679,
+    "presentase": 0.679,
+    "point": 11022502,
+    "level": "under 13"
+  },
+  {
+    "address": "0x526fF0deB0601Aa17e99b1B23025a1Ea052cBc28",
+    "rank": 687,
+    "presentase": 0.687,
+    "point": 10956863,
+    "level": "under 13"
+  },
+  {
+    "address": "0x9b475239A6629FD5Cd9123a41f65a016a0BAc0FB",
+    "rank": 711,
+    "presentase": 0.711,
+    "point": 10731709,
+    "level": "under 13"
+  },
+  {
+    "address": "0xE8CD9Bb14D470e06F2CC71A3cc113bFb0c24de7C",
+    "rank": 713,
+    "presentase": 0.713,
+    "point": 10716335,
+    "level": "under 13"
+  },
+  {
+    "address": "0xfDc9974580a2B8fafa483714271ffDAFBa1c267c",
+    "rank": 715,
+    "presentase": 0.715,
+    "point": 10698845,
+    "level": "under 13"
+  },
+  {
+    "address": "0x45B8c1fD0087195eE0de85552E473a79eccE6092",
+    "rank": 722,
+    "presentase": 0.722,
+    "point": 10627959,
+    "level": "under 13"
+  },
+  {
+    "address": "0x9caB8CB4DE8231aD9c8658CF0B746E5bF822dBd9",
+    "rank": 725,
+    "presentase": 0.725,
+    "point": 10606643,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1b984908c807BC22E1732F2F705e23DdA41a7593",
+    "rank": 730,
+    "presentase": 0.73,
+    "point": 10574056,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8F5457f7776191bc2381E6Ce63C10c9a87c61AbF",
+    "rank": 737,
+    "presentase": 0.737,
+    "point": 10517023,
+    "level": "under 13"
+  },
+  {
+    "address": "0xCA29f7f9e846886289016994fBd5506E36C5De35",
+    "rank": 748,
+    "presentase": 0.748,
+    "point": 10455352,
+    "level": "under 13"
+  },
+  {
+    "address": "0x344b947550E547B574C39252A32FF238a112e290",
+    "rank": 755,
+    "presentase": 0.755,
+    "point": 10356450,
+    "level": "under 13"
+  },
+  {
+    "address": "0xDd46f1FEE369a65fb328a999Ac87c03581943C4D",
+    "rank": 760,
+    "presentase": 0.76,
+    "point": 10340105,
+    "level": "under 13"
+  },
+  {
+    "address": "0x58715eaA7E4308b932e2A91bC683ECbA6De3515b",
+    "rank": 762,
+    "presentase": 0.762,
+    "point": 10330053,
+    "level": "under 13"
+  },
+  {
+    "address": "0x655CB6dF9Dc36449392Dccb2D8F1a4C473446ab9",
+    "rank": 766,
+    "presentase": 0.766,
+    "point": 10289160,
+    "level": "under 13"
+  },
+  {
+    "address": "0x01C4F2BCFA0cA068CCa2C0Ca1f0817C38e0a1350",
+    "rank": 785,
+    "presentase": 0.785,
+    "point": 10131574,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1DABB38d05290ec289D826f1441210C0920162CC",
+    "rank": 823,
+    "presentase": 0.823,
+    "point": 9900550,
+    "level": "under 13"
+  },
+  {
+    "address": "0x59BA079770A5695EFBb003580d7B23f8e6912547",
+    "rank": 832,
+    "presentase": 0.832,
+    "point": 9846192,
+    "level": "under 13"
+  },
+  {
+    "address": "0x588a7CA0f68F4171371B54313BCa68eD252F642E",
+    "rank": 857,
+    "presentase": 0.857,
+    "point": 9709474,
+    "level": "under 13"
+  },
+  {
+    "address": "0xb9E500CF14b355f50217f1a89040DF1765C5E70e",
+    "rank": 860,
+    "presentase": 0.86,
+    "point": 9680693,
+    "level": "under 13"
+  },
+  {
+    "address": "0x36efdf3059fBEE957bFe5b81Bd73D1d18e2FCDAF",
+    "rank": 865,
+    "presentase": 0.865,
+    "point": 9664711,
+    "level": "under 13"
+  },
+  {
+    "address": "0xfA7DC6F14556bCb9c64F367Cf6466d64f63072b2",
+    "rank": 868,
+    "presentase": 0.868,
+    "point": 9660142,
+    "level": "under 13"
+  },
+  {
+    "address": "0xE4684b5252c3890528482352A16Cc21d1703a337",
+    "rank": 901,
+    "presentase": 0.901,
+    "point": 9505011,
+    "level": "under 13"
+  },
+  {
+    "address": "0xFa9931fdbceE1C91328195e4F60fb797c1cB0249",
+    "rank": 903,
+    "presentase": 0.903,
+    "point": 9496863,
+    "level": "under 13"
+  },
+  {
+    "address": "0x46F0849Df698b6c5e31936b21EA28f301fb8D7E2",
+    "rank": 911,
+    "presentase": 0.911,
+    "point": 9428745,
+    "level": "under 13"
+  },
+  {
+    "address": "0x786AB9C2eA85eB6cA367d1258016919aA49B1359",
+    "rank": 928,
+    "presentase": 0.928,
+    "point": 9306627,
+    "level": "under 13"
+  },
+  {
+    "address": "0x13cCf252B993eb66BFcB7702850C7bdc5a98B0E2",
+    "rank": 936,
+    "presentase": 0.936,
+    "point": 9227502,
+    "level": "under 13"
+  },
+  {
+    "address": "0x94F98fE46b3c96C77EAcF297E86c8d47e5442eE7",
+    "rank": 949,
+    "presentase": 0.949,
+    "point": 9037994,
+    "level": "under 13"
+  },
+  {
+    "address": "0x50C57c918D52042bbD94b92C34E27DBD7c4b37cE",
+    "rank": 980,
+    "presentase": 0.98,
+    "point": 8725206,
+    "level": "under 13"
+  },
+  {
+    "address": "0x04Ca76Cd80705829aC6d21D5Af780B6fED6aB2D2",
+    "rank": 987,
+    "presentase": 0.987,
+    "point": 8679249,
+    "level": "under 13"
+  },
+  {
+    "address": "0xfa2336eCA18b9BC384144Ad7f29E2137EE0564D1",
+    "rank": 990,
+    "presentase": 0.99,
+    "point": 8651124,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1D421228652CC2b675EfEEE773A3EC362816D976",
+    "rank": 1020,
+    "presentase": 1.02,
+    "point": 8488099,
+    "level": "under 13"
+  },
+  {
+    "address": "0x360bB5df04A9bE5d945D4350bf09F8eC91381548",
+    "rank": 1021,
+    "presentase": 1.021,
+    "point": 8476229,
+    "level": "under 13"
+  },
+  {
+    "address": "0x85ed91eDF74BacD548BcfCa094A36DcD36cd31EF",
+    "rank": 1029,
+    "presentase": 1.029,
+    "point": 8405495,
+    "level": "under 13"
+  },
+  {
+    "address": "0x0bB190D34314982C280D70D0E5c2A95e527BB06b",
+    "rank": 1069,
+    "presentase": 1.069,
+    "point": 8094915,
+    "level": "under 13"
+  },
+  {
+    "address": "0xbEFAADD4A558637646A7f0697022e1F767c7B491",
+    "rank": 1075,
+    "presentase": 1.075,
+    "point": 8071516,
+    "level": "under 13"
+  },
+  {
+    "address": "0x098D3B9D61DE50bD85059969D1b302047D0aC73a",
+    "rank": 1086,
+    "presentase": 1.086,
+    "point": 8015771,
+    "level": "under 13"
+  },
+  {
+    "address": "0xC769392E14b4806D5492D3Cb311020edb3f777D2",
+    "rank": 1127,
+    "presentase": 1.127,
+    "point": 7711469,
+    "level": "under 13"
+  },
+  {
+    "address": "0x08e1B84b166848c66c267274478EF73481122891",
+    "rank": 1163,
+    "presentase": 1.163,
+    "point": 7521952,
+    "level": "under 13"
+  },
+  {
+    "address": "0x5f791Fd1f4ec3617a5C80f76FE39409A27AeA8C5",
+    "rank": 1178,
+    "presentase": 1.178,
+    "point": 7426220,
+    "level": "under 13"
+  },
+  {
+    "address": "0x30e25eaA01f60ACF52470ccfc57cAD3e245b43c9",
+    "rank": 1192,
+    "presentase": 1.192,
+    "point": 7347579,
+    "level": "under 13"
+  },
+  {
+    "address": "0xd011a7f76756d295be3e2EA180385EFe15571053",
+    "rank": 1198,
+    "presentase": 1.198,
+    "point": 7327547,
+    "level": "under 13"
+  },
+  {
+    "address": "0x6728a70B4018981EB26a1977E8bB18520E9F18B4",
+    "rank": 1228,
+    "presentase": 1.228,
+    "point": 7189447,
+    "level": "under 13"
+  },
+  {
+    "address": "0xc2EA22ec0C12761B26d05888397Ca5dC23be64e0",
+    "rank": 1298,
+    "presentase": 1.298,
+    "point": 6820001,
+    "level": "under 13"
+  },
+  {
+    "address": "0x9B437EE080d4d8c579fF947D86319E59B2F7B1Ee",
+    "rank": 1299,
+    "presentase": 1.299,
+    "point": 6819298,
+    "level": "under 13"
+  },
+  {
+    "address": "0xabb340c67F9529ce450ce3bb60a2eA14271a5439",
+    "rank": 1343,
+    "presentase": 1.343,
+    "point": 6704809,
+    "level": "under 13"
+  },
+  {
+    "address": "0x2946b8816326950274B3bf29F9705f4c1393dEBe",
+    "rank": 1367,
+    "presentase": 1.367,
+    "point": 6638125,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8F83bEC9D0fE3914552785a0c90F932dFec38BA7",
+    "rank": 1420,
+    "presentase": 1.42,
+    "point": 6470826,
+    "level": "under 13"
+  },
+  {
+    "address": "0xFA4572b4E734587Fe0b4d415a92E6654C0c71460",
+    "rank": 1498,
+    "presentase": 1.498,
+    "point": 6097806,
+    "level": "under 13"
+  },
+  {
+    "address": "0x24d697503CEDA3e33c6Cd9cDCf769702f32b5974",
+    "rank": 1570,
+    "presentase": 1.57,
+    "point": 5877329,
+    "level": "under 13"
+  },
+  {
+    "address": "0xBA188C418d95145D73f3706b6d436249FA5cbEB7",
+    "rank": 1597,
+    "presentase": 1.597,
+    "point": 5812834,
+    "level": "under 13"
+  },
+  {
+    "address": "0x097d3c27A20E02A2e8F1Bf7e072D1230c04fd588",
+    "rank": 1640,
+    "presentase": 1.64,
+    "point": 5699945,
+    "level": "under 13"
+  },
+  {
+    "address": "0xe0854Ff3E73dF0f4B421004D7313fDaf8fd5Ec17",
+    "rank": 1737,
+    "presentase": 1.737,
+    "point": 5503571,
+    "level": "under 13"
+  },
+  {
+    "address": "0x9A1c6e462961422168b4d958Cff3344eA7430507",
+    "rank": 1785,
+    "presentase": 1.785,
+    "point": 5373197,
+    "level": "under 13"
+  },
+  {
+    "address": "0x4E9F38742351f19B41603963231F015c2501A5A3",
+    "rank": 1808,
+    "presentase": 1.808,
+    "point": 5331094,
+    "level": "under 13"
+  },
+  {
+    "address": "0x379dAb4FbE3f1B5e7D3307c7A94Cb9eD88865321",
+    "rank": 2326,
+    "presentase": 2.326,
+    "point": 4781020,
+    "level": "under 13"
+  },
+  {
+    "address": "0x84f734c6c6fe7bB628E0Ff04Ff0a5776B8D68F9F",
+    "rank": 2359,
+    "presentase": 2.359,
+    "point": 4747101,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8f4EA9ad88DB773e4a086884EBBf0Cf813915D38",
+    "rank": 2439,
+    "presentase": 2.439,
+    "point": 4664759,
+    "level": "under 13"
+  },
+  {
+    "address": "0x126e3c826E1647bCE726ABEA7Fb81162a829Ed96",
+    "rank": 2813,
+    "presentase": 2.813,
+    "point": 4459628,
+    "level": "under 13"
+  },
+  {
+    "address": "0x55cBfdfe4f98b759944aee681cE63feBc03bd4FA",
+    "rank": 2814,
+    "presentase": 2.814,
+    "point": 4459162,
+    "level": "under 13"
+  },
+  {
+    "address": "0xAd062B56501042D97d2c26deF7AfF6b5fF966EE9",
+    "rank": 3029,
+    "presentase": 3.029,
+    "point": 4352940,
+    "level": "under 13"
+  },
+  {
+    "address": "0x2A7DDcF6C76331ff70F0c2B4A7A57ca50bD5cB73",
+    "rank": 3041,
+    "presentase": 3.041,
+    "point": 4350127,
+    "level": "under 13"
+  },
+  {
+    "address": "0xd921b08B862A346463024B4cfa201923593033f0",
+    "rank": 3105,
+    "presentase": 3.105,
+    "point": 4319429,
+    "level": "under 13"
+  },
+  {
+    "address": "0x51601cdD21bDfe246da02A2645dE145C085b7722",
+    "rank": 3108,
+    "presentase": 3.108,
+    "point": 4318074,
+    "level": "under 13"
+  },
+  {
+    "address": "0xEc8EDfAe340278B79a9a7Ba58C8f97b36f3739Ef",
+    "rank": 3226,
+    "presentase": 3.226,
+    "point": 4212041,
+    "level": "under 13"
+  },
+  {
+    "address": "0xC89f25C5b90543E516eD3dB12b10bE49D45b1892",
+    "rank": 3441,
+    "presentase": 3.441,
+    "point": 4073603,
+    "level": "under 13"
+  },
+  {
+    "address": "0x00F884B294766D858DB5c7cF70a806820a8d15F0",
+    "rank": 4135,
+    "presentase": 4.135,
+    "point": 3752570,
+    "level": "under 13"
+  },
+  {
+    "address": "0xcc72ffa1f471360DC6964fe6B9E2907d7CA55c28",
+    "rank": 4141,
+    "presentase": 4.141,
+    "point": 3750671,
+    "level": "under 13"
+  },
+  {
+    "address": "0x78189627458A6e636d1E8e1DBe619D663f9ea958",
+    "rank": 4280,
+    "presentase": 4.28,
+    "point": 3628471,
+    "level": "under 13"
+  },
+  {
+    "address": "0x742f774beFf936a874bBAf5096ba96E9685cE0C0",
+    "rank": 4868,
+    "presentase": 4.868,
+    "point": 3163102,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8bD036Ec5Fce5341fdFd3A8c1F108a6820B55D92",
+    "rank": 4907,
+    "presentase": 4.907,
+    "point": 3137536,
+    "level": "under 13"
+  },
+  {
+    "address": "0xF951a1ab8052fF43aB83436AfdcC0ae385B66e56",
+    "rank": 4967,
+    "presentase": 4.967,
+    "point": 3108170,
+    "level": "under 13"
+  },
+  {
+    "address": "0xcf27fF8db1523007Fc20D1aeb575FFA58D2Beef2",
+    "rank": 7449,
+    "presentase": 7.449,
+    "point": 2319517,
+    "level": "under 13"
+  },
+  {
+    "address": "0x83b603ac42B942fe607d76A51a0Ab65BDf3787e4",
+    "rank": 7530,
+    "presentase": 7.53,
+    "point": 2287961,
+    "level": "under 13"
+  },
+  {
+    "address": "0xe450Ca59E9adC0A7D86a39C9A8B8818b9450C522",
+    "rank": 7859,
+    "presentase": 7.859,
+    "point": 2258298,
+    "level": "under 13"
+  },
+  {
+    "address": "0xDa6d0eB80629053cb3dc655925f6d73adA09D3c5",
+    "rank": 8168,
+    "presentase": 8.168,
+    "point": 2221428,
+    "level": "under 13"
+  },
+  {
+    "address": "0x399b6775b25F98fCb0295a42DE85107514E36697",
+    "rank": 8351,
+    "presentase": 8.351,
+    "point": 2189012,
+    "level": "under 13"
+  },
+  {
+    "address": "0x11BDd3E134A0c3dC242b7b9d399896b3587a8daC",
+    "rank": 8379,
+    "presentase": 8.379,
+    "point": 2179881,
+    "level": "under 13"
+  },
+  {
+    "address": "0x63b3b70e0162e19D5239cb1864E2E4eE6C60b61d",
+    "rank": 8384,
+    "presentase": 8.384,
+    "point": 2176750,
+    "level": "under 13"
+  },
+  {
+    "address": "0x3DE5Ee31a5116f24dd3CCB9745c187471FBB8cf6",
+    "rank": 10212,
+    "presentase": 10.212,
+    "point": 2078936,
+    "level": "under 13"
+  },
+  {
+    "address": "0xa47dCC127BD2487B01477D8e381dCEd5de5e5033",
+    "rank": 11079,
+    "presentase": 11.079,
+    "point": 1941657,
+    "level": "under 13"
+  },
+  {
+    "address": "0x3B45aAb9238B22fcA2957b97FFcA63A68F7387da",
+    "rank": 13604,
+    "presentase": 13.604,
+    "point": 1419139,
+    "level": "under 13"
+  },
+  {
+    "address": "0xa6EE6741836B87571a907DE94ef5bCFA8a2b2FBE",
+    "rank": 13748,
+    "presentase": 13.748,
+    "point": 1390140,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7D73bc3fB04F20d58DE526105684BD9D7D1A0BDf",
+    "rank": 14300,
+    "presentase": 14.3,
+    "point": 1326378,
+    "level": "under 13"
+  },
+  {
+    "address": "0x53cD242585F72EDD4C92ED3dC4A944AAdACCE413",
+    "rank": 14645,
+    "presentase": 14.645,
+    "point": 1294662,
+    "level": "under 13"
+  },
+  {
+    "address": "0x38C596DA5aA8FE9F91eAF30C431DffcCc09394A6",
+    "rank": 15425,
+    "presentase": 15.425,
+    "point": 1277954,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8527626c40178eB4f7252BaC46eeF73E304a8dDe",
+    "rank": 15517,
+    "presentase": 15.517,
+    "point": 1272339,
+    "level": "under 13"
+  },
+  {
+    "address": "0x44aa0725a9D7F7b2F86DB37F667E5a3E11388CBc",
+    "rank": 15793,
+    "presentase": 15.793,
+    "point": 1253004,
+    "level": "under 13"
+  },
+  {
+    "address": "0x77Da9d6B211d6AE719D0fE348743065e5532da0c",
+    "rank": 16622,
+    "presentase": 16.622,
+    "point": 1182408,
+    "level": "under 13"
+  },
+  {
+    "address": "0xDD67600749262cc0740B5A91f05d9B3c78187Dd8",
+    "rank": 16811,
+    "presentase": 16.811,
+    "point": 1160978,
+    "level": "under 13"
+  },
+  {
+    "address": "0xefB1b61DAc569aC6E8A7B860967978976DB4561d",
+    "rank": 18259,
+    "presentase": 18.259,
+    "point": 1069171,
+    "level": "under 13"
+  },
+  {
+    "address": "0x447024B90D9cdcd3A33C05b4512490a823e85ebf",
+    "rank": 18560,
+    "presentase": 18.56,
+    "point": 1045916,
+    "level": "under 13"
+  },
+  {
+    "address": "0xF34Bf8635ce2a93F3CD4021e17FfBbb1a5eeDD3E",
+    "rank": 18583,
+    "presentase": 18.583,
+    "point": 1041889,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8ad557E25766C99e28E6Fe8e3e0FBf87e452B23D",
+    "rank": 19728,
+    "presentase": 19.728,
+    "point": 980073,
+    "level": "under 13"
+  },
+  {
+    "address": "0xe8C6cEe0408D8fcb1E09dC13149b6D516c32ff70",
+    "rank": 19758,
+    "presentase": 19.758,
+    "point": 978686,
+    "level": "under 13"
+  },
+  {
+    "address": "0xCbB3FBf562A93006eDdC83Ae86Fb6152968aBAcC",
+    "rank": 20736,
+    "presentase": 20.736,
+    "point": 931078,
+    "level": "under 13"
+  },
+  {
+    "address": "0xf155F68aAefb6607A893fBb870D95fb161AdC7a6",
+    "rank": 22290,
+    "presentase": 22.29,
+    "point": 857934,
+    "level": "under 13"
+  },
+  {
+    "address": "0xCBb54Eda2048b57d1b0Afb19a73948E9D58B6973",
+    "rank": 23566,
+    "presentase": 23.566,
+    "point": 774675,
+    "level": "under 13"
+  },
+  {
+    "address": "0x794a15F93CEd01F1B0bE5b184344F0B811851BC0",
+    "rank": 23634,
+    "presentase": 23.634,
+    "point": 766116,
+    "level": "under 13"
+  },
+  {
+    "address": "0xA63dDdB69E6e470Bf3d236B434EF80a213B998A7",
+    "rank": 24635,
+    "presentase": 24.635,
+    "point": 679303,
+    "level": "under 13"
+  },
+  {
+    "address": "0x00354F2B395EC8Fd6957De64Aa602ec1fb09fF9f",
+    "rank": 24755,
+    "presentase": 24.755,
+    "point": 671404,
+    "level": "under 13"
+  },
+  {
+    "address": "0xfBE30Bb0DAc58e8a10493f0C04f521C96925c29e",
+    "rank": 24799,
+    "presentase": 24.799,
+    "point": 668909,
+    "level": "under 13"
+  },
+  {
+    "address": "0xaEADc04E3C357De9e49d238d7d5628EE30612da7",
+    "rank": 24802,
+    "presentase": 24.802,
+    "point": 668713,
+    "level": "under 13"
+  },
+  {
+    "address": "0x869276ef1FCa605Ac1b816796dD41EC4A52eC8C8",
+    "rank": 24879,
+    "presentase": 24.879,
+    "point": 663160,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1E922DB639CA197014cbd9a815F3D706Bf962eAb",
+    "rank": 25565,
+    "presentase": 25.565,
+    "point": 631350,
+    "level": "under 13"
+  },
+  {
+    "address": "0x70619d577548faa0E11c1feDa79Bd4347503715D",
+    "rank": 25648,
+    "presentase": 25.648,
+    "point": 627948,
+    "level": "under 13"
+  },
+  {
+    "address": "0xC07D659F3e1C727dF7bEa64e0Ddc0C03f7a9c0fB",
+    "rank": 25649,
+    "presentase": 25.649,
+    "point": 627931,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1714859Bc91dee08C2355251Cd3A13784152AAdf",
+    "rank": 25854,
+    "presentase": 25.854,
+    "point": 618976,
+    "level": "under 13"
+  },
+  {
+    "address": "0x52dbD5AeA5D61A4f7Fb760CFDc431Fbe3dC531A7",
+    "rank": 26042,
+    "presentase": 26.042,
+    "point": 611033,
+    "level": "under 13"
+  },
+  {
+    "address": "0xEBbC172C11af22f8C983BD1069a9eD2A577DDCEF",
+    "rank": 27976,
+    "presentase": 27.976,
+    "point": 550313,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7F2d7D2D81e89D372deE78f5E0E4E526C8635715",
+    "rank": 28740,
+    "presentase": 28.74,
+    "point": 530304,
+    "level": "under 13"
+  },
+  {
+    "address": "0x425400d9642aeAc4E8b88E0447552fFDC6fAd752",
+    "rank": 29600,
+    "presentase": 29.6,
+    "point": 509960,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7559f5d17Dd93dF1b8bFaAe7b5091380392bbBea",
+    "rank": 29601,
+    "presentase": 29.601,
+    "point": 509778,
+    "level": "under 13"
+  },
+  {
+    "address": "0x70A1c7D12A0f59ca8bC233D50CDc1B16053c4F14",
+    "rank": 29729,
+    "presentase": 29.729,
+    "point": 508224,
+    "level": "under 13"
+  },
+  {
+    "address": "0xE0B11855EB530c36a323F92E93C299AD93922d0F",
+    "rank": 30148,
+    "presentase": 30.148,
+    "point": 496626,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7b63B3037D37751bb25c067552f44b25Ff453702",
+    "rank": 30781,
+    "presentase": 30.781,
+    "point": 479771,
+    "level": "under 13"
+  },
+  {
+    "address": "0x48cc3c16d414F6eB616e78fE0354f1bAEb254de9",
+    "rank": 33745,
+    "presentase": 33.745,
+    "point": 431910,
+    "level": "under 13"
+  },
+  {
+    "address": "0x98aBb17006aaA4f29F60cb8C9C3dB70B174EbA24",
+    "rank": 33776,
+    "presentase": 33.776,
+    "point": 431201,
+    "level": "under 13"
+  },
+  {
+    "address": "0xF9aa47a4647398A45A41ceD6CaC4C8FC8C0F3d9B",
+    "rank": 34171,
+    "presentase": 34.171,
+    "point": 425280,
+    "level": "under 13"
+  },
+  {
+    "address": "0xBB79C7E721Bc08ad132148f1f026A01B9F7872b5",
+    "rank": 34969,
+    "presentase": 34.969,
+    "point": 408994,
+    "level": "under 13"
+  },
+  {
+    "address": "0x14b35EA598a18e171a8f1e724c356F83fB4A0F18",
+    "rank": 36421,
+    "presentase": 36.421,
+    "point": 388875,
+    "level": "under 13"
+  },
+  {
+    "address": "0xb6C2b662E4e9388349E7015f2B9b7A2f878D706c",
+    "rank": 36731,
+    "presentase": 36.731,
+    "point": 383523,
+    "level": "under 13"
+  },
+  {
+    "address": "0x6458CC5902D4F9e466B599E220D1663C4718625A",
+    "rank": 36809,
+    "presentase": 36.809,
+    "point": 382042,
+    "level": "under 13"
+  },
+  {
+    "address": "0x2F1C41d829F00F013Bbc02d407315dE37D24Eace",
+    "rank": 36860,
+    "presentase": 36.86,
+    "point": 381661,
+    "level": "under 13"
+  },
+  {
+    "address": "0x0aA5c17737Fa41eC5078032e353497754c520fE0",
+    "rank": 36908,
+    "presentase": 36.908,
+    "point": 380900,
+    "level": "under 13"
+  },
+  {
+    "address": "0xd6d965bd7f73FB1dE3060C09483A14601d5317D8",
+    "rank": 37683,
+    "presentase": 37.683,
+    "point": 370590,
+    "level": "under 13"
+  },
+  {
+    "address": "0x3fc0F10029b113a187c5817D35dE0f3de2a39ebC",
+    "rank": 39137,
+    "presentase": 39.137,
+    "point": 349291,
+    "level": "under 13"
+  },
+  {
+    "address": "0x01b86AEEbCD1Ff94aC1195cFc8FD9e39dB24db45",
+    "rank": 39729,
+    "presentase": 39.729,
+    "point": 341992,
+    "level": "under 13"
+  },
+  {
+    "address": "0xE8B65b125afd293cdB2b496C4035EBF63E4D56a9",
+    "rank": 42698,
+    "presentase": 42.698,
+    "point": 319794,
+    "level": "under 13"
+  },
+  {
+    "address": "0xC279F761e8eEcC16954c0c1457523f13aED12edD",
+    "rank": 46030,
+    "presentase": 46.03,
+    "point": 295943,
+    "level": "under 13"
+  },
+  {
+    "address": "0x14d18D87424b73c1A1D91a2759EAb88f44fBe32F",
+    "rank": 47983,
+    "presentase": 47.983,
+    "point": 278800,
+    "level": "under 13"
+  },
+  {
+    "address": "0xCB53a818042Db647cb01672751B0E4efCa29cF55",
+    "rank": 53542,
+    "presentase": 53.542,
+    "point": 246229,
+    "level": "under 13"
+  },
+  {
+    "address": "0x97Ba60ccd56b319096cf3f0Cb3429114a0A184E5",
+    "rank": 53551,
+    "presentase": 53.551,
+    "point": 246184,
+    "level": "under 13"
+  },
+  {
+    "address": "0xc6571c2FB66825F13b7751b1c334810D397618Eb",
+    "rank": 54849,
+    "presentase": 54.849,
+    "point": 238779,
+    "level": "under 13"
+  },
+  {
+    "address": "0xF637978800670ba2a978501D86f73442e108f946",
+    "rank": 56294,
+    "presentase": 56.294,
+    "point": 230611,
+    "level": "under 13"
+  },
+  {
+    "address": "0x69AA0361Dbb0527d4F1e5312403Bd41788fe61Fe",
+    "rank": 57140,
+    "presentase": 57.14,
+    "point": 225781,
+    "level": "under 13"
+  },
+  {
+    "address": "0xbee174Bb3b567Ba65FFD00cA637dBe17c33DFc04",
+    "rank": 57194,
+    "presentase": 57.194,
+    "point": 225335,
+    "level": "under 13"
+  },
+  {
+    "address": "0xd2C41cC04EB699bE26546FcbB74815bd68283A6d",
+    "rank": 58984,
+    "presentase": 58.984,
+    "point": 217411,
+    "level": "under 13"
+  },
+  {
+    "address": "0xe1dbD2c71ded411DB6Ce029785E9bA9c1Ae0c801",
+    "rank": 61102,
+    "presentase": 61.102,
+    "point": 207084,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8E2ef60Ccf0b6478Baf08f52618A63D09404f267",
+    "rank": 61801,
+    "presentase": 61.801,
+    "point": 204045,
+    "level": "under 13"
+  },
+  {
+    "address": "0x3D1e10eeC9256f832a46F3f8AdaC60c7a80828B6",
+    "rank": 65132,
+    "presentase": 65.132,
+    "point": 192500,
+    "level": "under 13"
+  },
+  {
+    "address": "0xf8926A177273202755F9Fa930c96285e612375AC",
+    "rank": 65449,
+    "presentase": 65.449,
+    "point": 191525,
+    "level": "under 13"
+  },
+  {
+    "address": "0x71adD64adBB965Bafd01437295968502eB61145e",
+    "rank": 66212,
+    "presentase": 66.212,
+    "point": 189584,
+    "level": "under 13"
+  },
+  {
+    "address": "0x74A4Db35E431a6f8371C0Fbabe1dD029cB762Bc8",
+    "rank": 66487,
+    "presentase": 66.487,
+    "point": 189016,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7152Cd3891d5B80CA162BBb807e2d4310c084207",
+    "rank": 66845,
+    "presentase": 66.845,
+    "point": 188231,
+    "level": "under 13"
+  },
+  {
+    "address": "0x73A1d547A12a03fB5aE816bf4a8E6D90d4C02D2A",
+    "rank": 67250,
+    "presentase": 67.25,
+    "point": 187349,
+    "level": "under 13"
+  },
+  {
+    "address": "0xc60188ebfCbfC4F0771aD9c2Ebc02ED5C58F1aed",
+    "rank": 67728,
+    "presentase": 67.728,
+    "point": 186368,
+    "level": "under 13"
+  },
+  {
+    "address": "0xf605eEE0Ec810eA5084f9E6B6E3994F1293F2540",
+    "rank": 81165,
+    "presentase": 81.165,
+    "point": 172940,
+    "level": "under 13"
+  },
+  {
+    "address": "0xFAc906b02E9E1F54C5B9F891db5E8fE428889448",
+    "rank": 82596,
+    "presentase": 82.596,
+    "point": 171878,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7494Acaf0a5957281Bbf6D6ae4F97e3FAfce8F92",
+    "rank": 89009,
+    "presentase": 89.009,
+    "point": 166288,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8337478ae2e798230624DCB3BEC342fddc6248a0",
+    "rank": 90112,
+    "presentase": 90.112,
+    "point": 165400,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8cd11D507dEfb717a596E381BE860ED1331Eb516",
+    "rank": 90205,
+    "presentase": 90.205,
+    "point": 165284,
+    "level": "under 13"
+  },
+  {
+    "address": "0xc85628409Af9001f3e70A73516b7A5cd163D8185",
+    "rank": 92041,
+    "presentase": 92.041,
+    "point": 163740,
+    "level": "under 13"
+  },
+  {
+    "address": "0x55792e1F0a41D3af8B6d41DFdcf24651AA80fA1e",
+    "rank": 92860,
+    "presentase": 92.86,
+    "point": 163117,
+    "level": "under 13"
+  },
+  {
+    "address": "0xDACfcDcbB44692D8223003a42f2832bad1B00359",
+    "rank": 99795,
+    "presentase": 99.795,
+    "point": 157792,
+    "level": "under 13"
+  },
+  {
+    "address": "0x054Becf10c79aFa4e60F75B187837bE9Fb83867D",
+    "rank": 100288,
+    "presentase": 100.288,
+    "point": 157378,
+    "level": "under 13"
+  },
+  {
+    "address": "0x3913eCc1C8e2A97a34F51efBcCAab5848081cdCd",
+    "rank": 103862,
+    "presentase": 103.862,
+    "point": 154044,
+    "level": "under 13"
+  },
+  {
+    "address": "0x6dDcBC9544954dd52B28e83Bb3Ec1c02d5787146",
+    "rank": 104932,
+    "presentase": 104.932,
+    "point": 153073,
+    "level": "under 13"
+  },
+  {
+    "address": "0x0a4896a6Abb9E603FDA98AC35e3bC34297a2F964",
+    "rank": 106362,
+    "presentase": 106.362,
+    "point": 151702,
+    "level": "under 13"
+  },
+  {
+    "address": "0xfBd035252548D095E2184507A8C4Ef8fde37EBcf",
+    "rank": 114411,
+    "presentase": 114.411,
+    "point": 143979,
+    "level": "under 13"
+  },
+  {
+    "address": "0x3B27515853608532599DE505F4E79b0EbB5e4B56",
+    "rank": 117255,
+    "presentase": 117.255,
+    "point": 141066,
+    "level": "under 13"
+  },
+  {
+    "address": "0xB1AC9296dDB5c563EE86E4128CDb39F4bf645275",
+    "rank": 119219,
+    "presentase": 119.219,
+    "point": 138995,
+    "level": "under 13"
+  },
+  {
+    "address": "0x74799311F1BDd1dB053440D91aed281726b76797",
+    "rank": 119601,
+    "presentase": 119.601,
+    "point": 138573,
+    "level": "under 13"
+  },
+  {
+    "address": "0x946c8b755e0F448a09172a7e985E96935954a221",
+    "rank": 119736,
+    "presentase": 119.736,
+    "point": 138417,
+    "level": "under 13"
+  },
+  {
+    "address": "0x587080976e19355A4a57FE306cFE7688573ba8Ec",
+    "rank": 119757,
+    "presentase": 119.757,
+    "point": 138398,
+    "level": "under 13"
+  },
+  {
+    "address": "0xaCB51D5383371D31B47Ee111f13553e8580B5842",
+    "rank": 127541,
+    "presentase": 127.541,
+    "point": 129742,
+    "level": "under 13"
+  },
+  {
+    "address": "0x149569A5E5eFF2e7a39EF384bC62Fb932cC053fD",
+    "rank": 128402,
+    "presentase": 128.402,
+    "point": 128712,
+    "level": "under 13"
+  },
+  {
+    "address": "0x61AF296eF49ac27C25521DD793156837cdFAa472",
+    "rank": 129879,
+    "presentase": 129.879,
+    "point": 127099,
+    "level": "under 13"
+  },
+  {
+    "address": "0x9538d52C3682F807f3cD27E1573BcEFA8A0D0884",
+    "rank": 131099,
+    "presentase": 131.099,
+    "point": 125723,
+    "level": "under 13"
+  },
+  {
+    "address": "0x6F69F79cEA418024b9E0acfD18bD8DE26f9BBE39",
+    "rank": 131842,
+    "presentase": 131.842,
+    "point": 124956,
+    "level": "under 13"
+  },
+  {
+    "address": "0x6aD23fA82Bc63b680F06823E36605Dfe9D828FA6",
+    "rank": 136828,
+    "presentase": 136.828,
+    "point": 120359,
+    "level": "under 13"
+  },
+  {
+    "address": "0x924D809a508326a204e158E8568ff0F57b115401",
+    "rank": 137524,
+    "presentase": 137.524,
+    "point": 119769,
+    "level": "under 13"
+  },
+  {
+    "address": "0x46c940aC083b5637b9a27Efa6EC81Fa7485300c7",
+    "rank": 141284,
+    "presentase": 141.284,
+    "point": 116644,
+    "level": "under 13"
+  },
+  {
+    "address": "0x68599057D850C6f99B05fE3B2fb6F4900e9596EB",
+    "rank": 142103,
+    "presentase": 142.103,
+    "point": 116018,
+    "level": "under 13"
+  },
+  {
+    "address": "0xc901a6ee755047F254Cfb2cb0779dEd5395E348d",
+    "rank": 142493,
+    "presentase": 142.493,
+    "point": 115650,
+    "level": "under 13"
+  },
+  {
+    "address": "0xbb3Fa251c16f9d7BB03aD3896547A93391C6F1CF",
+    "rank": 142524,
+    "presentase": 142.524,
+    "point": 115634,
+    "level": "under 13"
+  },
+  {
+    "address": "0xB413f9647FcDd43bF272aDa2512262D217502396",
+    "rank": 142577,
+    "presentase": 142.577,
+    "point": 115606,
+    "level": "under 13"
+  },
+  {
+    "address": "0x43Cb33e6F2baDa9d359e31d42b7dA5eE848100a9",
+    "rank": 143402,
+    "presentase": 143.402,
+    "point": 114877,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1a196188342bD1523FE23d41DEfc459C09190559",
+    "rank": 143731,
+    "presentase": 143.731,
+    "point": 114580,
+    "level": "under 13"
+  },
+  {
+    "address": "0xAd9518B0360F417Cd60C172FFA5d7B9A1d6d1ebc",
+    "rank": 144036,
+    "presentase": 144.036,
+    "point": 114297,
+    "level": "under 13"
+  },
+  {
+    "address": "0x6C02C390Ed91d717e1D1dA61e85559f3B6251997",
+    "rank": 144719,
+    "presentase": 144.719,
+    "point": 113701,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8f364fBE6cE4431a5169F78014FfDBD08957421f",
+    "rank": 145381,
+    "presentase": 145.381,
+    "point": 113162,
+    "level": "under 13"
+  },
+  {
+    "address": "0x28D81c0660d627083E430497f299edff5CFabe76",
+    "rank": 146002,
+    "presentase": 146.002,
+    "point": 112643,
+    "level": "under 13"
+  },
+  {
+    "address": "0x98b7F918738bE89D2B91cec0d6Ed695888aaB458",
+    "rank": 147303,
+    "presentase": 147.303,
+    "point": 111506,
+    "level": "under 13"
+  },
+  {
+    "address": "0x64be8D7B2B598cd2Bb09275bC943C3f663e23fb7",
+    "rank": 147768,
+    "presentase": 147.768,
+    "point": 111014,
+    "level": "under 13"
+  },
+  {
+    "address": "0x2fA14DAAD079c26Cd5293D6bb3dE90ef2c637b2A",
+    "rank": 148027,
+    "presentase": 148.027,
+    "point": 110705,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1a84333ad6371F1DAC13dcf5477dcccE771C7655",
+    "rank": 148154,
+    "presentase": 148.154,
+    "point": 110610,
+    "level": "under 13"
+  },
+  {
+    "address": "0x407E138a1c800c469e207b811A2964A3F5cf8853",
+    "rank": 148456,
+    "presentase": 148.456,
+    "point": 110211,
+    "level": "under 13"
+  },
+  {
+    "address": "0xb412262D43118a498e7A884b5Ac0Fa4bfAf8DaAA",
+    "rank": 148471,
+    "presentase": 148.471,
+    "point": 110184,
+    "level": "under 13"
+  },
+  {
+    "address": "0x2F01FF5975700cecF113D9bAFCa3f2409BFf4d24",
+    "rank": 150516,
+    "presentase": 150.516,
+    "point": 107566,
+    "level": "under 13"
+  },
+  {
+    "address": "0x07B4cfa4e6d65F7A689390951a4fEA8A6583de92",
+    "rank": 152312,
+    "presentase": 152.312,
+    "point": 105234,
+    "level": "under 13"
+  },
+  {
+    "address": "0x4591c0D02Cb8b7c70a697e5E9D3df2fDB4316961",
+    "rank": 152373,
+    "presentase": 152.373,
+    "point": 105150,
+    "level": "under 13"
+  },
+  {
+    "address": "0xad80aE3a70189EF34bcD8CfF931974477d16fb6E",
+    "rank": 153045,
+    "presentase": 153.045,
+    "point": 104142,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8460a627DF77a77DEed5D8d075bd94A603B8B439",
+    "rank": 156114,
+    "presentase": 156.114,
+    "point": 98990,
+    "level": "under 13"
+  },
+  {
+    "address": "0xD3Bd3A596CeEE552D4e81fa9B6Eb2eAF090d03B7",
+    "rank": 158003,
+    "presentase": 158.003,
+    "point": 94912,
+    "level": "under 13"
+  },
+  {
+    "address": "0xa7F343a7C53f3A852a7Ae51F5E62b4D9b0594336",
+    "rank": 158062,
+    "presentase": 158.062,
+    "point": 94853,
+    "level": "under 13"
+  },
+  {
+    "address": "0xAD091229354420FCe427cf84de20884db20082d4",
+    "rank": 161910,
+    "presentase": 161.91,
+    "point": 84333,
+    "level": "under 13"
+  },
+  {
+    "address": "0x450ebF70eC0e633350C034888eEcbFc8e4cc55FB",
+    "rank": 162421,
+    "presentase": 162.421,
+    "point": 82024,
+    "level": "under 13"
+  },
+  {
+    "address": "0xa7A7a115a827FDEAbb6c0729409d068bD82401FF",
+    "rank": 164016,
+    "presentase": 164.016,
+    "point": 76741,
+    "level": "under 13"
+  },
+  {
+    "address": "0xF6877F71b65Cd9f16210bF869A7358373Ab306fb",
+    "rank": 173578,
+    "presentase": 173.578,
+    "point": 59345,
+    "level": "under 13"
+  },
+  {
+    "address": "0x296E0C21DB4061EbF971e55d5db85011E7Ff9797",
+    "rank": 174581,
+    "presentase": 174.581,
+    "point": 57178,
+    "level": "under 13"
+  },
+  {
+    "address": "0xD777EdfFaf1eb956159419F087b6666B09bE2bAC",
+    "rank": 175182,
+    "presentase": 175.182,
+    "point": 56022,
+    "level": "under 13"
+  },
+  {
+    "address": "0x84924bfFabFC9601D22bAEe4cF4911b40AD41664",
+    "rank": 181120,
+    "presentase": 181.12,
+    "point": 44415,
+    "level": "under 13"
+  },
+  {
+    "address": "0x0F0cB548a8332DBbBCdA615A4c0e9a12310FE42b",
+    "rank": 182889,
+    "presentase": 182.889,
+    "point": 42090,
+    "level": "under 13"
+  },
+  {
+    "address": "0x017B837c1bAfB57Fad9db61515026393d5a3Eef9",
+    "rank": 184463,
+    "presentase": 184.463,
+    "point": 38968,
+    "level": "under 13"
+  },
+  {
+    "address": "0xdA65d415cC9d5dDC2a08Bdffc996750755fc3CF0",
+    "rank": 185749,
+    "presentase": 185.749,
+    "point": 36397,
+    "level": "under 13"
+  },
+  {
+    "address": "0x955d73eD63db714829CAFe740123D035854f8ff0",
+    "rank": 187179,
+    "presentase": 187.179,
+    "point": 34100,
+    "level": "under 13"
+  },
+  {
+    "address": "0x959F5C4Fa5b60Fe1Aa99C1C060657d8abBF9C3Bc",
+    "rank": 188539,
+    "presentase": 188.539,
+    "point": 32516,
+    "level": "under 13"
+  },
+  {
+    "address": "0x51D0A5CBe5666ad3EEe303f0d16FcDe9C5Cd3009",
+    "rank": 189574,
+    "presentase": 189.574,
+    "point": 30903,
+    "level": "under 13"
+  },
+  {
+    "address": "0xAEa29c04E32EBCE118ea8cee975a3317190cCCdd",
+    "rank": 191493,
+    "presentase": 191.493,
+    "point": 28382,
+    "level": "under 13"
+  },
+  {
+    "address": "0x72c07C4980bFa0995942d375d9092F1f6876ba00",
+    "rank": 192457,
+    "presentase": 192.457,
+    "point": 27057,
+    "level": "under 13"
+  },
+  {
+    "address": "0xdEe983c30A123f1798437Ead4587dd87Cb96DcdA",
+    "rank": 193414,
+    "presentase": 193.414,
+    "point": 26127,
+    "level": "under 13"
+  },
+  {
+    "address": "0xd37f5756D70d826d47DfF516B1021Cc52BeA66B5",
+    "rank": 196790,
+    "presentase": 196.79,
+    "point": 23090,
+    "level": "under 13"
+  },
+  {
+    "address": "0x85132DeACE772ec40b2326Da69cCe771853Cc2F8",
+    "rank": 204197,
+    "presentase": 204.197,
+    "point": 17591,
+    "level": "under 13"
+  },
+  {
+    "address": "0x82b4037eB07B81136B0acf8Dd72866C58a60A893",
+    "rank": 204518,
+    "presentase": 204.518,
+    "point": 17388,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1a18C8C8645DDdA98B8Dc26D6Ac8FC80EdeAD041",
+    "rank": 205535,
+    "presentase": 205.535,
+    "point": 16591,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1951164a1cc60BbBe5996922997255A56761CA14",
+    "rank": 205631,
+    "presentase": 205.631,
+    "point": 16498,
+    "level": "under 13"
+  },
+  {
+    "address": "0x24897A16C70da3E438083545eFb795aF49AB1f53",
+    "rank": 206057,
+    "presentase": 206.057,
+    "point": 16222,
+    "level": "under 13"
+  },
+  {
+    "address": "0x86727defBEd7bCFb2F93bAb3d8aD23624e2B0F22",
+    "rank": 206426,
+    "presentase": 206.426,
+    "point": 15946,
+    "level": "under 13"
+  },
+  {
+    "address": "0x38DE4B9714640d7d86160F4bfd45d9e796C0FE49",
+    "rank": 208162,
+    "presentase": 208.162,
+    "point": 14683,
+    "level": "under 13"
+  },
+  {
+    "address": "0x85893Cc28F86C3138e1e3F888B16466E8acCaFC6",
+    "rank": 209134,
+    "presentase": 209.134,
+    "point": 14001,
+    "level": "under 13"
+  },
+  {
+    "address": "0x81abBCCCF44B3102C0cD8159C1AB8B295849Df23",
+    "rank": 209807,
+    "presentase": 209.807,
+    "point": 13569,
+    "level": "under 13"
+  },
+  {
+    "address": "0x563153823D702516F92fc24edD9358D6973f60F9",
+    "rank": 210102,
+    "presentase": 210.102,
+    "point": 13387,
+    "level": "under 13"
+  },
+  {
+    "address": "0xa9B1a760b56df3C18A93D596F7851D0d7144C866",
+    "rank": 210351,
+    "presentase": 210.351,
+    "point": 13184,
+    "level": "under 13"
+  },
+  {
+    "address": "0x9BD48e08E3444B30113812acd52458b35C33803A",
+    "rank": 211342,
+    "presentase": 211.342,
+    "point": 12524,
+    "level": "under 13"
+  },
+  {
+    "address": "0x6b23333bc26215e88a87489e1021e9f62F5399d1",
+    "rank": 211549,
+    "presentase": 211.549,
+    "point": 12395,
+    "level": "under 13"
+  },
+  {
+    "address": "0x73A5e302aB43D6F9a444c30b23286f0751A261F7",
+    "rank": 211926,
+    "presentase": 211.926,
+    "point": 12251,
+    "level": "under 13"
+  },
+  {
+    "address": "0x862d3E1185754F98d64912c129F380209E4b14D6",
+    "rank": 213191,
+    "presentase": 213.191,
+    "point": 11565,
+    "level": "under 13"
+  },
+  {
+    "address": "0xBea1771efeD9D4a80D6cE19Aedb70e56Dd739B49",
+    "rank": 213465,
+    "presentase": 213.465,
+    "point": 11399,
+    "level": "under 13"
+  },
+  {
+    "address": "0x4e7a933B61999DCC712e056cF94595591958eda6",
+    "rank": 241149,
+    "presentase": 241.149,
+    "point": 7280,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8FC58267E4b4a4f93e3BE17934db63337676b01d",
+    "rank": 246284,
+    "presentase": 246.284,
+    "point": 7054,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8A1572d4edD4D28dBe9B0dFA22641Dd26Bb60B96",
+    "rank": 247142,
+    "presentase": 247.142,
+    "point": 6775,
+    "level": "under 13"
+  },
+  {
+    "address": "0x22130d5f49a19946870541eE133F1b0268Fe289c",
+    "rank": 251369,
+    "presentase": 251.369,
+    "point": 6689,
+    "level": "under 13"
+  },
+  {
+    "address": "0x6c50686cb8024C23F76d723b533110580DC629eE",
+    "rank": 256492,
+    "presentase": 256.492,
+    "point": 6124,
+    "level": "under 13"
+  },
+  {
+    "address": "0x94365edc741d589320602ce66677B5ddB64d3687",
+    "rank": 263221,
+    "presentase": 263.221,
+    "point": 5419,
+    "level": "under 13"
+  },
+  {
+    "address": "0xd778651EAf49AFb2dD334CC157eeD34d357b8733",
+    "rank": 264598,
+    "presentase": 264.598,
+    "point": 5139,
+    "level": "under 13"
+  },
+  {
+    "address": "0x68D1BaC05bf08E8c6db979f4b6024cBcB188DE93",
+    "rank": 265163,
+    "presentase": 265.163,
+    "point": 5042,
+    "level": "under 13"
+  },
+  {
+    "address": "0x3ede3dD0b09Ea347aa120B9813B0730Dd11e8dFB",
+    "rank": 276110,
+    "presentase": 276.11,
+    "point": 4490,
+    "level": "under 13"
+  },
+  {
+    "address": "0x5e11534344B8C1fDa947B37Dc57B8734232a6B1C",
+    "rank": 294765,
+    "presentase": 294.765,
+    "point": 4037,
+    "level": "under 13"
+  },
+  {
+    "address": "0x4B2F6D3A23bADb60c8405d50289eF3daB9109936",
+    "rank": 295088,
+    "presentase": 295.088,
+    "point": 3998,
+    "level": "under 13"
+  },
+  {
+    "address": "0x6beEF2B2fE00FDDCa12A8CDA2D4B00435b0ba3b6",
+    "rank": 304338,
+    "presentase": 304.338,
+    "point": 3849,
+    "level": "under 13"
+  },
+  {
+    "address": "0x2c79aC9f76c3310B59D4C5E3FD214a73AEC68553",
+    "rank": 304339,
+    "presentase": 304.339,
+    "point": 3849,
+    "level": "under 13"
+  },
+  {
+    "address": "0x97a9552af7eC74ab719C932E40d7194340C83900",
+    "rank": 321094,
+    "presentase": 321.094,
+    "point": 3283,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7a3e92078919273318e3396c92E477E7373fef79",
+    "rank": 327583,
+    "presentase": 327.583,
+    "point": 2948,
+    "level": "under 13"
+  },
+  {
+    "address": "0xb180A132d8c64c88501F2946AE93b311052e067e",
+    "rank": 328345,
+    "presentase": 328.345,
+    "point": 2911,
+    "level": "under 13"
+  },
+  {
+    "address": "0xd861bC853dDFFCF938cA385caeae4131b16B103a",
+    "rank": 330673,
+    "presentase": 330.673,
+    "point": 2805,
+    "level": "under 13"
+  },
+  {
+    "address": "0x0c4E0544F0eCfdF4387B45E44d2F45d26aE65D02",
+    "rank": 339663,
+    "presentase": 339.663,
+    "point": 2735,
+    "level": "under 13"
+  },
+  {
+    "address": "0x34c3Dc8aFfba68D772a42D794eAe085060f35E04",
+    "rank": 343562,
+    "presentase": 343.562,
+    "point": 2536,
+    "level": "under 13"
+  },
+  {
+    "address": "0x481b1E34fc679b94E78571dE1369D8EBE4bacDBF",
+    "rank": 347669,
+    "presentase": 347.669,
+    "point": 2356,
+    "level": "under 13"
+  },
+  {
+    "address": "0xbB05E34C2315DfFb3a2e5EA345C489d3e190eb32",
+    "rank": 367289,
+    "presentase": 367.289,
+    "point": 2222,
+    "level": "under 13"
+  },
+  {
+    "address": "0x381B0A70687c60bffeEa61d2FE1B9B340C506F71",
+    "rank": 367369,
+    "presentase": 367.369,
+    "point": 2218,
+    "level": "under 13"
+  },
+  {
+    "address": "0x73254cC8f2fe472ef81B53A92dEd4293F63D5AB4",
+    "rank": 367842,
+    "presentase": 367.842,
+    "point": 2203,
+    "level": "under 13"
+  },
+  {
+    "address": "0x57e29fd91a1fab03942ac1389d9b0ca16fb8026C",
+    "rank": 371774,
+    "presentase": 371.774,
+    "point": 2009,
+    "level": "under 13"
+  },
+  {
+    "address": "0xCD7f6b72049C3b54416f9F26392cB271e74ca3FD",
+    "rank": 374490,
+    "presentase": 374.49,
+    "point": 1916,
+    "level": "under 13"
+  },
+  {
+    "address": "0x63a27217100a2c1c9df370Dbf65E97fE2795344B",
+    "rank": 382301,
+    "presentase": 382.301,
+    "point": 1741,
+    "level": "under 13"
+  },
+  {
+    "address": "0x99F11237a5CAeb22C44dB6063f18c9BBF370291E",
+    "rank": 382561,
+    "presentase": 382.561,
+    "point": 1734,
+    "level": "under 13"
+  },
+  {
+    "address": "0xB67a420656e338f1854926649ff74BBA6254700E",
+    "rank": 383906,
+    "presentase": 383.906,
+    "point": 1702,
+    "level": "under 13"
+  },
+  {
+    "address": "0x3C75b7d9C82924E668368f512309FBfA4f1d7480",
+    "rank": 432746,
+    "presentase": 432.746,
+    "point": 1675,
+    "level": "under 13"
+  },
+  {
+    "address": "0xc6cfeDaAA225Bb433E00d762FE898707a3c077aD",
+    "rank": 433066,
+    "presentase": 433.066,
+    "point": 1663,
+    "level": "under 13"
+  },
+  {
+    "address": "0xfEBded7dF0b739564Dcb218B4e673f0918528B8d",
+    "rank": 433067,
+    "presentase": 433.067,
+    "point": 1663,
+    "level": "under 13"
+  },
+  {
+    "address": "0x049808d5EAA90a2665b9703d2246DDed34F1EB73",
+    "rank": 433142,
+    "presentase": 433.142,
+    "point": 1662,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7d7337FcDefe5771e3280f25c3Ba670700E8560c",
+    "rank": 433174,
+    "presentase": 433.174,
+    "point": 1661,
+    "level": "under 13"
+  },
+  {
+    "address": "0x01fd2245a54411819011550B1c8799814aa2cc0B",
+    "rank": 433467,
+    "presentase": 433.467,
+    "point": 1653,
+    "level": "under 13"
+  },
+  {
+    "address": "0x2179A901c2Fa2f3ebA7C9D7aEE63807384c7B36c",
+    "rank": 433881,
+    "presentase": 433.881,
+    "point": 1643,
+    "level": "under 13"
+  },
+  {
+    "address": "0x38016c4Dadd92c0C74B5EcE7A9B4AB859777B81A",
+    "rank": 433882,
+    "presentase": 433.882,
+    "point": 1643,
+    "level": "under 13"
+  },
+  {
+    "address": "0x0f8D1999000Fb5093008344B2D73407c9fB71337",
+    "rank": 433883,
+    "presentase": 433.883,
+    "point": 1643,
+    "level": "under 13"
+  },
+  {
+    "address": "0x90b285C1BbdDb36fbfc363773D6689975CCCDBFC",
+    "rank": 434270,
+    "presentase": 434.27,
+    "point": 1628,
+    "level": "under 13"
+  },
+  {
+    "address": "0x520c7792f2343c7A5c9F230bD39C565918Fcf215",
+    "rank": 434846,
+    "presentase": 434.846,
+    "point": 1578,
+    "level": "under 13"
+  },
+  {
+    "address": "0x26a79FEacb76f2dCC8305C24Cd007a47b48Fb875",
+    "rank": 435797,
+    "presentase": 435.797,
+    "point": 1516,
+    "level": "under 13"
+  },
+  {
+    "address": "0xCD922764C55c4156C9e03e815AedC35dC263700f",
+    "rank": 436743,
+    "presentase": 436.743,
+    "point": 1455,
+    "level": "under 13"
+  },
+  {
+    "address": "0x40A522034b38d5F46069981433E9b673114EB57F",
+    "rank": 436777,
+    "presentase": 436.777,
+    "point": 1451,
+    "level": "under 13"
+  },
+  {
+    "address": "0x97cb91642902ef48709bEcA1236813495FceEB71",
+    "rank": 436870,
+    "presentase": 436.87,
+    "point": 1449,
+    "level": "under 13"
+  },
+  {
+    "address": "0x00700406274a017375C465D27F24CCBD51eA3A53",
+    "rank": 437199,
+    "presentase": 437.199,
+    "point": 1445,
+    "level": "under 13"
+  },
+  {
+    "address": "0xCBC3A31a951F4c91D3B5792c2Adc57641cFf633c",
+    "rank": 437200,
+    "presentase": 437.2,
+    "point": 1445,
+    "level": "under 13"
+  },
+  {
+    "address": "0xCf1ed754F6853b0840b8575c174dbdCd51909D0a",
+    "rank": 437201,
+    "presentase": 437.201,
+    "point": 1445,
+    "level": "under 13"
+  },
+  {
+    "address": "0x9D5dC516331Dee44d16a0EDcE1A8206937163D2B",
+    "rank": 437202,
+    "presentase": 437.202,
+    "point": 1445,
+    "level": "under 13"
+  },
+  {
+    "address": "0x801D678688C0B5A3eCAa4b06bE2b56ff57E309A6",
+    "rank": 437203,
+    "presentase": 437.203,
+    "point": 1445,
+    "level": "under 13"
+  },
+  {
+    "address": "0xD990618a8bB5a80AB37247f8615e393FA23648f4",
+    "rank": 437204,
+    "presentase": 437.204,
+    "point": 1445,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1672Bc8d5E342048A4B3cd2a5038069414Fa95b3",
+    "rank": 437205,
+    "presentase": 437.205,
+    "point": 1445,
+    "level": "under 13"
+  },
+  {
+    "address": "0x86Baf5f5Ee5696BCc71aBb93751d6e3D46Ea47f4",
+    "rank": 437206,
+    "presentase": 437.206,
+    "point": 1445,
+    "level": "under 13"
+  },
+  {
+    "address": "0xaF28D9A215884b5E0F7c68709877FC205E335BD9",
+    "rank": 437207,
+    "presentase": 437.207,
+    "point": 1445,
+    "level": "under 13"
+  },
+  {
+    "address": "0x3f71EaccdFdFbEa79c3f357dfb0Db53aaAE3f712",
+    "rank": 437208,
+    "presentase": 437.208,
+    "point": 1445,
+    "level": "under 13"
+  },
+  {
+    "address": "0x627AE166a9491a2D6327db8058065ff7aaF25a1E",
+    "rank": 437882,
+    "presentase": 437.882,
+    "point": 1427,
+    "level": "under 13"
+  },
+  {
+    "address": "0xb07c3607eA7e0bc8f591331D19Cf08804c7b82Df",
+    "rank": 441217,
+    "presentase": 441.217,
+    "point": 1336,
+    "level": "under 13"
+  },
+  {
+    "address": "0x072F145971fa65217ABF340A201b795Bf99Fa665",
+    "rank": 441218,
+    "presentase": 441.218,
+    "point": 1336,
+    "level": "under 13"
+  },
+  {
+    "address": "0x6F0BF88779e02959Fc80d1e73A80DC832EEC4688",
+    "rank": 441219,
+    "presentase": 441.219,
+    "point": 1336,
+    "level": "under 13"
+  },
+  {
+    "address": "0xc64550ef5f1781e8c497a548e53b44589603E78D",
+    "rank": 441220,
+    "presentase": 441.22,
+    "point": 1336,
+    "level": "under 13"
+  },
+  {
+    "address": "0xe90286618AB09067354139f478eFc0FC874da50e",
+    "rank": 441221,
+    "presentase": 441.221,
+    "point": 1336,
+    "level": "under 13"
+  },
+  {
+    "address": "0x48985340229bfCFab86b0C5De1F5Eed91cc551A1",
+    "rank": 441222,
+    "presentase": 441.222,
+    "point": 1336,
+    "level": "under 13"
+  },
+  {
+    "address": "0xd7D26c106285ACA2419F4f9CCFdafa3C765C1c2d",
+    "rank": 441223,
+    "presentase": 441.223,
+    "point": 1336,
+    "level": "under 13"
+  },
+  {
+    "address": "0xEA2d1fF3e5F524B080cc609226b019F091113554",
+    "rank": 441224,
+    "presentase": 441.224,
+    "point": 1336,
+    "level": "under 13"
+  },
+  {
+    "address": "0xB6acA8CAa4147ad88FCD05f5F15A2083e192C4ab",
+    "rank": 441226,
+    "presentase": 441.226,
+    "point": 1336,
+    "level": "under 13"
+  },
+  {
+    "address": "0x6905435fa2e1cB31972bb0F0bFF16F5744A91876",
+    "rank": 441280,
+    "presentase": 441.28,
+    "point": 1336,
+    "level": "under 13"
+  },
+  {
+    "address": "0x2c3e1F5E6D4F9072216991b2A684DF1ee93033cE",
+    "rank": 443303,
+    "presentase": 443.303,
+    "point": 1290,
+    "level": "under 13"
+  },
+  {
+    "address": "0x74fa7F91Ea3B290Ca00B049F0D048a816B3443cC",
+    "rank": 446623,
+    "presentase": 446.623,
+    "point": 1233,
+    "level": "under 13"
+  },
+  {
+    "address": "0xd9fd327dF84bb551E3f359F23C405e7f79CC4c34",
+    "rank": 447119,
+    "presentase": 447.119,
+    "point": 1230,
+    "level": "under 13"
+  },
+  {
+    "address": "0x4a0834a733638fEf294Ea2bb241d3888cF715cfc",
+    "rank": 447120,
+    "presentase": 447.12,
+    "point": 1230,
+    "level": "under 13"
+  },
+  {
+    "address": "0x27fd40568660De78E7E5Eda2ff7c55FF689b9c3e",
+    "rank": 447646,
+    "presentase": 447.646,
+    "point": 1228,
+    "level": "under 13"
+  },
+  {
+    "address": "0x478eDd1F3bd4559B407B8528e1D2166e9627A891",
+    "rank": 447869,
+    "presentase": 447.869,
+    "point": 1228,
+    "level": "under 13"
+  },
+  {
+    "address": "0xA6B6f3f5A880F09aC536af2DFF08D93534ff7930",
+    "rank": 447870,
+    "presentase": 447.87,
+    "point": 1228,
+    "level": "under 13"
+  },
+  {
+    "address": "0x60b4dFD79162664307c5CF697e649513D6428cd2",
+    "rank": 454600,
+    "presentase": 454.6,
+    "point": 1152,
+    "level": "under 13"
+  },
+  {
+    "address": "0xD202a56c5e7ba279431e43d945C5Cc6F68D083b7",
+    "rank": 460212,
+    "presentase": 460.212,
+    "point": 1125,
+    "level": "under 13"
+  },
+  {
+    "address": "0x41AfDc422831dCCC8505762c75E69da983B83F92",
+    "rank": 593238,
+    "presentase": 593.238,
+    "point": 1108,
+    "level": "under 13"
+  },
+  {
+    "address": "0xC3F8E3b3808d2e33b06abFB8731b88948E1f2b8b",
+    "rank": 593449,
+    "presentase": 593.449,
+    "point": 1102,
+    "level": "under 13"
+  },
+  {
+    "address": "0xdb27D37572eA22A7c2b82D15101d6CABdb0b6F74",
+    "rank": 593504,
+    "presentase": 593.504,
+    "point": 1101,
+    "level": "under 13"
+  },
+  {
+    "address": "0x4888E5Fb2968Ee0F3505C99743Aa554D0c1f9f60",
+    "rank": 593929,
+    "presentase": 593.929,
+    "point": 1091,
+    "level": "under 13"
+  },
+  {
+    "address": "0x5bc0cc50AA58A851A7f5eCFB32f0d9cd495CFbf6",
+    "rank": 594606,
+    "presentase": 594.606,
+    "point": 1069,
+    "level": "under 13"
+  },
+  {
+    "address": "0x507B96026abF97845b68b605ED82BAc8FaFb23ff",
+    "rank": 594628,
+    "presentase": 594.628,
+    "point": 1069,
+    "level": "under 13"
+  },
+  {
+    "address": "0x009B64175634D39B1FE81f97270f516544F04307",
+    "rank": 594888,
+    "presentase": 594.888,
+    "point": 1052,
+    "level": "under 13"
+  },
+  {
+    "address": "0x5730Dad2a5F35683Ce208ba923631D3a99AC9720",
+    "rank": 599249,
+    "presentase": 599.249,
+    "point": 891,
+    "level": "under 13"
+  },
+  {
+    "address": "0x0a40f6C90a04afF08C5dE786C91d53bC518c254C",
+    "rank": 602032,
+    "presentase": 602.032,
+    "point": 780,
+    "level": "under 13"
+  },
+  {
+    "address": "0xD62B71294BC545606c09dA4D070785E9e135269B",
+    "rank": 602198,
+    "presentase": 602.198,
+    "point": 779,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1E56aAaD2661540bEB5dcc92b4BeDaD8975D80C0",
+    "rank": 602508,
+    "presentase": 602.508,
+    "point": 776,
+    "level": "under 13"
+  },
+  {
+    "address": "0xBF222CA2Ef5126afFe94EA72903764D52cD12642",
+    "rank": 602521,
+    "presentase": 602.521,
+    "point": 776,
+    "level": "under 13"
+  },
+  {
+    "address": "0xC77c6bf8AB14BB3C391b39AC505e2151cD4b489C",
+    "rank": 604023,
+    "presentase": 604.023,
+    "point": 729,
+    "level": "under 13"
+  },
+  {
+    "address": "0x026C9072199156739837Ef6e2cCEF2A23D554DAF",
+    "rank": 604398,
+    "presentase": 604.398,
+    "point": 722,
+    "level": "under 13"
+  },
+  {
+    "address": "0x5cA3A5c09c556a508940b9bFb08c7DaF4d8bcec1",
+    "rank": 604729,
+    "presentase": 604.729,
+    "point": 712,
+    "level": "under 13"
+  },
+  {
+    "address": "0x407EbDA1e27FE0b68636266EF2edBDB45E2ee484",
+    "rank": 606269,
+    "presentase": 606.269,
+    "point": 670,
+    "level": "under 13"
+  },
+  {
+    "address": "0xED334EC7B60C15ddbB3B1200864768eB449A1a6E",
+    "rank": 606270,
+    "presentase": 606.27,
+    "point": 670,
+    "level": "under 13"
+  },
+  {
+    "address": "0x40cf8142bCb573c3882d5723D8AB3cc6D11ED68D",
+    "rank": 606271,
+    "presentase": 606.271,
+    "point": 670,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1aeeaa375b4112f537FaFDEA5AA3BAB0e1257557",
+    "rank": 606272,
+    "presentase": 606.272,
+    "point": 670,
+    "level": "under 13"
+  },
+  {
+    "address": "0x41955ab7d12F9F6C03de972b91d9b895D9c2EaF8",
+    "rank": 606319,
+    "presentase": 606.319,
+    "point": 670,
+    "level": "under 13"
+  },
+  {
+    "address": "0x19B58151C2a9eDb6164ddF69fa96f9b106F47Df4",
+    "rank": 606544,
+    "presentase": 606.544,
+    "point": 670,
+    "level": "under 13"
+  },
+  {
+    "address": "0x3c777F983158e6AD5ef7A937508c08f8A712c251",
+    "rank": 606545,
+    "presentase": 606.545,
+    "point": 670,
+    "level": "under 13"
+  },
+  {
+    "address": "0x8e1Ec2D3b0c006D234190A212704b6E85D623efa",
+    "rank": 606546,
+    "presentase": 606.546,
+    "point": 670,
+    "level": "under 13"
+  },
+  {
+    "address": "0x593a10FC2bC453fee3adBbE989E8be43967Afde4",
+    "rank": 606630,
+    "presentase": 606.63,
+    "point": 670,
+    "level": "under 13"
+  },
+  {
+    "address": "0x26f128ca082cc1C28670000E6274f275723C8f1e",
+    "rank": 606631,
+    "presentase": 606.631,
+    "point": 670,
+    "level": "under 13"
+  },
+  {
+    "address": "0x9505E4F134548Dc577edaB5aAB870ebB8fd2ab26",
+    "rank": 606632,
+    "presentase": 606.632,
+    "point": 670,
+    "level": "under 13"
+  },
+  {
+    "address": "0x25bB6CA37385DF923Dc1998D9E944ddD9e259C98",
+    "rank": 607158,
+    "presentase": 607.158,
+    "point": 668,
+    "level": "under 13"
+  },
+  {
+    "address": "0xFaDd3C023e295FDBA31fc2b57770029318960beD",
+    "rank": 607260,
+    "presentase": 607.26,
+    "point": 668,
+    "level": "under 13"
+  },
+  {
+    "address": "0x89b0fB6eb9d83e6E50915ABa19B92fc80a58f065",
+    "rank": 608220,
+    "presentase": 608.22,
+    "point": 655,
+    "level": "under 13"
+  },
+  {
+    "address": "0x6Eee3b6b9DB311D9F1435Ae28A507a940398b75C",
+    "rank": 608355,
+    "presentase": 608.355,
+    "point": 651,
+    "level": "under 13"
+  },
+  {
+    "address": "0x59389Cb3F680fE74b801b8452C1d1Db9F6d68cD2",
+    "rank": 608485,
+    "presentase": 608.485,
+    "point": 648,
+    "level": "under 13"
+  },
+  {
+    "address": "0x43ef7D83943448f3c2dd9cc325b0A949f19A3E4B",
+    "rank": 608847,
+    "presentase": 608.847,
+    "point": 639,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7626a3cBC934FCf8Fc957788c6482E3683868254",
+    "rank": 609081,
+    "presentase": 609.081,
+    "point": 633,
+    "level": "under 13"
+  },
+  {
+    "address": "0x78d3C01365B196aC94Ec0754Ef0ee051572bBbdD",
+    "rank": 611613,
+    "presentase": 611.613,
+    "point": 593,
+    "level": "under 13"
+  },
+  {
+    "address": "0x111222965183438ac14042548e20aE48E443f2f9",
+    "rank": 612013,
+    "presentase": 612.013,
+    "point": 589,
+    "level": "under 13"
+  },
+  {
+    "address": "0x1670000000000000000000000000000000000003",
+    "rank": 612020,
+    "presentase": 612.02,
+    "point": 589,
+    "level": "under 13"
+  },
+  {
+    "address": "0x463D90025D31dA9d1FD0Eb51669EDEB2a68b0b1E",
+    "rank": 612068,
+    "presentase": 612.068,
+    "point": 588,
+    "level": "under 13"
+  },
+  {
+    "address": "0x761b3E92A753B162a7C552615700CF76b806e24c",
+    "rank": 614199,
+    "presentase": 614.199,
+    "point": 570,
+    "level": "under 13"
+  },
+  {
+    "address": "0x2019Aa6811C84c7cc4Df4Fe0f3F3914631aAe315",
+    "rank": 698539,
+    "presentase": 698.539,
+    "point": 560,
+    "level": "under 13"
+  },
+  {
+    "address": "0x0Ef7871ea3ef1952621c389598386368896ccD8B",
+    "rank": 698564,
+    "presentase": 698.564,
+    "point": 560,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7Ca6661Ae5E93aFb6C5b8434dc279BB1553c095a",
+    "rank": 700414,
+    "presentase": 700.414,
+    "point": 560,
+    "level": "under 13"
+  },
+  {
+    "address": "0x3bA9ba5b405ccFB85C7C16e929A4F81Aec65f318",
+    "rank": 700427,
+    "presentase": 700.427,
+    "point": 560,
+    "level": "under 13"
+  },
+  {
+    "address": "0x5e81c5F7fAB13D3708ABb8679cbdBF863E09409c",
+    "rank": 700672,
+    "presentase": 700.672,
+    "point": 560,
+    "level": "under 13"
+  },
+  {
+    "address": "0x18AEB8064beCa45C264342EF13355DF535F8Fa37",
+    "rank": 778230,
+    "presentase": 778.23,
+    "point": 554,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7565DEdDCB83a14B185eb9520914bB918cDfE983",
+    "rank": 778245,
+    "presentase": 778.245,
+    "point": 551,
+    "level": "under 13"
+  },
+  {
+    "address": "0xc6adE353C837ebA0CB2a85419B7aB50e59eb2A95",
+    "rank": 778248,
+    "presentase": 778.248,
+    "point": 551,
+    "level": "under 13"
+  },
+  {
+    "address": "0x7412b20a5B15948954a3de1CaEdD5806AAf9aDA7",
+    "rank": 778297,
+    "presentase": 778.297,
+    "point": 548,
+    "level": "under 13"
+  },
+  {
+    "address": "0xF5dE2DDE6a9694bA171D3760b448E89e7050DfA9",
+    "rank": 786858,
+    "presentase": 786.858,
+    "point": 110,
+    "level": "under 13"
+  },
+  {
+    "address": "0xE712D64e2d9C5280d6cB319B20654859cC06Bb9B",
+    "rank": 795048,
+    "presentase": 795.048,
+    "point": 27,
+    "level": "under 13"
+  },
+  {
+    "address": "0x94507bc0C3fa6483F84453D8DD85AA1617e0d88F",
+    "rank": 801838,
+    "presentase": 801.838,
+    "point": 0,
+    "level": "under 13"
+  }
+]
