@@ -73,7 +73,7 @@ This script allows you to easily update the `config.json` file or both the `conf
 Download the `update-pwr` script directly from GitHub and copy it to `/usr/local/bin`:
 
 ```bash
-sudo wget -O /usr/local/bin/update-pwr https://raw.githubusercontent.com/caraka15/node_network/main/update-pwr.sh
+sudo wget -O /usr/local/bin/update-pwr https://raw.githubusercontent.com/caraka15/node_network/main/pwr/update-pwr.sh
 ```
 
 ### 2. Grant Execute Permissions
