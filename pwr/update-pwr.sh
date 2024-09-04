@@ -37,7 +37,7 @@ if [ "$lang_choice" -eq 1 ]; then
 
     # Opsi 2: Update validator dan config.json
     elif [ "$choice" -eq 2 ]; then
-        old_version=$(curl -s http://localhost:8085/version)
+        old_version=$(curl -s http://localhost:8085/version/)
         ensure_backup_folder
         mv config.json validator.jar backup/
         rm -rf config.json validator.jar
@@ -46,7 +46,7 @@ if [ "$lang_choice" -eq 1 ]; then
         systemctl stop pwr
         pkill -f java
         systemctl start pwr
-        new_version=$(curl -s http://localhost:8085/version)
+        new_version=$(curl -s http://localhost:8085/version/)
         echo "validator.jar dan config.json berhasil di upgrade dari $old_version ke $new_version"
     else
         echo "Pilihan tidak valid. Silakan jalankan ulang script dan pilih opsi yang benar."
