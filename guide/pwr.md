@@ -64,17 +64,44 @@
 
 ### 5. Update Validator Node
 
-- To update the validator node to the latest version, use the following command:
+This script allows you to easily update the `config.json` file or both the `config.json` and `validator.jar` files on your Ubuntu server. You can run this script from any directory on your system using the `update-pwr` command.
 
-  ```bash
-  sudo systemctl stop pwr && \
-  sudo pkill java && \
-  cd /root/pwr && \
-  sudo rm -rf validator.jar config.json && \
-  wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/validator.jar && \
-  wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/config.json && \
-  sudo systemctl start pwr
-  ```
+## Installation Steps
+
+### 1. Download and Install the Script
+
+Download the `update-pwr` script directly from GitHub and copy it to `/usr/local/bin`:
+
+```bash
+sudo wget -O /usr/local/bin/update-pwr https://raw.githubusercontent.com/caraka15/node_network/main/pwr/update-pwr.sh
+```
+
+### 2. Grant Execute Permissions
+
+Ensure the script has execute permissions:
+
+```bash
+sudo chmod +x /usr/local/bin/update-pwr
+```
+
+## How to Use
+
+To run the update, simply type the following command from any directory:
+
+```bash
+update-pwr
+```
+
+You will be prompted to choose between updating only the `config.json` file or updating both the `validator.jar` and `config.json` files:
+
+```bash
+Choose update option:
+1. Update config.json only
+2. Update both validator and config.json
+```
+
+- Select `1` to update only the `config.json`.
+- Select `2` to update both the `validator.jar` and `config.json`.
 
 ### 6. Check Private Key
 
