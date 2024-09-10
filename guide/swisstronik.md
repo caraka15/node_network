@@ -1,6 +1,6 @@
 # Swisstronik Testnet 2.0
 
-![Swisstronik Image 2](https://github.com/caraka15/node_network/blob/main/images/swww.jpeg?raw=true)
+![Swisstronik Image 2](https://github.com/caraka15/node_network/blob/main/images/swisstronik-guide.jpg?raw=true)
 
 ## Guide Task
 
@@ -162,7 +162,7 @@
 
 ---
 
-![Swisstronik Image 1](https://github.com/caraka15/node_network/blob/main/images/sweww.jpeg?raw=true)
+![Swisstronik Image 1](https://github.com/caraka15/node_network/blob/main/images/swisstronik-participate.jpg?raw=true)
 
 ---
 
