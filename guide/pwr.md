@@ -62,18 +62,16 @@
 
 - Replace `<YourValidatorAddress>` with the address you obtained from the previous step.
 
-### 5. Update Validator Node
+### 5. Tools PWR
 
-This script allows you to easily update the `config.json` file or both the `config.json` and `validator.jar` files on your Ubuntu server. You can run this script from any directory on your system using the `update-pwr` command.
-
-## Installation Steps
+PWR Tools is an all-in-one script for managing PWR validator nodes on Ubuntu servers. Created by CRXA NODE, this tool provides essential functions such as installation, updates, port checking, address retrieval, and private key verification through an easy-to-use menu interface. Supporting both English and Indonesian, PWR Tools can be run from any directory, making it an efficient and practical utility for PWR validator node operators.
 
 ### 1. Download and Install the Script
 
 Download the `update-pwr` script directly from GitHub and copy it to `/usr/local/bin`:
 
 ```bash
-sudo wget -O /usr/local/bin/update-pwr https://raw.githubusercontent.com/caraka15/node_network/main/pwr/update-pwr.sh
+sudo wget -O /usr/local/bin/pwr https://raw.githubusercontent.com/caraka15/node_network/main/pwr/pwr.sh
 ```
 
 ### 2. Grant Execute Permissions
@@ -81,7 +79,7 @@ sudo wget -O /usr/local/bin/update-pwr https://raw.githubusercontent.com/caraka1
 Ensure the script has execute permissions:
 
 ```bash
-sudo chmod +x /usr/local/bin/update-pwr
+sudo chmod +x /usr/local/bin/pwr
 ```
 
 ## How to Use
@@ -89,19 +87,8 @@ sudo chmod +x /usr/local/bin/update-pwr
 To run the update, simply type the following command from any directory:
 
 ```bash
-update-pwr
+pwr
 ```
-
-You will be prompted to choose between updating only the `config.json` file or updating both the `validator.jar` and `config.json` files:
-
-```bash
-Choose update option:
-1. Update config.json only
-2. Update both validator and config.json
-```
-
-- Select `1` to update only the `config.json`.
-- Select `2` to update both the `validator.jar` and `config.json`.
 
 ### 6. Check Private Key
 
