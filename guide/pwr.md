@@ -21,7 +21,7 @@ PWR Tools is an all-in-one script for managing PWR validator nodes on Ubuntu ser
 
 ### 1. Download and Install the Script
 
-Download the `update-pwr` script directly from GitHub and copy it to `/usr/local/bin`:
+Download the `pwr` script directly from GitHub and copy it to `/usr/local/bin`:
 
 ```bash
 sudo wget -O /usr/local/bin/pwr https://raw.githubusercontent.com/caraka15/node_network/main/pwr/pwr.sh
