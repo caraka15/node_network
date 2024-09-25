@@ -12,59 +12,12 @@
 - **Open TCP Ports:** 8231, 8085
 - **Open UDP Port:** 7621
 
-### Setup on Ubuntu Server
 
-### 1. Download and Run the Auto-Install Script
-
-- Download and run the script directly from GitHub:
-
-  ```bash
-  curl -O https://raw.githubusercontent.com/caraka15/node_network/main/pwr/auto-install-pwr.sh
-  chmod +x auto-install-pwr.sh
-  sudo ./auto-install-pwr.sh
-  ```
-
-### 2. Check Logs
-
-- To monitor the validator node logs, use the following command:
-
-  ```bash
-  journalctl -fu pwr -o cat
-  ```
-
-- **Note:** This command shows real-time logs from the validator node service. Use it to check for errors or confirm that your node is running correctly.
-
-### 3. Check Validator Address
-
-- After running the script, it will take a minute for the validator service to start. Fetch your validator address using:
-
-  ```bash
-  curl -s http://localhost:8085/address/
-  ```
-
-- **Note:** If the address is not immediately available, wait a few minutes and rerun the curl command.
-
-- **Output Example:**
-
-  ```bash
-  Your address: 0x.....
-  ```
-
-### 4. Get Faucet PWR Coins
-
-- Once you have your validator address, go to our Discord server and navigate to the `#bot-commands` channel.
-
-- **Command:** Use the following command in the `#bot-commands` channel to request faucet PWR Coins:
-
-  ```plaintext
-  /claim <YourValidatorAddress>
-  ```
-
-- Replace `<YourValidatorAddress>` with the address you obtained from the previous step.
-
-### 5. Tools PWR
+### 1. Tools PWR
 
 PWR Tools is an all-in-one script for managing PWR validator nodes on Ubuntu servers. Created by CRXA NODE, this tool provides essential functions such as installation, updates, port checking, address retrieval, and private key verification through an easy-to-use menu interface. Supporting both English and Indonesian, PWR Tools can be run from any directory, making it an efficient and practical utility for PWR validator node operators.
+
+`this tools only working if you install node on /pwr folder and use systemctl for service`
 
 ### 1. Download and Install the Script
 
@@ -90,6 +43,18 @@ To run the update, simply type the following command from any directory:
 pwr
 ```
 ![image](https://github.com/user-attachments/assets/26317683-583a-49ae-8415-fff2101a80f2)
+
+### 2. Get Faucet PWR Coins
+
+- Once you have your validator address, go to our Discord server and navigate to the `#bot-commands` channel.
+
+- **Command:** Use the following command in the `#bot-commands` channel to request faucet PWR Coins:
+
+  ```plaintext
+  /claim <YourValidatorAddress>
+  ```
+
+- Replace `<YourValidatorAddress>` with the address you obtained from the previous step.
 
 ### 6. Check Private Key
 
