@@ -39,6 +39,21 @@ print_bold "Enter your desired password:"
 read -s PASSWORD
 echo $PASSWORD | sudo tee /root/pwr/password > /dev/null
 
+# Prompt for wallet option
+print_bold "Choose an option:"
+print_color "1. Create new wallet"
+print_color "2. Recover existing wallet"
+read -p "Enter your choice (1 or 2): " WALLET_OPTION
+
+if [ "$WALLET_OPTION" = "2" ]; then
+    print_color "Recovering existing wallet..."
+    print_bold "Enter your private key:"
+    read -s PRIVATE_KEY
+    sudo java -jar validator.jar --import-key $PRIVATE_KEY $PASSWORD
+    print_bold "Wallet recovery process completed."
+    read -p "Press Enter to continue..."
+fi
+
 # Create a systemd service file for the validator node
 print_color "Creating systemd service file..."
 sudo tee /etc/systemd/system/pwr.service <<EOF
@@ -68,8 +83,8 @@ sudo systemctl enable pwr
 sudo systemctl start pwr
 
 # Wait for the service to start and then fetch the address
-sleep 60
 print_bold "Fetching validator address..."
+sleep 60
 ADDRESS=$(curl -s http://localhost:8085/address/)
 
 # Print the address or a message if the address is not available
