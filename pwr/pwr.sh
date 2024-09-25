@@ -261,3 +261,35 @@ set_language
 check_root
 
 while true; do
+    clear
+    print_line
+    print_centered "$MENU_TITLE" $BLUE
+    print_line
+    echo "1. $MENU_INSTALL"
+    echo "2. $MENU_UPDATE"
+    echo "3. $MENU_CHECK_PORTS"
+    echo "4. $MENU_CHECK_ADDRESS"
+    echo "5. $MENU_CHECK_PRIVATE_KEY"
+    echo "6. $MENU_EXIT"
+    print_line
+    
+    [ "$LANG_CHOICE" = "id" ] && read -p "Masukkan pilihan Anda: " choice || read -p "Enter your choice: " choice
+    
+    case $choice in
+        1) install_pwr ;;
+        2) update_pwr ;;
+        3) check_ports ;;
+        4) check_address ;;
+        5) check_private_key ;;
+        6) 
+           clear
+           print_line
+           [ "$LANG_CHOICE" = "id" ] && print_centered "Terima kasih telah menggunakan PWR Tools!" $GREEN || print_centered "Thank you for using PWR Tools!" $GREEN
+           print_line
+           exit 0
+           ;;
+        *) print_color $RED "$INVALID_OPTION" ;;
+    esac
+
+    [ "$LANG_CHOICE" = "id" ] && read -p "Tekan Enter untuk kembali ke menu utama..." || read -p "Press Enter to return to the main menu..."
+done
