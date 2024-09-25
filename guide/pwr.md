@@ -89,6 +89,7 @@ To run the update, simply type the following command from any directory:
 ```bash
 pwr
 ```
+![image](https://github.com/user-attachments/assets/26317683-583a-49ae-8415-fff2101a80f2)
 
 ### 6. Check Private Key
 
