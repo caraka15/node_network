@@ -131,7 +131,7 @@ install_pwr() {
         [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Memulihkan dompet yang ada..." || print_color $GREEN "Recovering existing wallet..."
         [ "$LANG_CHOICE" = "id" ] && print_bold "Masukkan kunci pribadi Anda:" || print_bold "Enter your private key:"
         read -s PRIVATE_KEY
-        sudo java -jar validator.jar --import-key $PRIVATE_KEY $PASSWORD
+        sudo java -jar validator.jar --import-key $PRIVATE_KEY password
         [ "$LANG_CHOICE" = "id" ] && print_bold "Proses pemulihan dompet selesai." || print_bold "Wallet recovery process completed."
         [ "$LANG_CHOICE" = "id" ] && read -p "Tekan Enter untuk melanjutkan..." || read -p "Press Enter to continue..."
     fi
