@@ -83,7 +83,7 @@ run_exorde_reddit() {
   cleanup_containers
   
   log_info "Menjalankan Exorde Reddit..."
-  docker run -d --cpus="4" --memory="8g" --restart unless-stopped --pull always --name reddit exordelabs/exorde-client --main_address 0x28b8A9aC47E3E43e3A0872028476ef898055871C --only reddit
+  docker run -d --cpus="4" --memory="8g" --restart unless-stopped --pull always --name reddit exordelabs/exorde-client --main_address 0x28b8A9aC47E3E43e3A0872028476ef898055871C --only reddit,youtube,bluesky
   
   if [ $? -eq 0 ]; then
     log_success "Exorde Reddit berhasil dijalankan."
