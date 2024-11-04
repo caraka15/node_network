@@ -186,7 +186,7 @@ update_pwr() {
         ensure_backup_folder
         mv config.json backup/
         rm -rf config.json
-        wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/config.json
+        wget https://github.com/pwrlabs/PWR-Validator/raw/refs/heads/main/config.json
         systemctl stop pwr
         pkill -f java
         systemctl start pwr
@@ -225,7 +225,7 @@ update_pwr() {
             rm -rf /root/pwr/rocksdb
         fi
 
-        wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/config.json
+        wget https://github.com/pwrlabs/PWR-Validator/raw/refs/heads/main/config.json
         wget "https://github.com/pwrlabs/PWR-Validator/releases/download/${latest_version}/validator.jar"
         
         if [ $? -ne 0 ]; then
