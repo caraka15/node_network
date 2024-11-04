@@ -193,14 +193,51 @@ update_pwr() {
         [ "$LANG_CHOICE" = "id" ] && echo "Anda berhasil memperbarui config.json" || echo "You have successfully updated config.json"
     elif [ "$choice" -eq 2 ]; then
         old_version=$(curl -s http://localhost:8085/version/)
+        # Fetch the latest version from the reference node
+        latest_version=$(curl -s http://67.205.155.138:8085/version/)
+        
+        if [ -z "$latest_version" ]; then
+            [ "$LANG_CHOICE" = "id" ] && echo "Gagal mengambil versi terbaru. Silakan coba lagi nanti." || echo "Failed to fetch latest version. Please try again later."
+            return 1
+        fi
+
+        # Ask about deleting blocks directory
+        [ "$LANG_CHOICE" = "id" ] && read -p "Apakah Anda ingin menghapus blocks? (y/N): " delete_blocks || read -p "Do you want to delete blocks? (y/N): " delete_blocks
+        delete_blocks=${delete_blocks:-n}
+        
+        # Ask about deleting rocksdb directory
+        [ "$LANG_CHOICE" = "id" ] && read -p "Apakah Anda ingin menghapus rocksdb? (y/N): " delete_rocksdb || read -p "Do you want to delete rocksdb? (y/N): " delete_rocksdb
+        delete_rocksdb=${delete_rocksdb:-n}
+
         ensure_backup_folder
         mv config.json validator.jar backup/
         rm -rf config.json validator.jar
+
+        # Delete blocks if requested
+        if [[ "${delete_blocks,,}" == "y" ]]; then
+            [ "$LANG_CHOICE" = "id" ] && echo "Menghapus direktori blocks..." || echo "Deleting blocks directory..."
+            rm -rf /root/pwr/blocks
+        fi
+
+        # Delete rocksdb if requested
+        if [[ "${delete_rocksdb,,}" == "y" ]]; then
+            [ "$LANG_CHOICE" = "id" ] && echo "Menghapus direktori rocksdb..." || echo "Deleting rocksdb directory..."
+            rm -rf /root/pwr/rocksdb
+        fi
+
         wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/config.json
-        wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/validator.jar
+        wget "https://github.com/pwrlabs/PWR-Validator/releases/download/${latest_version}/validator.jar"
+        
+        if [ $? -ne 0 ]; then
+            [ "$LANG_CHOICE" = "id" ] && echo "Gagal mengunduh validator.jar. Mengembalikan file backup..." || echo "Failed to download validator.jar. Restoring backup files..."
+            cp backup/validator.jar backup/config.json .
+            return 1
+        fi
+        
         systemctl stop pwr
         pkill -f java
         systemctl start pwr
+        sleep 60
         new_version=$(curl -s http://localhost:8085/version/)
         [ "$LANG_CHOICE" = "id" ] && echo "validator.jar dan config.json berhasil diperbarui dari $old_version ke $new_version" || echo "validator.jar and config.json have been successfully upgraded from $old_version to $new_version"
     else
