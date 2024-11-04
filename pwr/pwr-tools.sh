@@ -111,9 +111,18 @@ install_pwr() {
     [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Menginstal OpenJDK 19..." || print_color $GREEN "Installing OpenJDK 19..."
     sudo apt install -y openjdk-19-jre-headless
     
-    [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Mengunduh perangkat lunak node validator..." || print_color $GREEN "Downloading validator node software..."
-    wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/validator.jar -O validator.jar
-    wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/config.json -O config.json
+    # Fetch the latest version from the reference node
+    [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Mengambil versi terbaru..." || print_color $GREEN "Fetching latest version..."
+    latest_version=$(curl -s http://67.205.155.138:8085/version/)
+    
+    if [ -z "$latest_version" ]; then
+        [ "$LANG_CHOICE" = "id" ] && print_color $RED "Gagal mengambil versi terbaru. Silakan coba lagi nanti." || print_color $RED "Failed to fetch latest version. Please try again later."
+        return 1
+    fi
+    
+    [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Mengunduh perangkat lunak node validator versi $latest_version..." || print_color $GREEN "Downloading validator node software version $latest_version..."
+    wget "https://github.com/pwrlabs/PWR-Validator/releases/download/${latest_version}/validator.jar" -O validator.jar
+    wget https://github.com/pwrlabs/PWR-Validator/raw/refs/heads/main/config.json -O config.json
     
     IP_ADDRESS=$(hostname -I | awk '{print $1}')
     [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Alamat IP terdeteksi: $IP_ADDRESS" || print_color $GREEN "Detected IP Address: $IP_ADDRESS"
@@ -237,7 +246,6 @@ update_pwr() {
         systemctl stop pwr
         pkill -f java
         systemctl start pwr
-        sleep 60
         new_version=$(curl -s http://localhost:8085/version/)
         [ "$LANG_CHOICE" = "id" ] && echo "validator.jar dan config.json berhasil diperbarui dari $old_version ke $new_version" || echo "validator.jar and config.json have been successfully upgraded from $old_version to $new_version"
     else

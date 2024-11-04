@@ -29,7 +29,7 @@ if [ "$lang_choice" -eq 1 ]; then
         ensure_backup_folder
         mv config.json backup/
         rm -rf config.json
-        wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/config.json
+        wget wget https://github.com/pwrlabs/PWR-Validator/raw/refs/heads/main/config.json
         systemctl stop pwr
         pkill -f java
         systemctl start pwr
@@ -41,7 +41,7 @@ if [ "$lang_choice" -eq 1 ]; then
         ensure_backup_folder
         mv config.json validator.jar backup/
         rm -rf config.json validator.jar
-        wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/config.json
+        wget https://github.com/pwrlabs/PWR-Validator/raw/refs/heads/main/config.json
         wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/validator.jar
         systemctl stop pwr
         pkill -f java
@@ -80,7 +80,7 @@ elif [ "$lang_choice" -eq 2 ]; then
         ensure_backup_folder
         mv config.json validator.jar backup/
         rm -rf config.json validator.jar
-        wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/config.json
+        wget wget https://github.com/pwrlabs/PWR-Validator/raw/refs/heads/main/config.json
         wget https://github.com/pwrlabs/PWR-Validator-Node/raw/main/validator.jar
         systemctl stop pwr
         pkill -f java
