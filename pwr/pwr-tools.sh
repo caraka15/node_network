@@ -279,7 +279,7 @@ check_address() {
         [ "$LANG_CHOICE" = "id" ] && print_color $RED "Alamat tidak ditemukan. Pastikan node PWR sedang berjalan." || print_color $RED "Address not found. Make sure the PWR node is running."
     else
         # Add "0x" prefix to the address
-        ADDRESS="0x$ADDRESS"
+        ADDRESS="$ADDRESS"
         [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Alamat PWR Anda: $ADDRESS" || print_color $GREEN "Your PWR address: $ADDRESS"
     fi
 }
