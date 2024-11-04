@@ -247,7 +247,7 @@ update_pwr() {
         pkill -f java
         systemctl start pwr
         new_version=$(curl -s http://localhost:8085/version/)
-        [ "$LANG_CHOICE" = "id" ] && echo "validator.jar dan config.json berhasil diperbarui dari $old_version ke $new_version" || echo "validator.jar and config.json have been successfully upgraded from $old_version to $new_version"
+        [ "$LANG_CHOICE" = "id" ] && echo "validator.jar dan config.json berhasil diperbarui dari $old_version ke $latest_version" || echo "validator.jar and config.json have been successfully upgraded from $old_version to $new_version"
     else
         [ "$LANG_CHOICE" = "id" ] && echo "Pilihan tidak valid. Silakan jalankan ulang script dan pilih opsi yang benar." || echo "Invalid choice. Please rerun the script and select a valid option."
     fi
