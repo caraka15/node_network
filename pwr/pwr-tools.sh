@@ -184,6 +184,7 @@ EOF
 }
 
 # Function to update PWR
+
 update_pwr() {
     cd /root/pwr
     [ "$LANG_CHOICE" = "id" ] && echo "Pilih opsi pembaruan:" || echo "Choose update option:"
@@ -202,8 +203,8 @@ update_pwr() {
         [ "$LANG_CHOICE" = "id" ] && echo "Anda berhasil memperbarui config.json" || echo "You have successfully updated config.json"
     elif [ "$choice" -eq 2 ]; then
         old_version=$(curl -s http://localhost:8085/version/)
-        # Fetch the latest version from the reference node
-        latest_version=$(curl -s http://67.205.155.138:8085/version/)
+        # Fetch the latest version from GitHub API
+        latest_version=$(curl -s https://api.github.com/repos/pwrlabs/PWR-Validator/releases/latest | grep -Po '"tag_name": "\K.*?(?=")')
         
         if [ -z "$latest_version" ]; then
             [ "$LANG_CHOICE" = "id" ] && echo "Gagal mengambil versi terbaru. Silakan coba lagi nanti." || echo "Failed to fetch latest version. Please try again later."
