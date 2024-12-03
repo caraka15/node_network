@@ -111,9 +111,9 @@ install_pwr() {
     [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Menginstal OpenJDK 19..." || print_color $GREEN "Installing OpenJDK 19..."
     sudo apt install -y openjdk-19-jre-headless
     
-    # Fetch the latest version from the reference node
+    # Fetch the latest version from GitHub API
     [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Mengambil versi terbaru..." || print_color $GREEN "Fetching latest version..."
-    latest_version=$(curl -s http://67.205.155.138:8085/version/)
+    latest_version=$(curl -s https://api.github.com/repos/pwrlabs/PWR-Validator/releases/latest | grep -Po '"tag_name": "\K.*?(?=")')
     
     if [ -z "$latest_version" ]; then
         [ "$LANG_CHOICE" = "id" ] && print_color $RED "Gagal mengambil versi terbaru. Silakan coba lagi nanti." || print_color $RED "Failed to fetch latest version. Please try again later."
@@ -121,8 +121,8 @@ install_pwr() {
     fi
     
     [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Mengunduh perangkat lunak node validator versi $latest_version..." || print_color $GREEN "Downloading validator node software version $latest_version..."
-    wget "https://github.com/pwrlabs/PWR-Validator/releases/download/${latest_version}/validator.jar" -O validator.jar
-    wget https://github.com/pwrlabs/PWR-Validator/raw/refs/heads/main/config.json -O config.json
+    wget https://github.com/pwrlabs/PWR-Validator/raw/refs/heads/main/config.json
+    wget "https://github.com/pwrlabs/PWR-Validator/releases/download/${latest_version}/validator.jar"
     
     IP_ADDRESS=$(hostname -I | awk '{print $1}')
     [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Alamat IP terdeteksi: $IP_ADDRESS" || print_color $GREEN "Detected IP Address: $IP_ADDRESS"
