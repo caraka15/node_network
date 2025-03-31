@@ -8,7 +8,7 @@ instruksi untuk menggunakan snapshot agar dapat mempercepat sinkronisasi node Hu
 - Akses terminal ke node Anda
 - Ruang disk yang cukup untuk snapshot
 
-<iframe src="http://159.223.33.210:8089/widget" width="495" height="165" frameborder="0"></iframe>
+![Humanode Snapshot Status](http://159.223.33.210:8089/widget.svg)
 
 ## Menginstal Dependensi
 
