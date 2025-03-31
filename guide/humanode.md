@@ -9,6 +9,7 @@ instruksi untuk menggunakan snapshot agar dapat mempercepat sinkronisasi node Hu
 - Ruang disk yang cukup untuk snapshot
 
 ![Humanode Snapshot Status](http://159.223.33.210:8089/widget.svg)
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=caraka15&show_icons=true&locale=en" alt="caraka15" /></p>
 
 ## Menginstal Dependensi
 
