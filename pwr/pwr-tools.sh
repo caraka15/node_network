@@ -275,15 +275,17 @@ check_ports() {
 # Function to check address
 check_address() {
     [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Memeriksa alamat PWR..." || print_color $GREEN "Checking PWR address..."
-    ADDRESS=$(curl -s http://localhost:8085/address/)
+
+    # Run the Java command to get the PWR address
+    ADDRESS=$(java -jar /root/pwr/validator.jar get-address password | grep -oE '0x[a-fA-F0-9]{40}')
+    
     if [ -z "$ADDRESS" ]; then
         [ "$LANG_CHOICE" = "id" ] && print_color $RED "Alamat tidak ditemukan. Pastikan node PWR sedang berjalan." || print_color $RED "Address not found. Make sure the PWR node is running."
     else
-        # Add "0x" prefix to the address
-        ADDRESS="$ADDRESS"
         [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Alamat PWR Anda: $ADDRESS" || print_color $GREEN "Your PWR address: $ADDRESS"
     fi
 }
+
 
 # Function to check private key
 check_private_key() {
