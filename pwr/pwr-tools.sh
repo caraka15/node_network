@@ -154,7 +154,7 @@ Wants=network-online.target
 [Service]
 User=root
 WorkingDirectory=/root/pwr
-ExecStart=/usr/bin/java -jar /root/pwr/validator.jar /root/pwr/password $IP_ADDRESS
+ExecStart=/usr/bin/java -jar /root/pwr/validator.jar --ip $IP_ADDRESS --password /root/pwr/password
 Restart=always
 RestartSec=30
 [Install]
