@@ -220,8 +220,8 @@ update_pwr() {
         delete_rocksdb=${delete_rocksdb:-n}
 
         ensure_backup_folder
-        mv config.json validator.jar backup/
-        rm -rf config.json validator.jar
+        mv config.json validator.jar merkleTree rpcdata backup/
+        rm -rf config.json validator.jar merkleTree rpcdata nohup.out
 
         # Delete blocks if requested
         if [[ "${delete_blocks,,}" == "y" ]]; then
