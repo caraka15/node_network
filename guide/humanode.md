@@ -12,8 +12,8 @@ instruksi untuk menggunakan snapshot agar dapat mempercepat sinkronisasi node Hu
 {
   "status": "available",
   "file": "humanode_snapshot_latest.tar.lz4",
-  "lastModified": "2025-03-31T16:26:31.779Z",
-  "size": "15583.84 MB"
+  "lastModified": "2025-05-09T06:54:22.930Z",
+  "size": "15756.12 MB"
 }
 ```
 
