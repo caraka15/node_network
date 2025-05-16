@@ -194,7 +194,11 @@ update_pwr() {
 
     if [ "$choice" -eq 1 ]; then
         ensure_backup_folder
-        mv config.json backup/
+        if [ -f "config.json" ]; then
+            mv config.json backup/
+        else
+            [ "$LANG_CHOICE" = "id" ] && echo "config.json tidak ditemukan, tidak ada yang dicadangkan." || echo "config.json not found, nothing to back up."
+        fi
         rm -rf config.json
         wget https://github.com/pwrlabs/PWR-Validator/raw/refs/heads/main/config.json
         systemctl stop pwr
@@ -219,10 +223,35 @@ update_pwr() {
         [ "$LANG_CHOICE" = "id" ] && read -p "Apakah Anda ingin menghapus rocksdb? (y/N): " delete_rocksdb || read -p "Do you want to delete rocksdb? (y/N): " delete_rocksdb
         delete_rocksdb=${delete_rocksdb:-n}
 
-        ensure_backup_folder
-        mv config.json validator.jar merkleTree rpcdata backup/
-        rm -rf config.json validator.jar merkleTree rpcdata nohup.out
+        # Ask about deleting merkleTree directory
+        [ "$LANG_CHOICE" = "id" ] && read -p "Apakah Anda ingin menghapus direktori merkleTree? (y/N): " delete_merkletree || read -p "Do you want to delete merkleTree directory? (y/N): " delete_merkletree
+        delete_merkletree=${delete_merkletree:-n}
 
+        ensure_backup_folder
+
+        # Backup and remove items that are always replaced/cleared
+        # (config.json, validator.jar, rpcdata)
+        # nohup.out is just removed.
+        if [ -f "config.json" ]; then mv config.json backup/; fi
+        if [ -f "validator.jar" ]; then mv validator.jar backup/; fi
+        if [ -d "rpcdata" ]; then mv rpcdata backup/; fi
+        
+        rm -rf config.json validator.jar rpcdata nohup.out
+
+        # Handle merkleTree conditionally
+        if [ -d "merkleTree" ]; then # Check if merkleTree directory exists
+            if [[ "${delete_merkletree,,}" == "y" ]]; then
+                [ "$LANG_CHOICE" = "id" ] && echo "Mencadangkan (memindahkan) dan menghapus direktori merkleTree..." || echo "Backing up (moving) and deleting merkleTree directory..."
+                mv merkleTree backup/ # Move to backup
+                rm -rf merkleTree    # Ensure it's removed from the working directory
+            else
+                [ "$LANG_CHOICE" = "id" ] && echo "Menyimpan direktori merkleTree saat ini. Salinan cadangan dibuat." || echo "Keeping current merkleTree directory. Backup copy created."
+                cp -a merkleTree backup/merkleTree_kept_$(date +%Y%m%d_%H%M%S) # Copy to backup, leave original in place
+            fi
+        else
+            [ "$LANG_CHOICE" = "id" ] && echo "Direktori merkleTree tidak ditemukan, tidak ada tindakan untuk merkleTree." || echo "merkleTree directory not found, no action for merkleTree."
+        fi
+        
         # Delete blocks if requested
         if [[ "${delete_blocks,,}" == "y" ]]; then
             [ "$LANG_CHOICE" = "id" ] && echo "Menghapus direktori blocks..." || echo "Deleting blocks directory..."
@@ -240,7 +269,9 @@ update_pwr() {
         
         if [ $? -ne 0 ]; then
             [ "$LANG_CHOICE" = "id" ] && echo "Gagal mengunduh validator.jar. Mengembalikan file backup..." || echo "Failed to download validator.jar. Restoring backup files..."
-            cp backup/validator.jar backup/config.json .
+            # Restore only config.json and validator.jar as per original script's behavior
+            if [ -f "backup/validator.jar" ]; then cp backup/validator.jar .; fi
+            if [ -f "backup/config.json" ]; then cp backup/config.json .; fi
             return 1
         fi
         
@@ -248,7 +279,7 @@ update_pwr() {
         pkill -f java
         systemctl start pwr
         new_version=$(curl -s http://localhost:8085/version/)
-        [ "$LANG_CHOICE" = "id" ] && echo "validator.jar dan config.json berhasil diperbarui dari $old_version ke $latest_version" || echo "validator.jar and config.json have been successfully upgraded from $old_version to $new_version"
+        [ "$LANG_CHOICE" = "id" ] && echo "validator.jar dan config.json berhasil diperbarui dari $old_version ke $new_version" || echo "validator.jar and config.json have been successfully upgraded from $old_version to $new_version"
     else
         [ "$LANG_CHOICE" = "id" ] && echo "Pilihan tidak valid. Silakan jalankan ulang script dan pilih opsi yang benar." || echo "Invalid choice. Please rerun the script and select a valid option."
     fi
