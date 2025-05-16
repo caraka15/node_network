@@ -1,13 +1,15 @@
 #!/bin/bash
 
 # ==============================================================================
-# COOL RESOURCE MONITOR SCRIPT FOR VALIDATOR (English Version)
+# COOL RESOURCE MONITOR SCRIPT FOR VALIDATOR (English Version - No Nethogs)
 # ==============================================================================
 
 # Target process name
 TARGET_PROCESS_NAME="validator.jar"
 # Network interface to monitor for total bandwidth
 MONITOR_INTERFACE="eth0"
+# Name of the blocks directory, assumed to be relative to validator.jar's CWD
+BLOCKS_DIR_NAME="blocks"
 
 
 # --- ANSI Color Codes ---
@@ -42,9 +44,14 @@ PID=""
 PROCESS_DETAILS_STR=""
 CPU_RAM_STR=""
 NET_CONN_STR=""
-BANDWIDTH_STR=""
+# BANDWIDTH_STR="" # Removed as Nethogs is removed
 INTERFACE_BANDWIDTH_STR="" # For eth0 bandwidth
 ERROR_NOTES="" # For important error/warning notes
+
+OS_VERSION_STR="N/A"
+JAVA_VERSION_STR="N/A"
+BLOCKS_DISK_USAGE_STR="N/A"
+
 
 CURRENT_DATETIME=$(date +"%A, %d %B %Y %T %Z")
 
@@ -63,62 +70,6 @@ print_header_section() {
 }
 
 # --- Data Collection Functions ---
-
-check_and_install_nethogs() {
-    echo -e "  ${C_CYAN}Checking for Nethogs installation...${C_OFF}"
-    if ! command -v nethogs &> /dev/null; then
-        echo -e "  ${C_YELLOW}Nethogs is not installed.${C_OFF}"
-        ERROR_NOTES+="* Nethogs was not initially installed.\n"
-        if [[ $EUID -eq 0 ]]; then # Check if running as root, as installation needs sudo
-            read -p "  Nethogs is recommended for per-process bandwidth monitoring. Do you want to try to install it now? (y/N): " install_choice
-            if [[ "$install_choice" =~ ^[Yy]$ ]]; then
-                echo -e "  ${C_CYAN}Attempting to install Nethogs...${C_OFF}"
-                local pkg_manager=""
-                if command -v apt-get &> /dev/null; then
-                    pkg_manager="apt-get"
-                    echo -e "  ${C_CYAN}Updating package lists (apt-get update)...${C_OFF}"
-                    sudo apt-get update -qq > /dev/null # -qq for quieter output
-                    echo -e "  ${C_CYAN}Installing Nethogs using apt-get...${C_OFF}"
-                    sudo apt-get install -y nethogs
-                elif command -v yum &> /dev/null; then
-                    pkg_manager="yum"
-                    echo -e "  ${C_CYAN}Installing Nethogs using yum...${C_OFF}"
-                    sudo yum install -y nethogs
-                elif command -v dnf &> /dev/null; then
-                    pkg_manager="dnf"
-                    echo -e "  ${C_CYAN}Installing Nethogs using dnf...${C_OFF}"
-                    sudo dnf install -y nethogs
-                else
-                    echo -e "  ${B_RED}Could not determine package manager. Please install Nethogs manually.${C_OFF}"
-                    ERROR_NOTES+="* Could not determine package manager to install Nethogs.\n"
-                    return 1
-                fi
-
-                if command -v nethogs &> /dev/null; then
-                    echo -e "  ${B_GREEN}Nethogs installed successfully.${C_OFF}"
-                else
-                    echo -e "  ${B_RED}Nethogs installation failed. Please install it manually.${C_OFF}"
-                    ERROR_NOTES+="* Nethogs installation attempt failed.\n"
-                    return 1
-                fi
-            else
-                echo -e "  ${C_YELLOW}Nethogs installation skipped by user.${C_OFF}"
-                ERROR_NOTES+="* User skipped Nethogs installation.\n"
-                return 1 # Indicate that nethogs is not available for bandwidth check
-            fi
-        else
-            echo -e "  ${B_RED}Script is not running with sudo. Cannot attempt to install Nethogs.${C_OFF}"
-            echo -e "  ${C_YELLOW}Please run the script with sudo or install Nethogs manually for per-process bandwidth monitoring.${C_OFF}"
-            ERROR_NOTES+="* Cannot install Nethogs without sudo privileges.\n"
-            return 1 # Indicate that nethogs is not available
-        fi
-    else
-        echo -e "  ${B_GREEN}Nethogs is already installed.${C_OFF}"
-    fi
-    echo "" # Add a newline for better readability before next steps
-    return 0
-}
-
 
 get_system_specs() {
     # Get Total CPU Cores
@@ -147,6 +98,47 @@ get_system_specs() {
         fi
     else
         TOTAL_RAM_STR="Not detected"
+    fi
+}
+
+get_os_java_versions() {
+    # OS Version
+    local os_desc=""
+    local os_arch
+    os_arch=$(uname -m)
+
+    if command -v lsb_release &> /dev/null; then
+        os_desc=$(lsb_release -ds)
+    elif [ -f /etc/os-release ]; then
+        # Source the os-release file to get PRETTY_NAME or NAME
+        # shellcheck source=/dev/null
+        . /etc/os-release
+        os_desc="${PRETTY_NAME:-$NAME}"
+    elif [ -f /etc/issue ]; then
+        os_desc=$(head -n 1 /etc/issue) # Fallback to /etc/issue
+    else
+        os_desc=$(uname -s -r) # Generic fallback
+    fi
+    OS_VERSION_STR="${os_desc} (${os_arch})"
+
+    # Java Version
+    if command -v java &> /dev/null; then
+        local java_ver_full
+        java_ver_full=$(java -version 2>&1) # Get full version string (goes to stderr)
+        # Try to extract a clean version number
+        if echo "$java_ver_full" | grep -q 'version'; then
+            JAVA_VERSION_STR=$(echo "$java_ver_full" | grep 'version' | head -n 1 | awk '{print $3}' | sed 's/"//g')
+        elif echo "$java_ver_full" | grep -q 'OpenJDK'; then # Fallback for some OpenJDK formats
+             JAVA_VERSION_STR=$(echo "$java_ver_full" | grep 'OpenJDK' | head -n 1) # Take the whole line
+        else
+            JAVA_VERSION_STR="Java installed, version format unrecognized"
+        fi
+        if [ -z "$JAVA_VERSION_STR" ]; then # If awk parsing failed but java is present
+             JAVA_VERSION_STR="Java installed, version parsing failed"
+        fi
+    else
+        JAVA_VERSION_STR="Not installed or not in PATH"
+        ERROR_NOTES+="* Java not found in PATH.\n"
     fi
 }
 
@@ -266,65 +258,11 @@ get_net_connections_info() {
     fi
 }
 
-get_nethogs_bandwidth_info() {
-    if [ -z "$PID" ]; then
-        BANDWIDTH_STR="  ${C_YELLOW}Invalid PID. Cannot check per-process bandwidth.${C_OFF}"
-        return
-    fi
-
-    if ! command -v nethogs &> /dev/null; then
-        BANDWIDTH_STR="  ${C_YELLOW}'nethogs' not installed. Cannot check per-process bandwidth.${C_OFF}"
-        # ERROR_NOTES is already populated by check_and_install_nethogs if installation was skipped or failed
-        return
-    fi
-
-    if [[ $EUID -ne 0 ]]; then
-        BANDWIDTH_STR="  ${B_RED}'nethogs' requires 'sudo' privileges for per-process bandwidth.${C_OFF}"
-        ERROR_NOTES+="* 'nethogs' not run with sudo (required for per-process bandwidth monitoring).\n"
-        return
-    fi
-
-    # Specific loading message for nethogs, displayed directly to the terminal
-    echo -e "  ${B_YELLOW}INFO:${C_OFF} ${C_YELLOW}Measuring per-process bandwidth for PID $PID with nethogs. This will run for ~3 seconds...${C_OFF}"
-    
-    local nethogs_full_output
-    local nethogs_raw_output
-    
-    nethogs_full_output=$(sudo nethogs -t -c 3 -d 1 2>&1)
-    nethogs_raw_output=$(echo "$nethogs_full_output" | grep "/$PID/" | tail -n 1)
-
-    if [ -n "$nethogs_raw_output" ]; then
-        local data_chunk
-        data_chunk=$(echo "$nethogs_raw_output" | awk -F'/' '{print $NF}') 
-
-        if [ -n "$data_chunk" ]; then
-            local sent_kbps recv_kbps
-            sent_kbps=$(echo "$data_chunk" | awk '{print $2}')
-            recv_kbps=$(echo "$data_chunk" | awk '{print $3}')
-
-            if [[ -n "$sent_kbps" && -n "$recv_kbps" ]]; then 
-                BANDWIDTH_STR="  ${C_CYAN}Sent (PID $PID)${C_OFF}       : ${B_WHITE}${sent_kbps} KB/s${C_OFF}\n"
-                BANDWIDTH_STR+="  ${C_CYAN}Received (PID $PID)${C_OFF}   : ${B_WHITE}${recv_kbps} KB/s${C_OFF}"
-            else
-                BANDWIDTH_STR="  ${C_YELLOW}Failed to parse sent/recv values from nethogs for PID $PID.${C_OFF}"
-                ERROR_NOTES+="* Failed to parse nethogs bandwidth data. Chunk: [$data_chunk]\n"
-            fi
-        else
-            BANDWIDTH_STR="  ${C_YELLOW}Failed to get data chunk from nethogs output for PID $PID.${C_OFF}"
-            ERROR_NOTES+="* Failed to get nethogs data chunk. Raw output: [$nethogs_raw_output]\n"
-        fi
-    else
-        BANDWIDTH_STR="  ${C_YELLOW}No nethogs data matched PID $PID (possibly no significant network activity during measurement).${C_OFF}"
-        ERROR_NOTES+="* No nethogs lines matched PID $PID.\n"
-    fi
-    echo -e "  ${B_GREEN}INFO:${C_OFF} ${C_GREEN}Per-process bandwidth measurement complete.${C_OFF}"
-}
-
 get_interface_bandwidth_info() {
     local iface="$1"
     local rx_file="/sys/class/net/${iface}/statistics/rx_bytes"
     local tx_file="/sys/class/net/${iface}/statistics/tx_bytes"
-    local interval_sec=2 # Measurement interval in seconds
+    local interval_sec=1 # Measurement interval in seconds
 
     INTERFACE_BANDWIDTH_STR="" # Reset
 
@@ -334,7 +272,7 @@ get_interface_bandwidth_info() {
         return
     fi
 
-    echo -e "  ${B_YELLOW}INFO:${C_OFF} ${C_YELLOW}Measuring total bandwidth for interface ${B_WHITE}${iface}${C_OFF}. This will take ${interval_sec} seconds...${C_OFF}"
+    echo -e "  ${B_YELLOW}INFO:${C_OFF} ${C_YELLOW}Measuring total bandwidth for interface ${B_WHITE}${iface}${C_OFF}. This will take ${interval_sec} second(s)...${C_OFF}"
 
     local rx_bytes1 tx_bytes1 rx_bytes2 tx_bytes2
     rx_bytes1=$(cat "$rx_file")
@@ -365,12 +303,52 @@ get_interface_bandwidth_info() {
     echo -e "  ${B_GREEN}INFO:${C_OFF} ${C_GREEN}Interface ${iface} bandwidth measurement complete.${C_OFF}"
 }
 
+get_blocks_disk_usage() {
+    if [ -z "$PID" ]; then
+        BLOCKS_DISK_USAGE_STR="  ${C_YELLOW}PID for '$TARGET_PROCESS_NAME' not found. Cannot determine $BLOCKS_DIR_NAME folder location.${C_OFF}"
+        return
+    fi
+
+    local validator_cwd=""
+    if command -v pwdx &> /dev/null; then
+        validator_cwd=$(pwdx "$PID" 2>/dev/null | awk '{print $2}') # pwdx output is "PID: /path"
+    else
+        BLOCKS_DISK_USAGE_STR="  ${C_YELLOW}'pwdx' command not found. Cannot reliably determine $BLOCKS_DIR_NAME folder location.${C_OFF}"
+        ERROR_NOTES+="* 'pwdx' command not found. Cannot check $BLOCKS_DIR_NAME disk usage.\n"
+        return
+    fi
+    
+    if [ -z "$validator_cwd" ]; then
+        BLOCKS_DISK_USAGE_STR="  ${C_YELLOW}Could not determine Current Working Directory for PID $PID.${C_OFF}"
+        ERROR_NOTES+="* Failed to get CWD for PID $PID for $BLOCKS_DIR_NAME disk usage check.\n"
+        return
+    fi
+
+    local blocks_path="${validator_cwd}/${BLOCKS_DIR_NAME}"
+
+    if [ -d "$blocks_path" ]; then
+        if command -v du &> /dev/null; then
+            local usage
+            usage=$(du -sh "$blocks_path" | awk '{print $1}')
+            BLOCKS_DISK_USAGE_STR="  ${C_CYAN}Path${C_OFF}                : ${B_WHITE}${blocks_path}${C_OFF}\n"
+            BLOCKS_DISK_USAGE_STR+="  ${C_CYAN}Usage${C_OFF}               : ${B_WHITE}${usage}${C_OFF}"
+        else
+            BLOCKS_DISK_USAGE_STR="  ${C_YELLOW}'du' command not found. Cannot check disk usage for ${B_WHITE}${blocks_path}${C_OFF}${C_YELLOW}.${C_OFF}"
+            ERROR_NOTES+="* 'du' command not found. Cannot check $BLOCKS_DIR_NAME disk usage.\n"
+        fi
+    else
+        BLOCKS_DISK_USAGE_STR="  ${C_YELLOW}Directory ${B_WHITE}${blocks_path}${C_OFF}${C_YELLOW} not found.${C_OFF}"
+        ERROR_NOTES+="* $BLOCKS_DIR_NAME directory not found at $blocks_path.\n"
+    fi
+}
+
 
 # --- MAIN SCRIPT SECTION ---
 
-# 0. Get System Specs (CPU Cores, Total RAM) & Check/Install Nethogs
+# 0. Get System Specs (CPU Cores, Total RAM), OS/Java versions
 get_system_specs # Call at the beginning
-check_and_install_nethogs # Check and offer to install Nethogs
+get_os_java_versions
+# Removed call to check_and_install_nethogs
 
 echo -e "${B_CYAN}Collecting data for '$TARGET_PROCESS_NAME'... Please wait.${C_OFF}"
 echo ""
@@ -382,12 +360,14 @@ find_pid_details
 if [ -n "$PID" ]; then
     get_cpu_ram_info
     get_net_connections_info
-    get_nethogs_bandwidth_info # Renamed for clarity
+    # Removed call to get_nethogs_bandwidth_info
+    get_blocks_disk_usage # Get disk usage if PID is found
 else
     # If PID is not found, fill other info strings with error/info messages
     CPU_RAM_STR="  ${C_RED}Cannot proceed because PID was not found.${C_OFF}"
     NET_CONN_STR="  ${C_RED}Cannot proceed because PID was not found.${C_OFF}"
-    BANDWIDTH_STR="  ${C_RED}Cannot proceed because PID was not found (for per-process Nethogs check).${C_OFF}"
+    # BANDWIDTH_STR related to Nethogs is removed
+    BLOCKS_DISK_USAGE_STR="  ${C_RED}Cannot check $BLOCKS_DIR_NAME disk usage because PID was not found.${C_OFF}"
 fi
 
 # Always try to get interface bandwidth, regardless of PID status
@@ -404,6 +384,8 @@ echo -e "${C_CYAN}Check Time    : ${B_WHITE}$CURRENT_DATETIME${C_OFF}"
 print_line
 
 print_header_section "SYSTEM SPECIFICATIONS"
+echo -e "  ${C_CYAN}OS Version${C_OFF}          : ${B_WHITE}${OS_VERSION_STR}${C_OFF}"
+echo -e "  ${C_CYAN}Java Version${C_OFF}        : ${B_WHITE}${JAVA_VERSION_STR}${C_OFF}"
 echo -e "  ${C_CYAN}Total CPU Cores${C_OFF}     : ${B_WHITE}${TOTAL_CPU_CORES}${C_OFF}"
 echo -e "  ${C_CYAN}Total System RAM${C_OFF}    : ${B_WHITE}${TOTAL_RAM_STR}${C_OFF}"
 
@@ -417,11 +399,15 @@ echo -e "${CPU_RAM_STR:-  ${C_YELLOW}No CPU & RAM data.${C_OFF}}"
 print_header_section "NETWORK CONNECTIONS (Process PID: ${PID:-N/A})"
 echo -e "${NET_CONN_STR:-  ${C_YELLOW}No network connection data for the process.${C_OFF}}"
 
-print_header_section "PER-PROCESS BANDWIDTH (Nethogs for PID: ${PID:-N/A})"
-echo -e "${BANDWIDTH_STR:-  ${C_YELLOW}No per-process bandwidth data.${C_OFF}}"
+# Removed PER-PROCESS BANDWIDTH section
+# print_header_section "PER-PROCESS BANDWIDTH (Nethogs for PID: ${PID:-N/A})"
+# echo -e "${BANDWIDTH_STR:-  ${C_YELLOW}No per-process bandwidth data.${C_OFF}}"
 
 print_header_section "TOTAL INTERFACE BANDWIDTH (${MONITOR_INTERFACE})"
 echo -e "${INTERFACE_BANDWIDTH_STR:-  ${C_YELLOW}No data for interface ${MONITOR_INTERFACE}.${C_OFF}}"
+
+print_header_section "DISK USAGE (${BLOCKS_DIR_NAME} Folder)"
+echo -e "${BLOCKS_DISK_USAGE_STR:-  ${C_YELLOW}No disk usage data for ${BLOCKS_DIR_NAME}.${C_OFF}}"
 
 
 echo ""
