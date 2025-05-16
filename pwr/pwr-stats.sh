@@ -6,6 +6,9 @@
 
 # Target process name
 TARGET_PROCESS_NAME="validator.jar"
+# Network interface to monitor for total bandwidth
+MONITOR_INTERFACE="eth0"
+
 
 # --- ANSI Color Codes ---
 C_OFF='\033[0m'       # Reset Color
@@ -40,6 +43,7 @@ PROCESS_DETAILS_STR=""
 CPU_RAM_STR=""
 NET_CONN_STR=""
 BANDWIDTH_STR=""
+INTERFACE_BANDWIDTH_STR="" # For eth0 bandwidth
 ERROR_NOTES="" # For important error/warning notes
 
 CURRENT_DATETIME=$(date +"%A, %d %B %Y %T %Z")
@@ -66,7 +70,7 @@ check_and_install_nethogs() {
         echo -e "  ${C_YELLOW}Nethogs is not installed.${C_OFF}"
         ERROR_NOTES+="* Nethogs was not initially installed.\n"
         if [[ $EUID -eq 0 ]]; then # Check if running as root, as installation needs sudo
-            read -p "  Nethogs is required for bandwidth monitoring. Do you want to try to install it now? (y/N): " install_choice
+            read -p "  Nethogs is recommended for per-process bandwidth monitoring. Do you want to try to install it now? (y/N): " install_choice
             if [[ "$install_choice" =~ ^[Yy]$ ]]; then
                 echo -e "  ${C_CYAN}Attempting to install Nethogs...${C_OFF}"
                 local pkg_manager=""
@@ -100,13 +104,13 @@ check_and_install_nethogs() {
             else
                 echo -e "  ${C_YELLOW}Nethogs installation skipped by user.${C_OFF}"
                 ERROR_NOTES+="* User skipped Nethogs installation.\n"
-                return 1
+                return 1 # Indicate that nethogs is not available for bandwidth check
             fi
         else
             echo -e "  ${B_RED}Script is not running with sudo. Cannot attempt to install Nethogs.${C_OFF}"
-            echo -e "  ${C_YELLOW}Please run the script with sudo or install Nethogs manually for bandwidth monitoring.${C_OFF}"
+            echo -e "  ${C_YELLOW}Please run the script with sudo or install Nethogs manually for per-process bandwidth monitoring.${C_OFF}"
             ERROR_NOTES+="* Cannot install Nethogs without sudo privileges.\n"
-            return 1
+            return 1 # Indicate that nethogs is not available
         fi
     else
         echo -e "  ${B_GREEN}Nethogs is already installed.${C_OFF}"
@@ -218,21 +222,21 @@ get_cpu_ram_info() {
 
 get_net_connections_info() {
     if [ -z "$PID" ]; then
-        NET_CONN_STR="  ${C_YELLOW}Invalid PID. Cannot check network connections.${C_OFF}" # English translation
+        NET_CONN_STR="  ${C_YELLOW}Invalid PID. Cannot check network connections.${C_OFF}"
         return
     fi
 
     if ! command -v ss &> /dev/null; then
-        NET_CONN_STR="  ${C_YELLOW}'ss' command not found. (Requires 'iproute2' package).${C_OFF}" # English translation
-        ERROR_NOTES+="* 'ss' command not found.\n" # English translation
+        NET_CONN_STR="  ${C_YELLOW}'ss' command not found. (Requires 'iproute2' package).${C_OFF}"
+        ERROR_NOTES+="* 'ss' command not found.\n"
         return
     fi
 
-    local ss_output_data # Renamed from all_pid_connections for clarity with the new logic
+    local ss_output_data
     local temp_net_conn_str=""
 
     if [[ $EUID -ne 0 ]]; then
-        ERROR_NOTES+="* 'ss' run without sudo. PID-specific connection info may be incomplete.\n" # English translation
+        ERROR_NOTES+="* 'ss' run without sudo. PID-specific connection info may be incomplete.\n"
     fi
 
     # Only search for connections related to the PID
@@ -243,7 +247,7 @@ get_net_connections_info() {
     fi
 
     if [ -n "$ss_output_data" ]; then
-        temp_net_conn_str+="  ${C_GREEN}Identified Connections:${C_OFF}\n" # English translation
+        temp_net_conn_str+="  ${C_GREEN}Identified Connections (Process PID: $PID):${C_OFF}\n"
         temp_net_conn_str+=$(echo "$ss_output_data" | awk -v C_WHITE="$B_WHITE" -v C_CYAN="$C_CYAN" -v C_YELLOW_BOLD="$B_YELLOW" -v C_OFF="$C_OFF" '
         {
             # ss -tunp output: Netid State Recv-Q Send-Q Local-Address:Port Peer-Address:Port Process
@@ -255,82 +259,112 @@ get_net_connections_info() {
         }')
         NET_CONN_STR="$temp_net_conn_str"
     else
-        NET_CONN_STR="  ${C_YELLOW}No active network connections specifically detected for PID $PID.${C_OFF}" # English translation
+        NET_CONN_STR="  ${C_YELLOW}No active network connections specifically detected for PID $PID.${C_OFF}"
         if [[ $EUID -ne 0 ]]; then
              NET_CONN_STR+="\n  ${C_YELLOW}(Run with sudo for more accurate detection of connections for PID).${C_OFF}"
         fi
     fi
 }
 
-get_bandwidth_info() {
+get_nethogs_bandwidth_info() {
     if [ -z "$PID" ]; then
-        BANDWIDTH_STR="  ${C_YELLOW}Invalid PID. Cannot check bandwidth.${C_OFF}"
+        BANDWIDTH_STR="  ${C_YELLOW}Invalid PID. Cannot check per-process bandwidth.${C_OFF}"
         return
     fi
 
     if ! command -v nethogs &> /dev/null; then
-        BANDWIDTH_STR="  ${C_YELLOW}'nethogs' not installed. Cannot check bandwidth.${C_OFF}"
+        BANDWIDTH_STR="  ${C_YELLOW}'nethogs' not installed. Cannot check per-process bandwidth.${C_OFF}"
         # ERROR_NOTES is already populated by check_and_install_nethogs if installation was skipped or failed
         return
     fi
 
     if [[ $EUID -ne 0 ]]; then
-        BANDWIDTH_STR="  ${B_RED}'nethogs' requires 'sudo' privileges to run.${C_OFF}"
-        ERROR_NOTES+="* 'nethogs' not run with sudo (required for bandwidth monitoring).\n"
+        BANDWIDTH_STR="  ${B_RED}'nethogs' requires 'sudo' privileges for per-process bandwidth.${C_OFF}"
+        ERROR_NOTES+="* 'nethogs' not run with sudo (required for per-process bandwidth monitoring).\n"
         return
     fi
 
     # Specific loading message for nethogs, displayed directly to the terminal
-    echo -e "  ${B_YELLOW}INFO:${C_OFF} ${C_YELLOW}Measuring bandwidth for PID $PID with nethogs. This will run for ~3 seconds...${C_OFF}"
+    echo -e "  ${B_YELLOW}INFO:${C_OFF} ${C_YELLOW}Measuring per-process bandwidth for PID $PID with nethogs. This will run for ~3 seconds...${C_OFF}"
     
     local nethogs_full_output
     local nethogs_raw_output
     
-    # Run nethogs for 3 seconds (3 updates, 1-second interval), collect all its output
     nethogs_full_output=$(sudo nethogs -t -c 3 -d 1 2>&1)
-    
-    # For DEBUG: display all nethogs output before filtering (can be uncommented if needed)
-    # echo -e "\n--- Nethogs Full Output (DEBUG) ---"
-    # echo -e "PID being searched: $PID"
-    # echo "${nethogs_full_output}"
-    # echo -e "--- End Nethogs Full Output (DEBUG) ---\n"
-
-    # Filter nethogs output using grep to find lines containing "/PID/"
-    # and take the last matching line (nethogs gives multiple updates)
     nethogs_raw_output=$(echo "$nethogs_full_output" | grep "/$PID/" | tail -n 1)
 
     if [ -n "$nethogs_raw_output" ]; then
-        # The part after the last '/' on the matched line should be "UID SENT_RATE RECV_RATE ..."
         local data_chunk
-        data_chunk=$(echo "$nethogs_raw_output" | awk -F'/' '{print $NF}') # Get the last field after '/' delimiter
+        data_chunk=$(echo "$nethogs_raw_output" | awk -F'/' '{print $NF}') 
 
         if [ -n "$data_chunk" ]; then
-            # From this chunk, SENT is the 2nd field, RECV is the 3rd field (1st field is UID)
-            # awk splits by space by default
             local sent_kbps recv_kbps
             sent_kbps=$(echo "$data_chunk" | awk '{print $2}')
             recv_kbps=$(echo "$data_chunk" | awk '{print $3}')
 
-            # Check if sent_kbps and recv_kbps were successfully extracted and look like numbers
-            if [[ -n "$sent_kbps" && -n "$recv_kbps" ]]; then # Basic check
-                BANDWIDTH_STR="  ${C_CYAN}Sent${C_OFF}                : ${B_WHITE}${sent_kbps} KB/s${C_OFF}\n"
-                BANDWIDTH_STR+="  ${C_CYAN}Received${C_OFF}            : ${B_WHITE}${recv_kbps} KB/s${C_OFF}"
+            if [[ -n "$sent_kbps" && -n "$recv_kbps" ]]; then 
+                BANDWIDTH_STR="  ${C_CYAN}Sent (PID $PID)${C_OFF}       : ${B_WHITE}${sent_kbps} KB/s${C_OFF}\n"
+                BANDWIDTH_STR+="  ${C_CYAN}Received (PID $PID)${C_OFF}   : ${B_WHITE}${recv_kbps} KB/s${C_OFF}"
             else
                 BANDWIDTH_STR="  ${C_YELLOW}Failed to parse sent/recv values from nethogs for PID $PID.${C_OFF}"
-                BANDWIDTH_STR+="\n  ${C_YELLOW}Data Chunk: [$data_chunk], Raw Nethogs Output: [$nethogs_raw_output]${C_OFF}"
                 ERROR_NOTES+="* Failed to parse nethogs bandwidth data. Chunk: [$data_chunk]\n"
             fi
         else
-            BANDWIDTH_STR="  ${C_YELLOW}Failed to get data chunk (after last '/') from nethogs output for PID $PID.${C_OFF}"
-            BANDWIDTH_STR+="\n  ${C_YELLOW}Raw Nethogs Output: [$nethogs_raw_output]${C_OFF}"
+            BANDWIDTH_STR="  ${C_YELLOW}Failed to get data chunk from nethogs output for PID $PID.${C_OFF}"
             ERROR_NOTES+="* Failed to get nethogs data chunk. Raw output: [$nethogs_raw_output]\n"
         fi
     else
-        BANDWIDTH_STR="  ${C_YELLOW}No data lines from nethogs matched PID $PID (possibly no significant network activity during the 3-second measurement).${C_OFF}"
+        BANDWIDTH_STR="  ${C_YELLOW}No nethogs data matched PID $PID (possibly no significant network activity during measurement).${C_OFF}"
         ERROR_NOTES+="* No nethogs lines matched PID $PID.\n"
     fi
-    echo -e "  ${B_GREEN}INFO:${C_OFF} ${C_GREEN}Bandwidth measurement complete.${C_OFF}"
+    echo -e "  ${B_GREEN}INFO:${C_OFF} ${C_GREEN}Per-process bandwidth measurement complete.${C_OFF}"
 }
+
+get_interface_bandwidth_info() {
+    local iface="$1"
+    local rx_file="/sys/class/net/${iface}/statistics/rx_bytes"
+    local tx_file="/sys/class/net/${iface}/statistics/tx_bytes"
+    local interval_sec=2 # Measurement interval in seconds
+
+    INTERFACE_BANDWIDTH_STR="" # Reset
+
+    if [ ! -f "$rx_file" ] || [ ! -f "$tx_file" ]; then
+        INTERFACE_BANDWIDTH_STR="  ${C_YELLOW}Interface ${B_WHITE}${iface}${C_OFF}${C_YELLOW} or its statistics files not found.${C_OFF}"
+        ERROR_NOTES+="* Interface $iface or statistics files not found.\n"
+        return
+    fi
+
+    echo -e "  ${B_YELLOW}INFO:${C_OFF} ${C_YELLOW}Measuring total bandwidth for interface ${B_WHITE}${iface}${C_OFF}. This will take ${interval_sec} seconds...${C_OFF}"
+
+    local rx_bytes1 tx_bytes1 rx_bytes2 tx_bytes2
+    rx_bytes1=$(cat "$rx_file")
+    tx_bytes1=$(cat "$tx_file")
+    sleep "$interval_sec"
+    rx_bytes2=$(cat "$rx_file")
+    tx_bytes2=$(cat "$tx_file")
+
+    if ! [[ "$rx_bytes1" =~ ^[0-9]+$ && "$tx_bytes1" =~ ^[0-9]+$ && "$rx_bytes2" =~ ^[0-9]+$ && "$tx_bytes2" =~ ^[0-9]+$ ]]; then
+        INTERFACE_BANDWIDTH_STR="  ${C_RED}Error reading byte counts for interface ${B_WHITE}${iface}${C_OFF}${C_RED}.${C_OFF}"
+        ERROR_NOTES+="* Error reading byte counts for interface $iface.\n"
+        return
+    fi
+    
+    local rx_diff=$((rx_bytes2 - rx_bytes1))
+    local tx_diff=$((tx_bytes2 - tx_bytes1))
+
+    local rx_speed_bps=$((rx_diff / interval_sec)) # Bytes per second
+    local tx_speed_bps=$((tx_diff / interval_sec)) # Bytes per second
+
+    # Convert to KB/s
+    local rx_speed_kbps=$(awk -v bytes="$rx_speed_bps" 'BEGIN {printf "%.2f", bytes / 1024}')
+    local tx_speed_kbps=$(awk -v bytes="$tx_speed_bps" 'BEGIN {printf "%.2f", bytes / 1024}')
+
+    INTERFACE_BANDWIDTH_STR="  ${C_CYAN}Received (on ${iface})${C_OFF} : ${B_WHITE}${rx_speed_kbps} KB/s${C_OFF}\n"
+    INTERFACE_BANDWIDTH_STR+="  ${C_CYAN}Sent (on ${iface})${C_OFF}     : ${B_WHITE}${tx_speed_kbps} KB/s${C_OFF}"
+    
+    echo -e "  ${B_GREEN}INFO:${C_OFF} ${C_GREEN}Interface ${iface} bandwidth measurement complete.${C_OFF}"
+}
+
 
 # --- MAIN SCRIPT SECTION ---
 
@@ -348,13 +382,17 @@ find_pid_details
 if [ -n "$PID" ]; then
     get_cpu_ram_info
     get_net_connections_info
-    get_bandwidth_info # This function has its own sudo & nethogs checks, and specific loading message
+    get_nethogs_bandwidth_info # Renamed for clarity
 else
     # If PID is not found, fill other info strings with error/info messages
     CPU_RAM_STR="  ${C_RED}Cannot proceed because PID was not found.${C_OFF}"
     NET_CONN_STR="  ${C_RED}Cannot proceed because PID was not found.${C_OFF}"
-    BANDWIDTH_STR="  ${C_RED}Cannot proceed because PID was not found.${C_OFF}"
+    BANDWIDTH_STR="  ${C_RED}Cannot proceed because PID was not found (for per-process Nethogs check).${C_OFF}"
 fi
+
+# Always try to get interface bandwidth, regardless of PID status
+get_interface_bandwidth_info "$MONITOR_INTERFACE"
+
 
 # --- DISPLAY ALL RESULTS AT THE END ---
 clear # Clear the screen for a cleaner display
@@ -370,17 +408,21 @@ echo -e "  ${C_CYAN}Total CPU Cores${C_OFF}     : ${B_WHITE}${TOTAL_CPU_CORES}${
 echo -e "  ${C_CYAN}Total System RAM${C_OFF}    : ${B_WHITE}${TOTAL_RAM_STR}${C_OFF}"
 
 
-print_header_section "PROCESS STATUS"
+print_header_section "PROCESS STATUS ($TARGET_PROCESS_NAME)"
 echo -e "${PROCESS_DETAILS_STR:-  ${C_YELLOW}No process status data.${C_OFF}}"
 
 print_header_section "CPU & MEMORY USAGE (by Process)"
 echo -e "${CPU_RAM_STR:-  ${C_YELLOW}No CPU & RAM data.${C_OFF}}"
 
-print_header_section "NETWORK CONNECTIONS (via ss)"
-echo -e "${NET_CONN_STR:-  ${C_YELLOW}No network connection data.${C_OFF}}"
+print_header_section "NETWORK CONNECTIONS (Process PID: ${PID:-N/A})"
+echo -e "${NET_CONN_STR:-  ${C_YELLOW}No network connection data for the process.${C_OFF}}"
 
-print_header_section "BANDWIDTH USAGE (Nethogs Estimate)"
-echo -e "${BANDWIDTH_STR:-  ${C_YELLOW}No bandwidth data.${C_OFF}}"
+print_header_section "PER-PROCESS BANDWIDTH (Nethogs for PID: ${PID:-N/A})"
+echo -e "${BANDWIDTH_STR:-  ${C_YELLOW}No per-process bandwidth data.${C_OFF}}"
+
+print_header_section "TOTAL INTERFACE BANDWIDTH (${MONITOR_INTERFACE})"
+echo -e "${INTERFACE_BANDWIDTH_STR:-  ${C_YELLOW}No data for interface ${MONITOR_INTERFACE}.${C_OFF}}"
+
 
 echo ""
 print_line
