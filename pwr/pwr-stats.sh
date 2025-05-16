@@ -60,6 +60,62 @@ print_header_section() {
 
 # --- Data Collection Functions ---
 
+check_and_install_nethogs() {
+    echo -e "  ${C_CYAN}Checking for Nethogs installation...${C_OFF}"
+    if ! command -v nethogs &> /dev/null; then
+        echo -e "  ${C_YELLOW}Nethogs is not installed.${C_OFF}"
+        ERROR_NOTES+="* Nethogs was not initially installed.\n"
+        if [[ $EUID -eq 0 ]]; then # Check if running as root, as installation needs sudo
+            read -p "  Nethogs is required for bandwidth monitoring. Do you want to try to install it now? (y/N): " install_choice
+            if [[ "$install_choice" =~ ^[Yy]$ ]]; then
+                echo -e "  ${C_CYAN}Attempting to install Nethogs...${C_OFF}"
+                local pkg_manager=""
+                if command -v apt-get &> /dev/null; then
+                    pkg_manager="apt-get"
+                    echo -e "  ${C_CYAN}Updating package lists (apt-get update)...${C_OFF}"
+                    sudo apt-get update -qq > /dev/null # -qq for quieter output
+                    echo -e "  ${C_CYAN}Installing Nethogs using apt-get...${C_OFF}"
+                    sudo apt-get install -y nethogs
+                elif command -v yum &> /dev/null; then
+                    pkg_manager="yum"
+                    echo -e "  ${C_CYAN}Installing Nethogs using yum...${C_OFF}"
+                    sudo yum install -y nethogs
+                elif command -v dnf &> /dev/null; then
+                    pkg_manager="dnf"
+                    echo -e "  ${C_CYAN}Installing Nethogs using dnf...${C_OFF}"
+                    sudo dnf install -y nethogs
+                else
+                    echo -e "  ${B_RED}Could not determine package manager. Please install Nethogs manually.${C_OFF}"
+                    ERROR_NOTES+="* Could not determine package manager to install Nethogs.\n"
+                    return 1
+                fi
+
+                if command -v nethogs &> /dev/null; then
+                    echo -e "  ${B_GREEN}Nethogs installed successfully.${C_OFF}"
+                else
+                    echo -e "  ${B_RED}Nethogs installation failed. Please install it manually.${C_OFF}"
+                    ERROR_NOTES+="* Nethogs installation attempt failed.\n"
+                    return 1
+                fi
+            else
+                echo -e "  ${C_YELLOW}Nethogs installation skipped by user.${C_OFF}"
+                ERROR_NOTES+="* User skipped Nethogs installation.\n"
+                return 1
+            fi
+        else
+            echo -e "  ${B_RED}Script is not running with sudo. Cannot attempt to install Nethogs.${C_OFF}"
+            echo -e "  ${C_YELLOW}Please run the script with sudo or install Nethogs manually for bandwidth monitoring.${C_OFF}"
+            ERROR_NOTES+="* Cannot install Nethogs without sudo privileges.\n"
+            return 1
+        fi
+    else
+        echo -e "  ${B_GREEN}Nethogs is already installed.${C_OFF}"
+    fi
+    echo "" # Add a newline for better readability before next steps
+    return 0
+}
+
+
 get_system_specs() {
     # Get Total CPU Cores
     if command -v nproc &> /dev/null; then
@@ -162,71 +218,48 @@ get_cpu_ram_info() {
 
 get_net_connections_info() {
     if [ -z "$PID" ]; then
-        NET_CONN_STR="  ${C_YELLOW}Invalid PID. Cannot check network connections.${C_OFF}"
+        NET_CONN_STR="  ${C_YELLOW}Invalid PID. Cannot check network connections.${C_OFF}" # English translation
         return
     fi
 
     if ! command -v ss &> /dev/null; then
-        NET_CONN_STR="  ${C_YELLOW}'ss' command not found. (Requires 'iproute2' package).${C_OFF}"
-        ERROR_NOTES+="* 'ss' command not found.\n"
+        NET_CONN_STR="  ${C_YELLOW}'ss' command not found. (Requires 'iproute2' package).${C_OFF}" # English translation
+        ERROR_NOTES+="* 'ss' command not found.\n" # English translation
         return
     fi
 
-    local all_pid_connections=""
-    local ss_listening_output=""
-    local ss_established_output=""
+    local ss_output_data # Renamed from all_pid_connections for clarity with the new logic
     local temp_net_conn_str=""
 
+    if [[ $EUID -ne 0 ]]; then
+        ERROR_NOTES+="* 'ss' run without sudo. PID-specific connection info may be incomplete.\n" # English translation
+    fi
+
+    # Only search for connections related to the PID
     if [[ $EUID -eq 0 ]]; then # If root
-        # Get all TCP and UDP connections for the specified PID
-        all_pid_connections=$(sudo ss -tunp 2>/dev/null | grep "pid=$PID,")
-
-        if [ -n "$all_pid_connections" ]; then
-            ss_listening_output=$(echo "$all_pid_connections" | grep 'LISTEN')
-            ss_established_output=$(echo "$all_pid_connections" | grep 'ESTAB')
-            # You can add filters for other states if needed, e.g.:
-            # local ss_syn_sent_output=$(echo "$all_pid_connections" | grep 'SYN-SENT')
-        fi
+        ss_output_data=$(sudo ss -tulnp 2>/dev/null | grep "pid=$PID,")
     else # Not root
-        ERROR_NOTES+="* 'ss' run without sudo. PID-specific connection info (especially established) may be inaccurate/unavailable.\n"
-        # Best effort for common listening ports (may not be accurate for your TARGET_PROCESS_NAME)
-        # Example ports, adjust if your validator uses different P2P ports for listening
-        ss_listening_output=$(ss -tuln 2>/dev/null | grep -E ":(8085|8231)") # Example ports
-        # Established connections for a specific PID cannot be reliably fetched without root.
-        ss_established_output=""
+        ss_output_data=$(ss -tulnp 2>/dev/null | grep "pid=$PID,") # May not show all info without sudo
     fi
 
-    if [ -n "$ss_listening_output" ]; then
-        temp_net_conn_str+="  ${C_GREEN}Listening Sockets (Validator Awaiting Incoming Connections):${C_OFF}\n"
-        temp_net_conn_str+=$(echo "$ss_listening_output" | awk -v C_WHITE="$B_WHITE" -v C_CYAN="$C_CYAN" -v C_OFF="$C_OFF" '
+    if [ -n "$ss_output_data" ]; then
+        temp_net_conn_str+="  ${C_GREEN}Identified Connections:${C_OFF}\n" # English translation
+        temp_net_conn_str+=$(echo "$ss_output_data" | awk -v C_WHITE="$B_WHITE" -v C_CYAN="$C_CYAN" -v C_YELLOW_BOLD="$B_YELLOW" -v C_OFF="$C_OFF" '
         {
             # ss -tunp output: Netid State Recv-Q Send-Q Local-Address:Port Peer-Address:Port Process
-            type=$1; local_addr=$5; 
-            printf "    %s Proto: %-4s Local: %-25s\n", \
-                   C_CYAN "[L]" C_OFF, type, C_WHITE local_addr C_OFF;
-        }')
-        temp_net_conn_str+="\n" # Add a newline for separation
-    else
-        temp_net_conn_str+="  ${C_YELLOW}No listening sockets detected for PID $PID (or not accessible).${C_OFF}\n"
-    fi
-
-    if [ -n "$ss_established_output" ]; then
-        temp_net_conn_str+="  ${C_GREEN}Established Connections (Validator Connected to Others):${C_OFF}\n"
-        temp_net_conn_str+=$(echo "$ss_established_output" | awk -v C_WHITE="$B_WHITE" -v C_YELLOW_BOLD="$B_YELLOW" -v C_OFF="$C_OFF" '
-        {
-            # ss -tunp output: Netid State Recv-Q Send-Q Local-Address:Port Peer-Address:Port Process
-            type=$1; local_addr=$5; peer_addr=$6; 
+            type=$1; state=$2; local_addr=$5; peer_addr=$6; 
+            
+            label_state = (state=="LISTEN" ? C_CYAN "[L]" C_OFF : C_YELLOW_BOLD "[E]" C_OFF); # [L] for Listening, [E] for Established
             printf "    %s Proto: %-4s Local: %-25s Remote: %s\n", \
-                   C_YELLOW_BOLD "[E]" C_OFF, type, C_WHITE local_addr C_OFF, C_WHITE peer_addr C_OFF;
+                   label_state, type, C_WHITE local_addr C_OFF, C_WHITE peer_addr C_OFF;
         }')
+        NET_CONN_STR="$temp_net_conn_str"
     else
-        temp_net_conn_str+="  ${C_YELLOW}No outgoing (established) connections detected for PID $PID at this time.${C_OFF}\n"
-        temp_net_conn_str+="  ${C_YELLOW}This could mean the validator is idle, not yet synced, or has peer connectivity issues.${C_OFF}"
+        NET_CONN_STR="  ${C_YELLOW}No active network connections specifically detected for PID $PID.${C_OFF}" # English translation
         if [[ $EUID -ne 0 ]]; then
-             temp_net_conn_str+="\n  ${C_YELLOW}(Run with sudo for more accurate detection of established connections for PID).${C_OFF}"
+             NET_CONN_STR+="\n  ${C_YELLOW}(Run with sudo for more accurate detection of connections for PID).${C_OFF}"
         fi
     fi
-    NET_CONN_STR="$temp_net_conn_str"
 }
 
 get_bandwidth_info() {
@@ -237,13 +270,13 @@ get_bandwidth_info() {
 
     if ! command -v nethogs &> /dev/null; then
         BANDWIDTH_STR="  ${C_YELLOW}'nethogs' not installed. Cannot check bandwidth.${C_OFF}"
-        ERROR_NOTES+="* 'nethogs' command not installed.\n"
+        # ERROR_NOTES is already populated by check_and_install_nethogs if installation was skipped or failed
         return
     fi
 
     if [[ $EUID -ne 0 ]]; then
         BANDWIDTH_STR="  ${B_RED}'nethogs' requires 'sudo' privileges to run.${C_OFF}"
-        ERROR_NOTES+="* 'nethogs' not run with sudo.\n"
+        ERROR_NOTES+="* 'nethogs' not run with sudo (required for bandwidth monitoring).\n"
         return
     fi
 
@@ -301,8 +334,9 @@ get_bandwidth_info() {
 
 # --- MAIN SCRIPT SECTION ---
 
-# 0. Get System Specs (CPU Cores, Total RAM)
+# 0. Get System Specs (CPU Cores, Total RAM) & Check/Install Nethogs
 get_system_specs # Call at the beginning
+check_and_install_nethogs # Check and offer to install Nethogs
 
 echo -e "${B_CYAN}Collecting data for '$TARGET_PROCESS_NAME'... Please wait.${C_OFF}"
 echo ""
