@@ -4,6 +4,7 @@
 # COOL RESOURCE MONITOR SCRIPT FOR VALIDATOR (English Version - No Nethogs)
 # Version with process CPU distribution per core and RAM details
 # All user-facing output in English. CPU distribution: 2 cores per line.
+# Patched v2: Using awk for more robust rounding in generate_bar.
 # ==============================================================================
 
 # Target process name
@@ -74,25 +75,48 @@ print_header_section() {
 }
 
 # Function to create a simple percentage bar
-# Argument 1: percentage (0-100)
+# Argument 1: percentage (0-100) - can be float string
 # Argument 2: bar length (number of characters)
 generate_bar() {
-    local percentage_float=$1 # Can be float from bc
+    local percentage_float_arg="$1" # Original argument
     local length=${2:-20} # Default length 20 if not provided
-    
-    # Round percentage to the nearest integer for bar calculation
-    local percentage_int=$(printf "%.0f" "$percentage_float")
+    local percentage_float_sanitized # Will hold sanitized float string
 
-    # Ensure percentage is within 0-100 range after rounding
+    # Validate and sanitize percentage_float_arg:
+    # Ensure it's a dot-separated number or default to "0.0"
+    # This regex matches valid float/integer strings.
+    if [[ "$percentage_float_arg" =~ ^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$ || "$percentage_float_arg" =~ ^[-+]?[0-9]+\.?$ ]]; then
+        percentage_float_sanitized="$percentage_float_arg"
+    else
+        percentage_float_sanitized="0.0"
+    fi
+
+    local percentage_int
+    # Use awk to round the sanitized float string to the nearest integer string.
+    # awk handles non-numeric input by treating it as 0, and LC_NUMERIC=C ensures dot decimal.
+    percentage_int=$(LC_NUMERIC=C awk -v num="$percentage_float_sanitized" 'BEGIN { printf "%.0f", num }' 2>/dev/null)
+
+    # Fallback if awk somehow fails or returns non-integer (highly unlikely with "%.0f" but good for safety)
+    if ! [[ "$percentage_int" =~ ^[-+]?[0-9]+$ ]]; then
+        percentage_int=0
+    fi
+
+    # Ensure percentage is within 0-100 range
     if [ "$percentage_int" -lt 0 ]; then percentage_int=0; fi
     if [ "$percentage_int" -gt 100 ]; then percentage_int=100; fi
 
     local filled_length=$((percentage_int * length / 100))
     local empty_length=$((length - filled_length))
+    # Ensure empty_length is not negative
+    if [ "$empty_length" -lt 0 ]; then empty_length=0; fi
+
+
     local bar=""
     for ((i=0; i<filled_length; i++)); do bar+="❚"; done # Character for filled part
     for ((i=0; i<empty_length; i++)); do bar+="-"; done # Character for empty part
-    printf "[%s] %3d%%" "$bar" "$percentage_int" # Display integer percentage
+    
+    # This printf should now be safe as $percentage_int is guaranteed to be an integer.
+    printf "[%s] %3d%%" "$bar" "$percentage_int"
 }
 
 
@@ -117,7 +141,7 @@ get_system_specs() {
             TOTAL_RAM_KB=$mem_total_kb # Store numeric value
             local total_ram_mb=$((mem_total_kb / 1024))
             if [ "$total_ram_mb" -ge 1024 ]; then
-                TOTAL_RAM_STR=$(awk -v total_mb="$total_ram_mb" 'BEGIN {printf "%.2f GB", total_mb / 1024}')
+                TOTAL_RAM_STR=$(LC_NUMERIC=C awk -v total_mb="$total_ram_mb" 'BEGIN {printf "%.2f GB", total_mb / 1024}')
             else
                 TOTAL_RAM_STR="${total_ram_mb} MB"
             fi
@@ -153,15 +177,15 @@ get_os_java_versions() {
     # Java Version
     if command -v java &> /dev/null; then
         local java_ver_full
-        java_ver_full=$(java -version 2>&1)
+        java_ver_full=$(java -version 2>&1) # Output often goes to stderr
         if echo "$java_ver_full" | grep -q 'version'; then
             JAVA_VERSION_STR=$(echo "$java_ver_full" | grep 'version' | head -n 1 | awk '{print $3}' | sed 's/"//g')
-        elif echo "$java_ver_full" | grep -q 'OpenJDK'; then
+        elif echo "$java_ver_full" | grep -q 'OpenJDK'; then # Fallback for some OpenJDK formats
             JAVA_VERSION_STR=$(echo "$java_ver_full" | grep 'OpenJDK' | head -n 1)
         else
             JAVA_VERSION_STR="Java installed, version format unrecognized"
         fi
-        if [ -z "$JAVA_VERSION_STR" ]; then
+        if [ -z "$JAVA_VERSION_STR" ]; then # If awk parsing failed but java is present
             JAVA_VERSION_STR="Java installed, version parsing failed"
         fi
     else
@@ -214,7 +238,8 @@ get_cpu_ram_info() {
     fi
 
     local ps_output
-    ps_output=$(ps -p "$PID" -o %cpu,%mem,rss,vsz --no-headers)
+    # Force C locale for ps to ensure dot as decimal separator for %cpu, %mem
+    ps_output=$(LC_NUMERIC=C ps -p "$PID" -o %cpu,%mem,rss,vsz --no-headers)
 
     if [ -z "$ps_output" ]; then
         CPU_RAM_STR="  ${B_RED}Failed to fetch CPU/RAM data for PID $PID.${C_OFF}"
@@ -235,18 +260,18 @@ get_cpu_ram_info() {
     local vsz_mb=$((vsz_kb / 1024))
 
     local used_ram_kb=0
-    if [[ "$TOTAL_RAM_KB" -gt 0 && "$(echo "$mem_usage_percent > 0" | bc -l 2>/dev/null)" -eq 1 ]]; then
-        used_ram_kb=$(awk -v total_kb="$TOTAL_RAM_KB" -v percent="$mem_usage_percent" 'BEGIN {printf "%.0f", total_kb * (percent / 100)}')
+    if [[ "$TOTAL_RAM_KB" -gt 0 && "$(LC_NUMERIC=C echo "$mem_usage_percent > 0" | bc -l 2>/dev/null)" -eq 1 ]]; then
+        used_ram_kb=$(LC_NUMERIC=C awk -v total_kb="$TOTAL_RAM_KB" -v percent="$mem_usage_percent" 'BEGIN {printf "%.0f", total_kb * (percent / 100)}')
     elif ! command -v bc &> /dev/null; then
         ERROR_NOTES+="* 'bc' not found, cannot calculate precise 'Used RAM MB of Total MB'.\n"
     fi
     local used_ram_mb=$((used_ram_kb / 1024))
     local total_ram_mb_for_display=$((TOTAL_RAM_KB / 1024))
 
-    CPU_RAM_STR="  ${C_CYAN}CPU Usage (Process)${C_OFF}    : ${B_WHITE}${PROCESS_CPU_USAGE_FLOAT}%${C_OFF} \n"
+    CPU_RAM_STR="  ${C_CYAN}CPU Usage (Process)${C_OFF}    : ${B_WHITE}${PROCESS_CPU_USAGE_FLOAT}%${C_OFF} (Overall for process)\n"
     CPU_RAM_STR+="  ${C_CYAN}RAM Usage (Process)${C_OFF}    : ${B_WHITE}${used_ram_mb} MB${C_OFF} of ${B_WHITE}${total_ram_mb_for_display} MB${C_OFF} (${B_WHITE}${mem_usage_percent}%${C_OFF})\n"
-    CPU_RAM_STR+="  ${C_CYAN}Physical RAM (RSS)${C_OFF}     : ${B_WHITE}${rss_mb} MB${C_OFF} \n"
-    CPU_RAM_STR+="  ${C_CYAN}Virtual RAM (VSZ)${C_OFF}      : ${B_WHITE}${vsz_mb} MB${C_OFF} "
+    CPU_RAM_STR+="  ${C_CYAN}Physical RAM (RSS)${C_OFF}   : ${B_WHITE}${rss_mb} MB${C_OFF} (${rss_kb} KB)\n"
+    CPU_RAM_STR+="  ${C_CYAN}Virtual RAM (VSZ)${C_OFF}    : ${B_WHITE}${vsz_mb} MB${C_OFF} (${vsz_kb} KB)"
 }
 
 get_process_cpu_distribution_on_cores() {
@@ -259,6 +284,7 @@ get_process_cpu_distribution_on_cores() {
         return
     fi
 
+    # Ensure process_cpu_val_str is a dot-separated float, as ps output (with LC_NUMERIC=C) should provide this.
     if ! [[ "$process_cpu_val_str" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
         PER_CORE_CPU_STR="  ${C_YELLOW}Invalid process CPU usage value ('$process_cpu_val_str') for distribution.${C_OFF}"
         ERROR_NOTES+="* Invalid process CPU usage value for distribution: '$process_cpu_val_str'.\n"
@@ -272,7 +298,7 @@ get_process_cpu_distribution_on_cores() {
     fi
 
     local remaining_cpu_to_distribute
-    remaining_cpu_to_distribute=$(echo "$process_cpu_val_str" | bc -l)
+    remaining_cpu_to_distribute=$(LC_NUMERIC=C echo "$process_cpu_val_str" | bc -l)
 
     local COLS_TO_DISPLAY_PER_LINE=2 # Display 2 cores per line
 
@@ -280,22 +306,22 @@ get_process_cpu_distribution_on_cores() {
 
     for core_idx in $(seq 0 $((TOTAL_CPU_CORES - 1))); do
         local usage_for_this_core_float="0.0"
-        # Check if remaining_cpu_to_distribute > 0
-        if [ "$(echo "$remaining_cpu_to_distribute > 0" | bc -l)" -eq 1 ]; then
-            # Check if remaining_cpu_to_distribute > 100
-            if [ "$(echo "$remaining_cpu_to_distribute > 100" | bc -l)" -eq 1 ]; then
+        # Check if remaining_cpu_to_distribute > 0 using bc
+        if [ "$(LC_NUMERIC=C echo "$remaining_cpu_to_distribute > 0" | bc -l)" -eq 1 ]; then
+            # Check if remaining_cpu_to_distribute > 100 using bc
+            if [ "$(LC_NUMERIC=C echo "$remaining_cpu_to_distribute > 100" | bc -l)" -eq 1 ]; then
                 usage_for_this_core_float="100.0"
             else
                 usage_for_this_core_float="$remaining_cpu_to_distribute"
             fi
         fi
         
-        # Ensure usage_for_this_core_float is not negative
-        if [ "$(echo "$usage_for_this_core_float < 0" | bc -l)" -eq 1 ]; then
+        # Ensure usage_for_this_core_float is not negative using bc
+        if [ "$(LC_NUMERIC=C echo "$usage_for_this_core_float < 0" | bc -l)" -eq 1 ]; then
              usage_for_this_core_float="0.0"
         fi
 
-        remaining_cpu_to_distribute=$(echo "$remaining_cpu_to_distribute - $usage_for_this_core_float" | bc -l)
+        remaining_cpu_to_distribute=$(LC_NUMERIC=C echo "$remaining_cpu_to_distribute - $usage_for_this_core_float" | bc -l)
         
         local core_label_text
         printf -v core_label_text "Core %-2d" "$core_idx" # Left-align core number, reserve 2 spaces
@@ -416,8 +442,8 @@ get_interface_bandwidth_info() {
     local tx_speed_bps=$((tx_diff / interval_sec)) # Bytes per second
 
     # Convert to KB/s
-    local rx_speed_kbps=$(awk -v bytes="$rx_speed_bps" 'BEGIN {printf "%.2f", bytes / 1024}')
-    local tx_speed_kbps=$(awk -v bytes="$tx_speed_bps" 'BEGIN {printf "%.2f", bytes / 1024}')
+    local rx_speed_kbps=$(LC_NUMERIC=C awk -v bytes="$rx_speed_bps" 'BEGIN {printf "%.2f", bytes / 1024}')
+    local tx_speed_kbps=$(LC_NUMERIC=C awk -v bytes="$tx_speed_bps" 'BEGIN {printf "%.2f", bytes / 1024}')
 
     INTERFACE_BANDWIDTH_STR="  ${C_CYAN}Received (on ${iface})${C_OFF} : ${B_WHITE}${rx_speed_kbps} KB/s${C_OFF}\n"
     INTERFACE_BANDWIDTH_STR+="  ${C_CYAN}Sent (on ${iface})${C_OFF}     : ${B_WHITE}${tx_speed_kbps} KB/s${C_OFF}"
