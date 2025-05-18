@@ -74,17 +74,13 @@ print_header_section() {
     printf "\n${B_PURPLE}--- %-70s ---${C_OFF}\n" "$title"
 }
 
-# Function to create a simple percentage bar
-# Argument 1: percentage (0-100) - can be float string
-# Argument 2: bar length (number of characters)
+
 generate_bar() {
     local percentage_float_arg="$1" # Original argument
     local length=${2:-20} # Default length 20 if not provided
     local percentage_float_sanitized # Will hold sanitized float string
 
-    # Validate and sanitize percentage_float_arg:
-    # Ensure it's a dot-separated number or default to "0.0"
-    # This regex matches valid float/integer strings.
+
     if [[ "$percentage_float_arg" =~ ^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$ || "$percentage_float_arg" =~ ^[-+]?[0-9]+\.?$ ]]; then
         percentage_float_sanitized="$percentage_float_arg"
     else
@@ -92,11 +88,8 @@ generate_bar() {
     fi
 
     local percentage_int
-    # Use awk to round the sanitized float string to the nearest integer string.
-    # awk handles non-numeric input by treating it as 0, and LC_NUMERIC=C ensures dot decimal.
     percentage_int=$(LC_NUMERIC=C awk -v num="$percentage_float_sanitized" 'BEGIN { printf "%.0f", num }' 2>/dev/null)
 
-    # Fallback if awk somehow fails or returns non-integer (highly unlikely with "%.0f" but good for safety)
     if ! [[ "$percentage_int" =~ ^[-+]?[0-9]+$ ]]; then
         percentage_int=0
     fi
@@ -115,7 +108,6 @@ generate_bar() {
     for ((i=0; i<filled_length; i++)); do bar+="❚"; done # Character for filled part
     for ((i=0; i<empty_length; i++)); do bar+="-"; done # Character for empty part
     
-    # This printf should now be safe as $percentage_int is guaranteed to be an integer.
     printf "[%s] %3d%%" "$bar" "$percentage_int"
 }
 
@@ -164,7 +156,6 @@ get_os_java_versions() {
     if command -v lsb_release &> /dev/null; then
         os_desc=$(lsb_release -ds)
     elif [ -f /etc/os-release ]; then
-        # shellcheck source=/dev/null
         . /etc/os-release
         os_desc="${PRETTY_NAME:-$NAME}"
     elif [ -f /etc/issue ]; then
@@ -238,7 +229,6 @@ get_cpu_ram_info() {
     fi
 
     local ps_output
-    # Force C locale for ps to ensure dot as decimal separator for %cpu, %mem
     ps_output=$(LC_NUMERIC=C ps -p "$PID" -o %cpu,%mem,rss,vsz --no-headers)
 
     if [ -z "$ps_output" ]; then
