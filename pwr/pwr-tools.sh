@@ -109,7 +109,7 @@ install_pwr() {
     sudo apt update
     
     [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Menginstal OpenJDK 19..." || print_color $GREEN "Installing OpenJDK 19..."
-    sudo apt install -y openjdk-19-jre-headless
+    sudo apt install -y openjdk-21-jre-headless
     
     # Fetch the latest version from GitHub API
     [ "$LANG_CHOICE" = "id" ] && print_color $GREEN "Mengambil versi terbaru..." || print_color $GREEN "Fetching latest version..."
