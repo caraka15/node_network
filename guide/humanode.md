@@ -42,7 +42,7 @@ Ikuti langkah-langkah berikut untuk menerapkan snapshot ke node Humanode Anda:
 3. **Unduh dan ekstrak snapshot**
 
    ```bash
-   curl -L http://146.190.81.160:8089/humanode_snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C ~/.humanode/workspaces/default/substrate-data/chains/humanode_mainnet/db/
+   curl -L http://152.42.249.180:8089/humanode_snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C ~/.humanode/workspaces/default/substrate-data/chains/humanode_mainnet/db/
    ```
 
    Perintah ini:
