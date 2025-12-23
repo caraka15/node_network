@@ -12,8 +12,8 @@ instruksi untuk menggunakan snapshot agar dapat mempercepat sinkronisasi node Hu
 {
   "status": "available",
   "file": "humanode_snapshot_latest.tar.lz4",
-  "lastModified": "2025-06-26T18:35:19.162Z",
-  "size": "18759.36 MB"
+  "lastModified": "2025-12-19T12:40:25.625Z",
+  "size": "19908.53 MB"
 }
 ```
 
@@ -42,7 +42,7 @@ Ikuti langkah-langkah berikut untuk menerapkan snapshot ke node Humanode Anda:
 3. **Unduh dan ekstrak snapshot**
 
    ```bash
-   curl -L http://152.42.249.180:8089/humanode_snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C ~/.humanode/workspaces/default/substrate-data/chains/humanode_mainnet/db/
+   curl -L http://159.223.85.220:8089/humanode_snapshot_latest.tar.lz4 | lz4 -dc - | tar -xf - -C ~/.humanode/workspaces/default/substrate-data/chains/humanode_mainnet/db/
    ```
 
    Perintah ini:
